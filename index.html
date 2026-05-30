@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 
-<title>Yasir Saeed</title>
+<title>Yasir Saeed Biography</title>
 
 <style>
 body{
 font-family: Arial;
 margin:0;
 background:#f4f6f8;
+color:#000;
 }
 
 header{
 background:#1f3b4d;
 color:white;
-padding:20px;
 text-align:center;
+padding:20px;
+}
+
+.name{
+color:rgba(0,80,200,0.6);
+font-weight:bold;
 }
 
 .container{
@@ -27,39 +33,60 @@ margin:auto;
 padding:20px;
 }
 
-.card{
-background:white;
-padding:20px;
-margin-top:15px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
-
-button{
-padding:10px 15px;
-margin:10px;
-cursor:pointer;
+.lang-btn{
+margin:5px;
+padding:8px 12px;
 border:none;
-border-radius:5px;
+cursor:pointer;
 background:#1f3b4d;
 color:white;
+border-radius:5px;
 }
 
-.lang{
+.card{
+background:white;
+margin-top:12px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+overflow:hidden;
+}
+
+.card h3{
+margin:0;
+padding:15px;
+background:#e9eef5;
+cursor:pointer;
+}
+
+.content{
 display:none;
+padding:15px;
 }
 
-.lang.active{
-display:block;
+.contact{
+background:white;
+padding:15px;
+margin-top:20px;
+border-radius:10px;
 }
+
+.black{ color:#000; }
+
 </style>
 
 <script>
+function toggleCard(id){
+let el=document.getElementById(id);
+if(el.style.display==="block"){
+el.style.display="none";
+}else{
+el.style.display="block";
+}
+}
+
 function showLang(lang){
-document.querySelectorAll('.lang').forEach(el=>{
-el.classList.remove('active');
-});
-document.getElementById(lang).classList.add('active');
+document.querySelectorAll('.lang').forEach(e=>e.style.display="none");
+document.getElementById(lang).style.display="block";
 }
 </script>
 
@@ -68,57 +95,118 @@ document.getElementById(lang).classList.add('active');
 <body onload="showLang('ar')">
 
 <header>
-<h2>Yasir Saeed</h2>
+<h2 class="name">ياسر سعيد بن شكيل أحمد المباركفوري</h2>
+<p>Biography Website</p>
 
-<button onclick="showLang('ar')">العربية</button>
-<button onclick="showLang('en')">English</button>
+<button class="lang-btn" onclick="showLang('ar')">العربية</button>
+<button class="lang-btn" onclick="showLang('en')">English</button>
 </header>
 
 <div class="container">
 
 <!-- ARABIC -->
-<div id="ar" class="lang active">
+<div id="ar" class="lang">
 
 <div class="card">
-<h3>نبذة مختصرة</h3>
-<p>
+<h3 onclick="toggleCard('a1')">📌 نبذة مختصرة</h3>
+<div class="content" id="a1">
+<p class="black">
 أنا ياسر سعيد بن شكيل أحمد المباركفوري، أتممت حفظ القرآن الكريم ثم واصلت دراستي الشرعية حتى حصلت على شهادتي العالمية والفضيلة.
 </p>
 </div>
+</div>
 
 <div class="card">
-<h3>الجدول الزمني</h3>
-<ul>
-<li>2002 — الميلاد</li>
-<li>2015 — بداية حفظ القرآن</li>
-<li>2019 — إتمام الحفظ</li>
-<li>2025 — العالمية</li>
-<li>2026 — الفضيلة</li>
-</ul>
+<h3 onclick="toggleCard('a2')">📅 الميلاد</h3>
+<div class="content" id="a2">
+<p class="black">2002/01/06 (حسب الوثائق)</p>
+<p class="black">مكان الميلاد: مباركپور</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('a3')">📖 حفظ القرآن</h3>
+<div class="content" id="a3">
+<p class="black">
+بدأت الحفظ 2015<br>
+أكملت الحفظ 2019<br>
+ثم أكملت المراجعة والدور
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('a4')">🎓 التعليم</h3>
+<div class="content" id="a4">
+<p class="black">
+عالمية 2025 (المرتبة الأولى)<br>
+فضيلة 2026 (المرتبة الأولى)<br>
+دراسة في عدة معاهد ومدارس شرعية
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('a5')">🏠 النشأة والتنقل</h3>
+<div class="content" id="a5">
+<p class="black">
+نشأت في مباركپور، ثم انتقلت إلى أندرا براديش، ثم كارناتاكا، ثم عدة مدن بسبب الدراسة الشرعية.
+</p>
+</div>
 </div>
 
 </div>
 
-<!-- ENGLISH (hidden until click) -->
-<div id="en" class="lang">
+<!-- ENGLISH -->
+<div id="en" class="lang" style="display:none;">
 
 <div class="card">
-<h3>About</h3>
-<p>
+<h3 onclick="toggleCard('b1')">📌 About</h3>
+<div class="content" id="b1">
+<p class="black">
 I am Yasir Saeed bin Shakeel Ahmad Mubarakpuri. I completed Qur’an memorization and advanced Islamic studies.
 </p>
 </div>
+</div>
 
 <div class="card">
-<h3>Timeline</h3>
-<ul>
-<li>2002 — Birth</li>
-<li>2015 — Started Hifz</li>
-<li>2019 — Completed Hifz</li>
-<li>2025 — Alimiyyah</li>
-<li>2026 — Fazeelah</li>
-</ul>
+<h3 onclick="toggleCard('b2')">📅 Birth</h3>
+<div class="content" id="b2">
+<p class="black">2002/01/06 (official record)</p>
+<p class="black">Place: Mubarakpur</p>
 </div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('b3')">📖 Hifz Journey</h3>
+<div class="content" id="b3">
+<p class="black">
+Started: 2015<br>
+Completed: 2019<br>
+Continued revision and strengthening
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('b4')">🎓 Education</h3>
+<div class="content" id="b4">
+<p class="black">
+Alimiyyah: 2025 (First Position)<br>
+Fazeelah: 2026 (First Position)
+</p>
+</div>
+</div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+
+<h3>📞 Contact</h3>
+
+<p class="black">Phone: 12345678910</p>
+<p class="black">WhatsApp: Available</p>
 
 </div>
 
