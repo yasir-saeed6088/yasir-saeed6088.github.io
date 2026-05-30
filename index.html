@@ -15,6 +15,7 @@ background:#f4f6f8;
 color:#000;
 }
 
+/* HEADER */
 header{
 background:#1f3b4d;
 color:white;
@@ -22,29 +23,30 @@ text-align:center;
 padding:20px;
 }
 
-/* GOLD NAME */
 .name{
 color:gold;
 font-weight:bold;
-text-shadow:0 0 6px rgba(255,215,0,0.6);
 }
 
+/* BUTTONS */
+.lang-btn{
+margin:5px;
+padding:8px 12px;
+border:none;
+cursor:pointer;
+background:#2c4f66;
+color:white;
+border-radius:5px;
+}
+
+/* LAYOUT */
 .container{
 max-width:900px;
 margin:auto;
 padding:20px;
 }
 
-.lang-btn{
-margin:5px;
-padding:8px 12px;
-border:none;
-cursor:pointer;
-background:#1f3b4d;
-color:white;
-border-radius:5px;
-}
-
+/* CARD */
 .card{
 background:white;
 margin-top:12px;
@@ -60,11 +62,15 @@ background:#e9eef5;
 cursor:pointer;
 }
 
+/* CONTENT */
 .content{
 display:none;
 padding:15px;
 }
 
+.black{ color:#000; }
+
+/* CONTACT */
 .contact{
 background:white;
 padding:15px;
@@ -72,7 +78,10 @@ margin-top:20px;
 border-radius:10px;
 }
 
-.black{ color:#000; }
+/* LANG */
+.lang{ display:none; }
+
+.lang.active{ display:block; }
 
 </style>
 
@@ -83,8 +92,10 @@ el.style.display = (el.style.display==="block") ? "none" : "block";
 }
 
 function showLang(lang){
-document.querySelectorAll('.lang').forEach(e=>e.style.display="none");
-document.getElementById(lang).style.display="block";
+document.querySelectorAll('.lang').forEach(e=>{
+e.classList.remove('active');
+});
+document.getElementById(lang).classList.add('active');
 }
 </script>
 
@@ -93,8 +104,7 @@ document.getElementById(lang).style.display="block";
 <body onload="showLang('ar')">
 
 <header>
-<h2 class="name">ياسر سعيد بن شكيل أحمد المباركفوري</h2>
-<p>Biography Website</p>
+<h2 class="name">ياسر سعيد بن شکیل أحمد المباركفوري</h2>
 
 <button class="lang-btn" onclick="showLang('ar')">العربية</button>
 <button class="lang-btn" onclick="showLang('en')">English</button>
@@ -103,108 +113,125 @@ document.getElementById(lang).style.display="block";
 
 <div class="container">
 
-<!-- ARABIC -->
-<div id="ar" class="lang">
+<!-- ================= ARABIC ================= -->
+<div id="ar" class="lang active">
 
 <div class="card">
 <h3 onclick="toggleCard('a1')">📌 نبذة مختصرة</h3>
 <div class="content" id="a1">
 <p class="black">
-أنا ياسر سعيد بن شكيل أحمد المباركفوري، نشأت في بيئة علمية ودينية، وبدأت رحلتي مع طلب العلم منذ الصغر.
+أنا ياسر سعيد بن شکیل أحمد المباركفوري، نشأت في بيئة علمية ودينية، وبدأت رحلتي مع طلب العلم منذ الصغر.
 أتممت حفظ القرآن الكريم ثم واصلت دراستي الشرعية حتى حصلت على شهادة العالمية والفضيلة.
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('a2')">📖 الدراسة والشيوخ</h3>
+<h3 onclick="toggleCard('a2')">📅 الميلاد</h3>
 <div class="content" id="a2">
 <p class="black">
-بدأت حفظ القرآن الكريم عام 2015 في معهد شرعي.<br>
-أكملت الحفظ عام 2019 تحت إشراف:
-<br>• حافظ اصغر علي حفظہ اللہ  
-<br>• حافظ انفال مانی حفظہ اللہ  
-<br>• حافظ مکمل حسین حفظہ اللہ  
-<br><br>
-
-ثم درست العلوم الشرعية في:
-<br>• جامعہ دار السنہ شیرور  
-<br>• جامعہ محمدیہ منصورہ (بعض المراحل)  
-<br>• مدرسۃ دارالتعلیم مبارکپور  
+06/01/2002 (حسب السجلات الرسمية)<br>
+ومكان الميلاد: مباركپور، الهند
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('a3')">📅 التعليم</h3>
+<h3 onclick="toggleCard('a3')">📖 حفظ القرآن</h3>
 <div class="content" id="a3">
 <p class="black">
-العالمية: 2025 (المرتبة الأولى)<br>
-الفضيلة: 2026 (المرتبة الأولى)<br>
+بدأت 2015 في جامعہ دارالسنہ شیرور<br>
+أكملت 2019<br>
+ثم المراجعة والدورات المستمرة
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('a4')">🎓 التعليم</h3>
+<div class="content" id="a4">
+<p class="black">
+عالمية 2025 (المرتبة الأولى)<br>
+فضيلة 2026 (المرتبة الأولى)
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('a5')">🏠 التنقلات</h3>
+<div class="content" id="a5">
+<p class="black">
+مباركپور → آندھرا پردیش → بھٹکل → شیرور → بنگلور
 </p>
 </div>
 </div>
 
 </div>
 
-<!-- ENGLISH -->
-<div id="en" class="lang" style="display:none;">
+<!-- ================= ENGLISH ================= -->
+<div id="en" class="lang">
 
 <div class="card">
-<h3 onclick="toggleCard('b1')">📌 About</h3>
-<div class="content" id="b1">
+<h3 onclick="toggleCard('e1')">📌 About</h3>
+<div class="content" id="e1">
 <p class="black">
-I am Yasir Saeed bin Shakeel Ahmad Mubarakpuri. I completed Hifz and advanced Islamic studies.
+I am Yasir Saeed bin Shakeel Ahmad Mubarakpuri.
+I completed Hifz and advanced Islamic studies in different stages.
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('b2')">📖 Teachers & Institutions</h3>
-<div class="content" id="b2">
+<h3 onclick="toggleCard('e2')">📅 Birth</h3>
+<div class="content" id="e2">
 <p class="black">
-I studied under:
-<br>• Hafiz Asghar Ali  
-<br>• Hafiz Anfal Mani  
-<br>• Hafiz Mukammal Hussain  
-<br><br>
+06/01/2002<br>
+Mubarakpur, India
+</p>
+</div>
+</div>
 
-Institutions:
-<br>• Jami’a Dar-us-Sunnah Sheerur  
-<br>• Jami’a Muhammadiya Mansurah  
-<br>• Dar-ul-Taleem Mubarakpur  
+<div class="card">
+<h3 onclick="toggleCard('e3')">📖 Hifz Journey</h3>
+<div class="content" id="e3">
+<p class="black">
+Started: 2015<br>
+Completed: 2019
 </p>
 </div>
 </div>
 
 </div>
 
-<!-- URDU -->
-<div id="ur" class="lang" style="display:none; direction:rtl;">
+<!-- ================= URDU ================= -->
+<div id="ur" class="lang">
 
 <div class="card">
-<h3 onclick="toggleCard('c1')">📌 مختصر تعارف</h3>
-<div class="content" id="c1">
+<h3 onclick="toggleCard('u1')">📌 تعارف</h3>
+<div class="content" id="u1">
 <p class="black">
-میں یاسر سعید بن شکیل احمد مبارکپوری ہوں۔ میں نے حفظ قرآن مکمل کیا اور اس کے بعد دینی تعلیم حاصل کی۔
+میں یاسر سعید بن شکیل احمد مبارکپوری ہوں۔
+میں نے حفظ قرآن مکمل کیا اور دینی تعلیم حاصل کی۔
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('c2')">📖 اساتذہ اور ادارے</h3>
-<div class="content" id="c2">
+<h3 onclick="toggleCard('u2')">📅 پیدائش</h3>
+<div class="content" id="u2">
 <p class="black">
-اساتذہ:
-<br>حافظ اصغر علی حفظہ اللہ  
-<br>حافظ انفال مانی حفظہ اللہ  
-<br>حافظ مکمل حسین حفظہ اللہ  
-<br><br>
+06/01/2002<br>
+مبارکپور، بھارت
+</p>
+</div>
+</div>
 
-ادارے:
-<br>جامعہ دار السنہ شیرور  
-<br>جامعہ محمدیہ منصورہ  
-<br>مدرسہ دارالتعلیم مبارکپور  
+<div class="card">
+<h3 onclick="toggleCard('u3')">📖 حفظ</h3>
+<div class="content" id="u3">
+<p class="black">
+2015 میں آغاز کیا<br>
+2019 میں مکمل کیا
 </p>
 </div>
 </div>
@@ -213,11 +240,9 @@ Institutions:
 
 <!-- CONTACT -->
 <div class="contact">
-
 <h3>📞 Contact</h3>
-<p class="black">Phone: 12345678910</p>
+<p class="black">Phone: 7304915408</p>
 <p class="black">WhatsApp: Available</p>
-
 </div>
 
 </div>
