@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
@@ -22,9 +22,11 @@ text-align:center;
 padding:20px;
 }
 
+/* GOLD NAME */
 .name{
-color:#1e5eff;
+color:gold;
 font-weight:bold;
+text-shadow:0 0 6px rgba(255,215,0,0.6);
 }
 
 .container{
@@ -96,6 +98,7 @@ document.getElementById(lang).style.display="block";
 
 <button class="lang-btn" onclick="showLang('ar')">العربية</button>
 <button class="lang-btn" onclick="showLang('en')">English</button>
+<button class="lang-btn" onclick="showLang('ur')">اردو</button>
 </header>
 
 <div class="container">
@@ -108,54 +111,36 @@ document.getElementById(lang).style.display="block";
 <div class="content" id="a1">
 <p class="black">
 أنا ياسر سعيد بن شكيل أحمد المباركفوري، نشأت في بيئة علمية ودينية، وبدأت رحلتي مع طلب العلم منذ الصغر.
-أتممت حفظ القرآن الكريم كاملاً، ثم واصلت دراستي الشرعية في عدة مراحل علمية حتى حصلت على شهادة العالمية ثم الفضيلة.
-تميزت رحلتي بالانتقال بين عدة مدن ومؤسسات علمية طلباً للعلم الشرعي وتحسين المستوى التعليمي.
+أتممت حفظ القرآن الكريم ثم واصلت دراستي الشرعية حتى حصلت على شهادة العالمية والفضيلة.
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('a2')">📅 الميلاد والمكان</h3>
+<h3 onclick="toggleCard('a2')">📖 الدراسة والشيوخ</h3>
 <div class="content" id="a2">
 <p class="black">
-تاريخ الميلاد: 2002/01/06 (حسب الوثائق الرسمية)<br>
-مكان الميلاد: مباركفور، الهند<br><br>
-نشأت في بيئة عائلية محافظة، ثم تنقلت بين عدة مناطق داخل الهند بسبب الدراسة والعمل التعليمي لوالدي.
+بدأت حفظ القرآن الكريم عام 2015 في معهد شرعي.<br>
+أكملت الحفظ عام 2019 تحت إشراف:
+<br>• حافظ اصغر علي حفظہ اللہ  
+<br>• حافظ انفال مانی حفظہ اللہ  
+<br>• حافظ مکمل حسین حفظہ اللہ  
+<br><br>
+
+ثم درست العلوم الشرعية في:
+<br>• جامعہ دار السنہ شیرور  
+<br>• جامعہ محمدیہ منصورہ (بعض المراحل)  
+<br>• مدرسۃ دارالتعلیم مبارکپور  
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('a3')">📖 حفظ القرآن الكريم</h3>
+<h3 onclick="toggleCard('a3')">📅 التعليم</h3>
 <div class="content" id="a3">
 <p class="black">
-بدأت حفظ القرآن الكريم عام 2015 في مركز تعليمي شرعي.<br>
-واجهت عدة انتقالات بين المدارس والمعاهد، لكن استمررت في الحفظ بفضل الله.<br>
-أكملت حفظ القرآن الكريم سنة 2019، ثم واصلت المراجعة والدورات المتكررة حتى تثبيت الحفظ بشكل كامل.
-</p>
-</div>
-</div>
-
-<div class="card">
-<h3 onclick="toggleCard('a4')">🎓 التعليم الشرعي</h3>
-<div class="content" id="a4">
-<p class="black">
-بعد إتمام الحفظ التحقت بالدراسة الشرعية (العالمية)، وتدرجت في المراحل العلمية المختلفة.<br><br>
-
-حصلت على شهادة العالمية سنة 2025 مع المرتبة الأولى.<br>
-ثم التحقت بمرحلة الفضيلة وأكملتها سنة 2026 مع المرتبة الأولى.<br><br>
-
-خلال هذه الفترة درست مختلف العلوم الشرعية مثل: الفقه، الحديث، التفسير، والنحو.
-</p>
-</div>
-</div>
-
-<div class="card">
-<h3 onclick="toggleCard('a5')">🏠 التنقلات العلمية</h3>
-<div class="content" id="a5">
-<p class="black">
-تنقلت خلال رحلتي التعليمية بين عدة مدن ومعاهد داخل الهند مثل أندرا براديش، كارناتاكا، وبنغلور وغيرها.<br>
-كان الهدف من هذه التنقلات هو طلب العلم الشرعي والاستفادة من كبار العلماء والمدارس المختلفة.
+العالمية: 2025 (المرتبة الأولى)<br>
+الفضيلة: 2026 (المرتبة الأولى)<br>
 </p>
 </div>
 </div>
@@ -169,42 +154,57 @@ document.getElementById(lang).style.display="block";
 <h3 onclick="toggleCard('b1')">📌 About</h3>
 <div class="content" id="b1">
 <p class="black">
-I am Yasir Saeed bin Shakeel Ahmad Mubarakpuri. I grew up in a religious environment and began my journey of Islamic knowledge at an early age.
-I completed the memorization of the Holy Qur’an and continued advanced Islamic studies through different academic stages.
+I am Yasir Saeed bin Shakeel Ahmad Mubarakpuri. I completed Hifz and advanced Islamic studies.
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('b2')">📅 Birth & Background</h3>
+<h3 onclick="toggleCard('b2')">📖 Teachers & Institutions</h3>
 <div class="content" id="b2">
 <p class="black">
-Date of Birth: 2002/01/06 (official record)<br>
-Place of Birth: Mubarakpur, India<br><br>
-I grew up in a scholarly environment and moved across different regions in India due to my father’s educational career.
+I studied under:
+<br>• Hafiz Asghar Ali  
+<br>• Hafiz Anfal Mani  
+<br>• Hafiz Mukammal Hussain  
+<br><br>
+
+Institutions:
+<br>• Jami’a Dar-us-Sunnah Sheerur  
+<br>• Jami’a Muhammadiya Mansurah  
+<br>• Dar-ul-Taleem Mubarakpur  
+</p>
+</div>
+</div>
+
+</div>
+
+<!-- URDU -->
+<div id="ur" class="lang" style="display:none; direction:rtl;">
+
+<div class="card">
+<h3 onclick="toggleCard('c1')">📌 مختصر تعارف</h3>
+<div class="content" id="c1">
+<p class="black">
+میں یاسر سعید بن شکیل احمد مبارکپوری ہوں۔ میں نے حفظ قرآن مکمل کیا اور اس کے بعد دینی تعلیم حاصل کی۔
 </p>
 </div>
 </div>
 
 <div class="card">
-<h3 onclick="toggleCard('b3')">📖 Hifz Journey</h3>
-<div class="content" id="b3">
+<h3 onclick="toggleCard('c2')">📖 اساتذہ اور ادارے</h3>
+<div class="content" id="c2">
 <p class="black">
-Started memorization in 2015 in a formal Islamic institution.<br>
-Completed Hifz in 2019 after continuous effort and relocation between institutes.<br>
-After completion, I continued revision and strengthening of memorization.
-</p>
-</div>
-</div>
+اساتذہ:
+<br>حافظ اصغر علی حفظہ اللہ  
+<br>حافظ انفال مانی حفظہ اللہ  
+<br>حافظ مکمل حسین حفظہ اللہ  
+<br><br>
 
-<div class="card">
-<h3 onclick="toggleCard('b4')">🎓 Islamic Education</h3>
-<div class="content" id="b4">
-<p class="black">
-Completed Alimiyyah in 2025 with first position.<br>
-Completed Fazeelah in 2026 with first position.<br><br>
-
-Studied various Islamic sciences including Fiqh, Hadith, Tafseer, and Arabic grammar.
+ادارے:
+<br>جامعہ دار السنہ شیرور  
+<br>جامعہ محمدیہ منصورہ  
+<br>مدرسہ دارالتعلیم مبارکپور  
 </p>
 </div>
 </div>
@@ -215,7 +215,6 @@ Studied various Islamic sciences including Fiqh, Hadith, Tafseer, and Arabic gra
 <div class="contact">
 
 <h3>📞 Contact</h3>
-
 <p class="black">Phone: 12345678910</p>
 <p class="black">WhatsApp: Available</p>
 
