@@ -39,7 +39,7 @@ color:white;
 border-radius:5px;
 }
 
-/* LAYOUT */
+/* CONTAINER */
 .container{
 max-width:900px;
 margin:auto;
@@ -66,17 +66,10 @@ cursor:pointer;
 .content{
 display:none;
 padding:15px;
+line-height:1.8;
 }
 
 .black{ color:#000; }
-
-/* CONTACT */
-.contact{
-background:white;
-padding:15px;
-margin-top:20px;
-border-radius:10px;
-}
 
 /* LANG */
 .lang{ display:none; }
@@ -114,54 +107,105 @@ document.getElementById(lang).classList.add('active');
 <div class="container">
 
 <!-- ================= ARABIC ================= -->
+
 <div id="ar" class="lang active">
 
+<!-- 1 -->
 <div class="card">
 <h3 onclick="toggleCard('a1')">📌 نبذة مختصرة</h3>
 <div class="content" id="a1">
-<p class="black">
+<p>
 أنا ياسر سعيد بن شکیل أحمد المباركفوري، نشأت في بيئة علمية ودينية، وبدأت رحلتي مع طلب العلم منذ الصغر.
-أتممت حفظ القرآن الكريم ثم واصلت دراستي الشرعية حتى حصلت على شهادة العالمية والفضيلة.
+أتممت حفظ القرآن الكريم كاملاً، ثم واصلت دراستي الشرعية حتى حصلت على شهادة العالمية ثم الفضيلة.
 </p>
 </div>
 </div>
 
+<!-- 2 -->
 <div class="card">
 <h3 onclick="toggleCard('a2')">📅 الميلاد</h3>
 <div class="content" id="a2">
-<p class="black">
-06/01/2002 (حسب السجلات الرسمية)<br>
-ومكان الميلاد: مباركپور، الهند
+<p>
+تاريخ: 06/01/2002 (حسب السجلات الرسمية)<br>
+ورواية أخرى: موجود اختلاف تاریخ بھی ہے جو خاندانی روایت میں ذکر ہوتا ہے<br>
+مكان الميلاد: مباركپور، الهند
 </p>
 </div>
 </div>
 
+<!-- 3 -->
 <div class="card">
-<h3 onclick="toggleCard('a3')">📖 حفظ القرآن</h3>
+<h3 onclick="toggleCard('a3')">👨‍👩‍👦 خاندانی پس منظر</h3>
 <div class="content" id="a3">
-<p class="black">
-بدأت 2015 في جامعہ دارالسنہ شیرور<br>
-أكملت 2019<br>
-ثم المراجعة والدورات المستمرة
+<p>
+میرے والد صاحب نے جامعہ عربیہ دارالتعلیم مبارکپور میں تعلیم حاصل کی، پھر مدینہ یونیورسٹی میں کلیۃ الحدیث سے فراغت حاصل کی۔
+<br><br>
+میری والدہ ماجدہ نے جامعہ محمدیہ منصورہ (مالیگاؤں) سے فضیلت تک تعلیم حاصل کی۔
 </p>
 </div>
 </div>
 
+<!-- 4 -->
 <div class="card">
-<h3 onclick="toggleCard('a4')">🎓 التعليم</h3>
+<h3 onclick="toggleCard('a4')">🏠 ابتدائی زندگی</h3>
 <div class="content" id="a4">
-<p class="black">
-عالمية 2025 (المرتبة الأولى)<br>
-فضيلة 2026 (المرتبة الأولى)
+<p>
+پہلے دو سال مبارکپور میں گزرے، پھر آندھرا پردیش منتقل ہوئے۔
+یہی سے میری باقاعدہ تعلیمی زندگی شروع ہوئی۔
 </p>
 </div>
 </div>
 
+<!-- 5 -->
 <div class="card">
-<h3 onclick="toggleCard('a5')">🏠 التنقلات</h3>
+<h3 onclick="toggleCard('a5')">🏫 اسکولی تعلیم</h3>
 <div class="content" id="a5">
-<p class="black">
-مباركپور → آندھرا پردیش → بھٹکل → شیرور → بنگلور
+<p>
+آندھرا پردیش: راجیو گاندھی اردو میڈیم اسکول (جماعت 1-7)<br>
+بھٹکل: اسلامیہ اینگلو ہائی اسکول (جماعت 7 مکمل کرنے کے لیے)
+</p>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<h3 onclick="toggleCard('a6')">📖 حفظ القرآن</h3>
+<div class="content" id="a6">
+<p>
+2015 میں جامعہ دارالسنہ شیرور میں داخلہ لیا۔
+حافظ اصغر علی حفظہ اللہ کے پاس ابتدائی حفظ شروع کیا۔
+</p>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<h3 onclick="toggleCard('a7')">📍 حفظ کا سفر</h3>
+<div class="content" id="a7">
+<p>
+شیرور → بنگلور → منصورہ → دوبارہ شیرور<br>
+18/03/2018 کو حفظ مکمل کیا (حافظ مکمل حسین حفظہ اللہ)
+</p>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<h3 onclick="toggleCard('a8')">🎓 تعلیم</h3>
+<div class="content" id="a8">
+<p>
+عالمیت: 2025 (فرسٹ پوزیشن)<br>
+فضیلت: 2026 (فرسٹ پوزیشن)
+</p>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<h3 onclick="toggleCard('a9')">📍 موجودہ حالت</h3>
+<div class="content" id="a9">
+<p>
+میں اپنی دینی تعلیم مکمل کر چکا ہوں اور علمی خدمت کے اگلے مراحل کی تیاری کر رہا ہوں۔
 </p>
 </div>
 </div>
@@ -169,34 +213,15 @@ document.getElementById(lang).classList.add('active');
 </div>
 
 <!-- ================= ENGLISH ================= -->
+
 <div id="en" class="lang">
 
 <div class="card">
 <h3 onclick="toggleCard('e1')">📌 About</h3>
 <div class="content" id="e1">
-<p class="black">
+<p>
 I am Yasir Saeed bin Shakeel Ahmad Mubarakpuri.
-I completed Hifz and advanced Islamic studies in different stages.
-</p>
-</div>
-</div>
-
-<div class="card">
-<h3 onclick="toggleCard('e2')">📅 Birth</h3>
-<div class="content" id="e2">
-<p class="black">
-06/01/2002<br>
-Mubarakpur, India
-</p>
-</div>
-</div>
-
-<div class="card">
-<h3 onclick="toggleCard('e3')">📖 Hifz Journey</h3>
-<div class="content" id="e3">
-<p class="black">
-Started: 2015<br>
-Completed: 2019
+I completed Hifz and advanced Islamic studies.
 </p>
 </div>
 </div>
@@ -204,34 +229,15 @@ Completed: 2019
 </div>
 
 <!-- ================= URDU ================= -->
+
 <div id="ur" class="lang">
 
 <div class="card">
 <h3 onclick="toggleCard('u1')">📌 تعارف</h3>
 <div class="content" id="u1">
-<p class="black">
+<p>
 میں یاسر سعید بن شکیل احمد مبارکپوری ہوں۔
-میں نے حفظ قرآن مکمل کیا اور دینی تعلیم حاصل کی۔
-</p>
-</div>
-</div>
-
-<div class="card">
-<h3 onclick="toggleCard('u2')">📅 پیدائش</h3>
-<div class="content" id="u2">
-<p class="black">
-06/01/2002<br>
-مبارکپور، بھارت
-</p>
-</div>
-</div>
-
-<div class="card">
-<h3 onclick="toggleCard('u3')">📖 حفظ</h3>
-<div class="content" id="u3">
-<p class="black">
-2015 میں آغاز کیا<br>
-2019 میں مکمل کیا
+میری تعلیم اور دینی سفر مختلف مدارس اور شہروں میں گزرا۔
 </p>
 </div>
 </div>
@@ -239,10 +245,12 @@ Completed: 2019
 </div>
 
 <!-- CONTACT -->
-<div class="contact">
+<div class="card">
 <h3>📞 Contact</h3>
-<p class="black">Phone: 7304915408</p>
-<p class="black">WhatsApp: Available</p>
+<div class="content" style="display:block;">
+<p>Phone: 7304915408</p>
+<p>WhatsApp: Available</p>
+</div>
 </div>
 
 </div>
