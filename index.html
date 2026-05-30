@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
@@ -15,7 +15,6 @@ background:#f4f6f8;
 color:#000;
 }
 
-/* HEADER */
 header{
 background:#1f3b4d;
 color:white;
@@ -28,7 +27,6 @@ color:gold;
 font-weight:bold;
 }
 
-/* BUTTONS */
 .lang-btn{
 margin:5px;
 padding:8px 12px;
@@ -39,14 +37,12 @@ color:white;
 border-radius:5px;
 }
 
-/* CONTAINER */
 .container{
 max-width:900px;
 margin:auto;
 padding:20px;
 }
 
-/* CARD */
 .card{
 background:white;
 margin-top:12px;
@@ -62,26 +58,21 @@ background:#e9eef5;
 cursor:pointer;
 }
 
-/* CONTENT */
 .content{
 display:none;
 padding:15px;
 line-height:1.8;
 }
 
-.black{ color:#000; }
-
-/* LANG */
-.lang{ display:none; }
-
-.lang.active{ display:block; }
+.lang{display:none;}
+.lang.active{display:block;}
 
 </style>
 
 <script>
 function toggleCard(id){
 let el=document.getElementById(id);
-el.style.display = (el.style.display==="block") ? "none" : "block";
+el.style.display=(el.style.display==="block")?"none":"block";
 }
 
 function showLang(lang){
@@ -107,105 +98,74 @@ document.getElementById(lang).classList.add('active');
 <div class="container">
 
 <!-- ================= ARABIC ================= -->
-
 <div id="ar" class="lang active">
 
-<!-- 1 -->
 <div class="card">
-<h3 onclick="toggleCard('a1')">📌 نبذة مختصرة</h3>
+<h3 onclick="toggleCard('a1')">📌 نبذة كاملة</h3>
 <div class="content" id="a1">
 <p>
-أنا ياسر سعيد بن شکیل أحمد المباركفوري، نشأت في بيئة علمية ودينية، وبدأت رحلتي مع طلب العلم منذ الصغر.
+أنا ياسر سعيد بن شکیل أحمد المباركفوري. وُلدت في بيئة علمية ودينية، ونشأت منذ طفولتي في جوٍّ يقدّر العلم والدين.
 أتممت حفظ القرآن الكريم كاملاً، ثم واصلت دراستي الشرعية حتى حصلت على شهادة العالمية ثم الفضيلة.
+تنقلت خلال حياتي بين عدة مدن ومعاهد علمية في سبيل طلب العلم.
 </p>
 </div>
 </div>
 
-<!-- 2 -->
 <div class="card">
 <h3 onclick="toggleCard('a2')">📅 الميلاد</h3>
 <div class="content" id="a2">
 <p>
-تاريخ: 06/01/2002 (حسب السجلات الرسمية)<br>
-ورواية أخرى: موجود اختلاف تاریخ بھی ہے جو خاندانی روایت میں ذکر ہوتا ہے<br>
-مكان الميلاد: مباركپور، الهند
+تاريخ الميلاد: 06/01/2002 (حسب السجلات الرسمية)<br>
+مكان الميلاد: مباركپور، الهند<br>
+وتوجد رواية عائلية أخرى مختلفة في التاريخ لكن المعتمد هو السجل الرسمي.
 </p>
 </div>
 </div>
 
-<!-- 3 -->
 <div class="card">
-<h3 onclick="toggleCard('a3')">👨‍👩‍👦 خاندانی پس منظر</h3>
+<h3 onclick="toggleCard('a3')">👨‍👩‍👦 العائلة</h3>
 <div class="content" id="a3">
 <p>
-میرے والد صاحب نے جامعہ عربیہ دارالتعلیم مبارکپور میں تعلیم حاصل کی، پھر مدینہ یونیورسٹی میں کلیۃ الحدیث سے فراغت حاصل کی۔
-<br><br>
-میری والدہ ماجدہ نے جامعہ محمدیہ منصورہ (مالیگاؤں) سے فضیلت تک تعلیم حاصل کی۔
+والدي درس في جامعہ عربیہ دارالتعلیم بمباركپور ثم التحق بجامعة المدينة المنورة وتخرج من كلية الحديث.
+والدتي حصلت على الفضيلة من جامعہ محمدیہ منصورہ (مالیگاؤں).
 </p>
 </div>
 </div>
 
-<!-- 4 -->
 <div class="card">
-<h3 onclick="toggleCard('a4')">🏠 ابتدائی زندگی</h3>
+<h3 onclick="toggleCard('a4')">🏫 التعليم</h3>
 <div class="content" id="a4">
 <p>
-پہلے دو سال مبارکپور میں گزرے، پھر آندھرا پردیش منتقل ہوئے۔
-یہی سے میری باقاعدہ تعلیمی زندگی شروع ہوئی۔
+بدأت الدراسة في أندرا براديش بمدرسة راجيف غاندي من الصف الأول إلى السابع.
+ثم انتقلت إلى كارناتاكا (بهتكل) وأكملت دراستي في مدرسة إسلامية إنجليزية ثانوية.
 </p>
 </div>
 </div>
 
-<!-- 5 -->
 <div class="card">
-<h3 onclick="toggleCard('a5')">🏫 اسکولی تعلیم</h3>
+<h3 onclick="toggleCard('a5')">📖 حفظ القرآن</h3>
 <div class="content" id="a5">
 <p>
-آندھرا پردیش: راجیو گاندھی اردو میڈیم اسکول (جماعت 1-7)<br>
-بھٹکل: اسلامیہ اینگلو ہائی اسکول (جماعت 7 مکمل کرنے کے لیے)
+بدأت الحفظ عام 2015 في جامعہ دارالسنہ بشيرور على يد حافظ أصغر علي حفظه الله.
 </p>
 </div>
 </div>
 
-<!-- 6 -->
 <div class="card">
-<h3 onclick="toggleCard('a6')">📖 حفظ القرآن</h3>
+<h3 onclick="toggleCard('a6')">📍 مراحل الحفظ</h3>
 <div class="content" id="a6">
 <p>
-2015 میں جامعہ دارالسنہ شیرور میں داخلہ لیا۔
-حافظ اصغر علی حفظہ اللہ کے پاس ابتدائی حفظ شروع کیا۔
+شيرور → بنغالور → منصورة → شيرور مرة أخرى<br>
+أكملت الحفظ بتاريخ 18/03/2018 على يد حافظ كامل حسين حفظه الله، وأتممت 12 دورة مراجعة.
 </p>
 </div>
 </div>
 
-<!-- 7 -->
 <div class="card">
-<h3 onclick="toggleCard('a7')">📍 حفظ کا سفر</h3>
+<h3 onclick="toggleCard('a7')">🎓 الدراسات الشرعية</h3>
 <div class="content" id="a7">
 <p>
-شیرور → بنگلور → منصورہ → دوبارہ شیرور<br>
-18/03/2018 کو حفظ مکمل کیا (حافظ مکمل حسین حفظہ اللہ)
-</p>
-</div>
-</div>
-
-<!-- 8 -->
-<div class="card">
-<h3 onclick="toggleCard('a8')">🎓 تعلیم</h3>
-<div class="content" id="a8">
-<p>
-عالمیت: 2025 (فرسٹ پوزیشن)<br>
-فضیلت: 2026 (فرسٹ پوزیشن)
-</p>
-</div>
-</div>
-
-<!-- 9 -->
-<div class="card">
-<h3 onclick="toggleCard('a9')">📍 موجودہ حالت</h3>
-<div class="content" id="a9">
-<p>
-میں اپنی دینی تعلیم مکمل کر چکا ہوں اور علمی خدمت کے اگلے مراحل کی تیاری کر رہا ہوں۔
+أكملت العالمية عام 2025 بمرتبة أولى، ثم الفضيلة عام 2026 بمرتبة أولى.
 </p>
 </div>
 </div>
@@ -213,15 +173,64 @@ document.getElementById(lang).classList.add('active');
 </div>
 
 <!-- ================= ENGLISH ================= -->
-
 <div id="en" class="lang">
 
 <div class="card">
-<h3 onclick="toggleCard('e1')">📌 About</h3>
+<h3 onclick="toggleCard('e1')">📌 Full Biography</h3>
 <div class="content" id="e1">
 <p>
 I am Yasir Saeed bin Shakeel Ahmad Mubarakpuri.
-I completed Hifz and advanced Islamic studies.
+I was born in a scholarly and religious environment and raised with strong Islamic values.
+I completed memorization of the Holy Qur’an and later pursued advanced Islamic studies.
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('e2')">📅 Birth</h3>
+<div class="content" id="e2">
+<p>
+Date of Birth: 06/01/2002 (official record)<br>
+Place: Mubarakpur, India<br>
+There is also a family-reported variation, but official record is primary.
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('e3')">👨‍👩‍👦 Family Background</h3>
+<div class="content" id="e3">
+<p>
+My father studied at Jamia Arabia Darutaleem Mubarakpur and later graduated from Madinah University (Faculty of Hadith).
+My mother completed her Fazilat from Jamia Muhammadiyah Mansoorah (Malegaon).
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('e4')">📖 Hifz Journey</h3>
+<div class="content" id="e4">
+<p>
+Started memorization in 2015 at Jamia Darus Sunnah, Shirur under Hafiz Asghar Ali (Hafizahullah).
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('e5')">📍 Hifz Stages</h3>
+<div class="content" id="e5">
+<p>
+Shirur → Bangalore → Mansoorah → Shirur<br>
+Completed Hifz on 18/03/2018 under Hafiz Kamil Hussain and completed 12 revision cycles.
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('e6')">🎓 Islamic Studies</h3>
+<div class="content" id="e6">
+<p>
+Completed Alimiyyah in 2025 with first position and Fazilat in 2026 with first position.
 </p>
 </div>
 </div>
@@ -229,15 +238,64 @@ I completed Hifz and advanced Islamic studies.
 </div>
 
 <!-- ================= URDU ================= -->
-
 <div id="ur" class="lang">
 
 <div class="card">
-<h3 onclick="toggleCard('u1')">📌 تعارف</h3>
+<h3 onclick="toggleCard('u1')">📌 مکمل تعارف</h3>
 <div class="content" id="u1">
 <p>
 میں یاسر سعید بن شکیل احمد مبارکپوری ہوں۔
-میری تعلیم اور دینی سفر مختلف مدارس اور شہروں میں گزرا۔
+میں ایک دینی اور علمی ماحول میں پیدا ہوا اور پرورش پائی۔
+میں نے حفظ قرآن مکمل کیا اور پھر دینی تعلیم حاصل کی۔
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('u2')">📅 پیدائش</h3>
+<div class="content" id="u2">
+<p>
+پیدائش: 06/01/2002 (سرکاری ریکارڈ)<br>
+مقام: مبارکپور، بھارت<br>
+خاندانی روایت میں ایک اور تاریخ بھی بیان کی جاتی ہے۔
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('u3')">👨‍👩‍👦 خاندانی پس منظر</h3>
+<div class="content" id="u3">
+<p>
+میرے والد جامعہ عربیہ دارالتعلیم مبارکپور اور پھر مدینہ یونیورسٹی سے فارغ التحصیل ہیں۔
+میری والدہ جامعہ محمدیہ منصورہ (مالیگاؤں) سے فضیلت یافتہ ہیں۔
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('u4')">📖 حفظ قرآن</h3>
+<div class="content" id="u4">
+<p>
+2015 میں جامعہ دارالسنہ شیرور میں حفظ شروع کیا۔
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('u5')">📍 حفظ کا سفر</h3>
+<div class="content" id="u5">
+<p>
+شیرور → بنگلور → منصورہ → شیرور<br>
+18/03/2018 کو مکمل حفظ کیا اور 12 دور مکمل کیے۔
+</p>
+</div>
+</div>
+
+<div class="card">
+<h3 onclick="toggleCard('u6')">🎓 تعلیم</h3>
+<div class="content" id="u6">
+<p>
+2025 میں عالمیت اور 2026 میں فضیلت فرسٹ پوزیشن کے ساتھ مکمل کی۔
 </p>
 </div>
 </div>
