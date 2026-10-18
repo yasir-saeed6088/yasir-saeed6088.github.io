@@ -1,322 +1,45 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ماہانہ تعلیمی پیش رفت رپورٹ — مدرسہ دار القرآن والسنہ بیجاپور</title>
-
-<!-- ==================== CSS: 1. بنیادی رنگ اور عمومی ڈیزائن ==================== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدرسہ دار القرآن والسنہ بیجاپور</title>
 <style>
-:root{--green:#075b3c;--green2:#0b7650;--mint:#e9f5ee;--teal:#087f8c;--ink:#16352a;--line:#b7cfc2;--gold:#d9b65b}
+/* ===== فونٹس ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Amiri:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+
+/* ===== بنیادی سیٹنگ ===== */
 *{box-sizing:border-box}
-body{margin:0;background:#edf2ee;color:#1d2c25;font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic","Jameel Noori Nastaleeq",Tahoma,Arial,sans-serif}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer;border:0;border-radius:8px;padding:10px 14px;background:var(--green);color:white;font-weight:bold}
-button.secondary{background:#e7efea;color:var(--green);border:1px solid #b6cfc1}
-button.danger{background:#a62c2c}
-button.small{padding:5px 9px;font-size:12px}
+body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 
-/* ==================== CSS: 2. اوپر کے کنٹرولز اور صفحے کی ترتیب ==================== */
-.app{max-width:1500px;margin:auto;padding:18px}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
-.toolbar label{font-size:14px;font-weight:bold}
-.toolbar input,.toolbar select{padding:9px;border:1px solid #b9c9bf;border-radius:8px;background:white}
-.sheet{background:white;border:1px solid #d5e1d9;box-shadow:0 4px 18px #1232;border-radius:12px;overflow:hidden}
+/* ===== ہیڈر باکس ===== */
+.madrasa-header{width:100%;margin:0 auto;background:linear-gradient(135deg,#e8f5ee,#fffdf5);text-align:center;padding:22px 12px 18px;border-bottom:4px solid #23734d;border-radius:0 0 18px 18px;box-shadow:0 4px 10px #173f2b20;color:#174c36}
 
-/* ==================== CSS: 3. مدرسے کا ہیڈر اور رپورٹ کا عنوان ==================== */
-.masthead{background:linear-gradient(110deg,#06472f,#0b7650);color:white;padding:18px 22px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;border-bottom:5px solid var(--gold)}
-.brand{font-family:Arial,Tahoma,sans-serif;font-size:22px;font-weight:800;direction:rtl}
-.brandUr{font-size:24px;font-weight:bold;margin-top:4px}
-.sub{font-family:Arial,sans-serif;font-size:12px;letter-spacing:.3px;margin-top:5px}
-.seal{border:2px solid #d8c27b;border-radius:50%;width:70px;height:70px;display:grid;place-items:center;font-size:34px;background:#ffffff15}
-.reportTitle{text-align:center;padding:14px 12px;background:#f3f8f4;border-bottom:1px solid var(--line)}
-.reportTitle h1{font-size:23px;color:var(--green);margin:0 0 5px}
-.reportTitle p{margin:0;color:#456455;font-size:13px}
+/* ===== مدرسے کا نام ===== */
+.madrasa-name{margin:0 0 5px;font-family:'Noto Nastaliq Urdu','Amiri',serif;font-size:clamp(23px,5vw,38px);font-weight:700;line-height:1.9}
 
-/* ==================== CSS: 4. خلاصہ اور طلبہ کے سیکشن ==================== */
-.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px 16px}
-.summary div{border:1px solid var(--line);background:#f8fbf8;border-radius:8px;padding:9px 12px;min-height:58px}
-.summary strong{display:block;color:var(--green);font-size:12px;margin-bottom:3px}
-.summary span{font-weight:bold}
-.section{margin:8px 14px 15px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.sectionHead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;color:white;background:var(--green);font-size:17px;font-weight:bold}
-.section.nazira .sectionHead{background:#087784}
-.section.qaida .sectionHead{background:#536d35}
-.sectionHead small{font-size:11px;font-weight:normal;opacity:.9}
-.sectionTools{display:flex;gap:6px;flex-wrap:wrap}
+/* ===== رپورٹ کا عنوان ===== */
+.report-title{margin:0 0 8px;font-family:'Noto Nastaliq Urdu','Amiri',serif;font-size:clamp(15px,3vw,23px);font-weight:700;color:#9a6b16;line-height:1.9}
 
-/* ==================== CSS: 5. طلبہ کی جدول اور فیصد ==================== */
-.tableWrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:1000px;font-size:12px}
-th{background:#e2f0e7;color:#124d35;font-weight:bold}
-th,td{border:1px solid #b7cfc2;padding:6px 5px;text-align:center;vertical-align:middle}
-tbody tr:nth-child(even){background:#f7faf8}
-td.name{text-align:right;min-width:150px;font-weight:bold}
-td input{width:100%;min-width:58px;border:1px solid #cfdbd3;border-radius:5px;padding:5px 4px;text-align:center;background:white}
-td input.nameInput{text-align:right;min-width:135px}
-td input.wide{min-width:110px}
-td .pct{font-weight:bold;color:#075b3c;white-space:nowrap}
-.bar{height:12px;border-radius:20px;background:#e1e9e3;overflow:hidden;min-width:58px}
-.bar span{display:block;height:100%;background:#168450;border-radius:20px}
-.rowActions{white-space:nowrap}
+/* ===== انگریزی تفصیلات ===== */
+.madrasa-details{margin:3px 0;font-family:'Roboto',Arial,sans-serif;font-size:clamp(10px,2vw,13px);font-weight:500;line-height:1.7;direction:ltr;color:#43564b}
 
-/* ==================== CSS: 6. دستخط، نوٹ اور فوٹر ==================== */
-.footer{background:#075b3c;color:white;text-align:center;padding:9px;font-size:11px}
-.signatures{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:15px 22px}
-.sig{border:1px solid var(--line);border-radius:8px;padding:12px;min-height:70px}
-.sig strong{color:var(--green)}
-.sigLine{margin-top:24px;border-bottom:1px solid #6c7c72}
-.note{padding:0 20px 12px;font-size:11px;color:#50695c}
-
-/* ==================== CSS: 7. موبائل اسکرین کے لیے ڈیزائن ==================== */
-@media(max-width:700px){
-.app{padding:7px}
-.masthead{grid-template-columns:1fr;padding:12px}
-.seal{display:none}
-.brand{font-size:18px}
-.brandUr{font-size:20px}
-.summary{grid-template-columns:1fr}
-.section{margin:8px}
-.sectionHead{align-items:flex-start;flex-direction:column}
-.reportTitle h1{font-size:19px}
-}
-
-/* ==================== CSS: 8. A4 پرنٹ اور PDF کا ڈیزائن ==================== */
-@page{size:A4 portrait;margin:7mm}
+/* ===== پرنٹ سیٹنگ ===== */
 @media print{
-body{background:white;font-size:10px}
-.app{max-width:none;padding:0}
-.toolbar,.noPrint,.rowActions,.sectionTools{display:none!important}
-.sheet{box-shadow:none;border:0;border-radius:0}
-.masthead{padding:13px 16px;print-color-adjust:exact;-webkit-print-color-adjust:exact;min-height:100px}
-.brand{font-size:21px}
-.brandUr{font-size:22px}
-.sub{font-size:10px}
-.seal{width:62px;height:62px;font-size:30px}
-.reportTitle{padding:10px}
-.reportTitle h1{font-size:21px}
-.reportTitle p{font-size:11px}
-.summary{padding:9px;gap:8px}
-.summary div{padding:8px;min-height:52px}
-.summary strong{font-size:11px}
-.summary span{font-size:11px}
-.section{margin:7px 0 10px;break-inside:avoid}
-.sectionHead{padding:8px 10px;font-size:15px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
-table{font-size:9px;min-width:0;table-layout:fixed;width:100%}
-th,td{padding:5px 2px;overflow-wrap:anywhere;line-height:1.5}
-th{font-size:9px}
-td input{border:0;padding:0;background:transparent;font-size:9px;min-width:0;width:100%}
-td input.nameInput{min-width:0}
-.bar{height:9px;min-width:20px}
-.signatures{padding:10px 12px}
-.sig{min-height:55px;padding:8px}
-.sigLine{margin-top:18px}
-.footer{padding:7px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
-.note{padding:0 12px 8px;font-size:9px}
+@page{size:A4 portrait;margin:10mm}
+body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.madrasa-header{box-shadow:0 4px 10px #173f2b20;border-radius:0 0 18px 18px}
 }
 </style>
 </head>
 <body>
-<div class="app">
-
-<!-- ==================== HTML: 1. کنٹرول پینل اور تمام بٹن ==================== -->
-<div class="toolbar noPrint">
-<label>مہینہ <select id="month"></select></label>
-<label>سال <input id="year" type="number" min="2000" max="2100" value="2026" style="width:90px"></label>
-<label>استاد کا نام <input id="teacher" placeholder="استاد کا نام درج کریں" value=""></label>
-<button onclick="saveData()">ڈیٹا محفوظ کریں</button>
-<button class="secondary" onclick="openFullReport()">تمام طلبہ کی فہرست / رپورٹ کھولیں</button>
-<button class="secondary" onclick="window.print()">PDF / پرنٹ بنائیں</button>
-<button class="secondary" onclick="exportData()">بیک اَپ ڈاؤن لوڈ</button>
-<button class="secondary" onclick="document.getElementById('importFile').click()">بیک اَپ بحال کریں</button>
-<input id="importFile" type="file" accept="application/json" hidden onchange="importData(event)">
-<button class="danger" onclick="clearAll()">تمام ریکارڈ حذف کریں</button>
-<span id="saveStatus" aria-live="polite"></span>
-</div>
-
-<!-- ==================== HTML: 2. مدرسے کا ہیڈر ==================== -->
-<div class="sheet">
-<header class="masthead">
-<div>
-<div class="brand">مدرسہ دار القرآن والسنہ بیجاپور</div>
-<div class="brandUr">ماہانہ تعلیمی پیش رفت رپورٹ</div>
-<div class="sub">SALAFIA ASSOCIATION · Kannat Masjid Complex, Near Badi Kaman, J.M. Road, BIJAPUR</div>
-<div class="sub">ESTD: 1990 | Regd. No. 82/94-95</div>
-</div>
-<div class="seal" aria-hidden="true">۞</div>
+<!-- ===== ہیڈر ===== -->
+<header class="madrasa-header">
+<h1 class="madrasa-name">مدرسہ دار القرآن والسنہ بیجاپور</h1>
+<h2 class="report-title">ماہانہ تعلیمی پیش رفت رپورٹ</h2>
+<p class="madrasa-details">SALAFIA ASSOCIATION · Kannat Masjid Complex, Near Badi Kaman, J.M. Road, BIJAPUR</p>
+<p class="madrasa-details">ESTD: 1990 | Regd. No. 82/94-95</p>
 </header>
-
-<!-- ==================== HTML: 3. رپورٹ کا عنوان اور خلاصہ ==================== -->
-<div class="reportTitle">
-<h1 id="reportMonth">ماہِ اکتوبر 2026 کی ماہانہ رپورٹ</h1>
-<p>تمام طلبہ کی تعلیمی کارکردگی اور حاضری کا ریکارڈ</p>
-</div>
-<div class="summary">
-<div><strong>استاد کا نام</strong><span id="teacherSummary">درج نہیں</span></div>
-<div><strong>رپورٹ کی مدت</strong><span id="period">01 اکتوبر 2026 — 31 اکتوبر 2026</span></div>
-<div><strong>کل طلبہ</strong><span id="totalStudents">0 طلبہ</span></div>
-</div>
-
-<!-- ==================== HTML: 4. حفظِ قرآن سیکشن ==================== -->
-<section class="section hifz" id="sec-hifz">
-<div class="sectionHead">
-<span>۱۔ حفظِ قرآن — طلبہ کی ماہانہ پیش رفت</span>
-<div class="sectionTools noPrint"><button class="small" onclick="addStudent('hifz')">＋ طالب علم شامل کریں</button></div>
-</div>
-<div class="tableWrap">
-<table>
-<thead><tr>
-<th>شمارہ نمبر</th><th>نامِ طالب علم</th><th>سبق کا مقررہ ہدف</th><th>سبق کی تکمیل</th><th>سبق کی تکمیل ٪</th><th>آموختہ کا مقررہ ہدف</th><th>آموختہ کی تکمیل</th><th>آموختہ کی تکمیل ٪</th><th>کل تعلیمی ایام</th><th>ایامِ حاضری</th><th>شرحِ حاضری ٪</th><th>مجموعی تعلیمی کارکردگی ٪</th><th class="noPrint">عمل</th>
-</tr></thead>
-<tbody id="body-hifz"></tbody>
-</table>
-</div>
-</section>
-
-<!-- ==================== HTML: 5. ناظرہ قرآن سیکشن ==================== -->
-<section class="section nazira" id="sec-nazira">
-<div class="sectionHead">
-<span>۲۔ ناظرہ قرآن — طلبہ کی ماہانہ پیش رفت</span>
-<div class="sectionTools noPrint"><button class="small" onclick="addStudent('nazira')">＋ طالب علم شامل کریں</button></div>
-</div>
-<div class="tableWrap">
-<table>
-<thead><tr>
-<th>شمارہ نمبر</th><th>نامِ طالب علم</th><th>سبق کا مقررہ ہدف</th><th>سبق کی تکمیل</th><th>سبق کی تکمیل ٪</th><th>آموختہ کا مقررہ ہدف</th><th>آموختہ کی تکمیل</th><th>آموختہ کی تکمیل ٪</th><th>کل تعلیمی ایام</th><th>ایامِ حاضری</th><th>شرحِ حاضری ٪</th><th>مجموعی تعلیمی کارکردگی ٪</th><th class="noPrint">عمل</th>
-</tr></thead>
-<tbody id="body-nazira"></tbody>
-</table>
-</div>
-</section>
-
-<!-- ==================== HTML: 6. نورانی قاعدہ سیکشن ==================== -->
-<section class="section qaida" id="sec-qaida">
-<div class="sectionHead">
-<span>۳۔ نورانی قاعدہ — طلبہ کی ماہانہ پیش رفت</span>
-<div class="sectionTools noPrint"><button class="small" onclick="addStudent('qaida')">＋ طالب علم شامل کریں</button></div>
-</div>
-<div class="tableWrap">
-<table>
-<thead><tr>
-<th>شمارہ نمبر</th><th>نامِ طالب علم</th><th>سبق کا مقررہ ہدف</th><th>سبق کی تکمیل</th><th>سبق کی تکمیل ٪</th><th>کل تعلیمی ایام</th><th>ایامِ حاضری</th><th>شرحِ حاضری ٪</th><th>مجموعی تعلیمی کارکردگی ٪</th><th class="noPrint">عمل</th>
-</tr></thead>
-<tbody id="body-qaida"></tbody>
-</table>
-</div>
-</section>
-
-<!-- ==================== HTML: 7. دستخط، نوٹ اور فوٹر ==================== -->
-<div class="signatures">
-<div class="sig"><strong>دستخط استاد</strong><div class="sigLine"></div></div>
-<div class="sig"><strong>دستخط پرنسپل</strong><div class="sigLine"></div></div>
-</div>
-<div class="note">نوٹ: سبق اور آموختہ کی تکمیل کا فیصد ہدف کے مطابق خودکار شمار ہوتا ہے۔ مجموعی تعلیمی کارکردگی سبق اور آموختہ کے فیصد کی اوسط ہے؛ نورانی قاعدہ میں مجموعی کارکردگی سبق کی تکمیل کے فیصد کے برابر ہے۔ حاضری الگ دکھائی جاتی ہے اور مجموعی تعلیمی کارکردگی میں شامل نہیں۔</div>
-<div class="footer">مدرسہ دار القرآن والسنہ بیجاپور · SALAFIA ASSOCIATION · ماہانہ تعلیمی رپورٹ</div>
-</div>
-</div>
-
-<!-- ==================== JavaScript: 1. سیکشن، مہینے اور ابتدائی ڈیٹا ==================== -->
-<script>
-const sections={hifz:'حفظِ قرآن',nazira:'ناظرہ قرآن',qaida:'نورانی قاعدہ'};
-const months=['جنوری','فروری','مارچ','اپریل','مئی','جون','جولائی','اگست','ستمبر','اکتوبر','نومبر','دسمبر'];
-let data={teacher:'',month:9,year:2026,students:{hifz:[],nazira:[],qaida:[]}};
-const $=id=>document.getElementById(id);
-
-// ==================== JavaScript: 2. خالی ریکارڈ اور فیصد کے فارمولے ====================
-function blank(){return {id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name:'',target:'',done:'',revTarget:'',revDone:'',days:'',attended:''}}
-function pct(a,b){a=Number(a);b=Number(b);return b>0?Math.min(100,a/b*100):null}
-function fmt(n){return n===null?'—':n.toLocaleString('en-US',{maximumFractionDigits:1})+'٪'}
-
-// ==================== JavaScript: 3. ان پٹ فیلڈ اور HTML محفوظ بنانا ====================
-function field(s,i,k,val,placeholder='0',wide=false){return `<input ${wide?'class="wide"':''} aria-label="${k}" type="${k==='name'?'text':'number'}" ${k==='name'?'':'min="0" step="any"'} placeholder="${placeholder}" value="${esc(val??'')}" onchange="update('${s}',${i},'${k}',this.value)" ${k==='name'?'class="nameInput"':''}>`}
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function cellInput(s,i,k,val,ph='0',wide=false){return `<td>${field(s,i,k,val,ph,wide)}</td>`}
-function percentCell(value){let p=pct(value.done,value.target);return `<td><span class="pct">${fmt(p)}</span></td>`}
-function barCell(value){let p=value===null?0:value;return `<td><div class="bar"><span style="width:${p}%"></span></div><span class="pct">${fmt(value)}</span></td>`}
-
-// ==================== JavaScript: 4. طلبہ کی جدول تیار کرنا ====================
-function renderSection(s){
-const body=$('body-'+s);
-body.innerHTML='';
-data.students[s].forEach((r,i)=>{
-let lesson=pct(r.done,r.target),revision=pct(r.revDone,r.revTarget),attendance=pct(r.attended,r.days);
-let overall=s==='qaida'?lesson:(lesson===null&&revision===null?null:((lesson??0)+(revision??0))/((lesson===null||revision===null)?1:2));
-let cells=`<td>${i+1}</td>${cellInput(s,i,'name',r.name,'نامِ طالب علم',true)}${cellInput(s,i,'target',r.target)}${cellInput(s,i,'done',r.done)}`;
-cells+=`<td><span class="pct">${fmt(lesson)}</span></td>`;
-if(s!=='qaida'){cells+=cellInput(s,i,'revTarget',r.revTarget)+cellInput(s,i,'revDone',r.revDone)+`<td><span class="pct">${fmt(revision)}</span></td>`}
-cells+=cellInput(s,i,'days',r.days)+cellInput(s,i,'attended',r.attended)+`<td><span class="pct">${fmt(attendance)}</span></td>${barCell(overall)}<td class="rowActions noPrint"><button class="small danger" onclick="removeStudent('${s}',${i})">حذف</button></td>`;
-const tr=document.createElement('tr');
-tr.innerHTML=cells;
-body.appendChild(tr);
-});
-$('totalStudents').textContent=Object.values(data.students).reduce((n,a)=>n+a.length,0)+' طلبہ';
-}
-
-// ==================== JavaScript: 5. تمام رپورٹ اور خلاصہ اپ ڈیٹ کرنا ====================
-function render(){
-Object.keys(sections).forEach(renderSection);
-$('month').value=data.month;
-$('year').value=data.year;
-$('teacher').value=data.teacher||'';
-$('teacherSummary').textContent=data.teacher||'درج نہیں';
-$('reportMonth').textContent=`ماہِ ${months[data.month]} ${data.year} کی ماہانہ رپورٹ`;
-$('period').textContent=`01 ${months[data.month]} ${data.year} — 31 ${months[data.month]} ${data.year}`;
-}
-
-// ==================== JavaScript: 6. ریکارڈ تبدیل، شامل اور حذف کرنا ====================
-function update(s,i,k,v){if(k==='name')data.students[s][i][k]=v;else data.students[s][i][k]=v===''?'':Math.max(0,Number(v));saveData(false);renderSection(s)}
-function addStudent(s){data.students[s].push(blank());renderSection(s);saveData(false);setTimeout(()=>{let inputs=$('body-'+s).querySelectorAll('input.nameInput');if(inputs.length)inputs[inputs.length-1].focus()},0)}
-function removeStudent(s,i){if(confirm('کیا آپ اس طالب علم کا ریکارڈ حذف کرنا چاہتے ہیں؟')){data.students[s].splice(i,1);renderSection(s);saveData(false)}}
-
-// ==================== JavaScript: 7. ڈیٹا محفوظ اور دوبارہ لوڈ کرنا ====================
-function saveData(show=true){
-data.month=Number($('month').value??data.month);
-data.year=Number($('year').value||2026);
-data.teacher=$('teacher').value;
-localStorage.setItem('madrasaProgressRTL_v1',JSON.stringify(data));
-if(show){$('saveStatus').textContent='محفوظ ہوگیا ✓';setTimeout(()=>$('saveStatus').textContent='',1800)}
-render();
-}
-function loadData(){const old=localStorage.getItem('madrasaProgressRTL_v1');if(old){try{data=JSON.parse(old)}catch(e){}}}
-
-// ==================== JavaScript: 8. بیک اَپ ڈاؤن لوڈ اور بحال کرنا ====================
-function exportData(){
-saveData(false);
-const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-const a=document.createElement('a');
-a.href=URL.createObjectURL(blob);
-a.download=`madrasa-report-${data.year}-${data.month+1}.json`;
-a.click();
-URL.revokeObjectURL(a.href);
-}
-function importData(e){
-const f=e.target.files[0];
-if(!f)return;
-const reader=new FileReader();
-reader.onload=()=>{
-try{
-const d=JSON.parse(reader.result);
-if(!d.students||!d.students.hifz||!d.students.nazira||!d.students.qaida)throw Error();
-data=d;
-saveData();
-alert('بیک اَپ بحال ہوگیا۔');
-}catch(err){alert('یہ بیک اَپ درست نہیں ہے۔')}
-e.target.value='';
-};
-reader.readAsText(f);
-}
-
-// ==================== JavaScript: 9. رپورٹ کھولنا اور تمام ریکارڈ حذف کرنا ====================
-function openFullReport(){document.querySelector('.sheet').scrollIntoView({behavior:'smooth',block:'start'});window.setTimeout(()=>window.print(),250)}
-function clearAll(){if(confirm('کیا واقعی تینوں سیکشن کے تمام طلبہ اور ریکارڈ حذف کرنا چاہتے ہیں؟ پہلے بیک اَپ بنا لیں۔')){data.students={hifz:[],nazira:[],qaida:[]};saveData()}}
-
-// ==================== JavaScript: 10. آغاز میں مہینے لوڈ کرنا اور رپورٹ دکھانا ====================
-$('month').innerHTML=months.map((m,i)=>`<option value="${i}">${m}</option>`).join('');
-$('month').addEventListener('change',()=>{data.month=Number($('month').value);saveData(false)});
-$('year').addEventListener('change',()=>{data.year=Number($('year').value||2026);saveData(false)});
-$('teacher').addEventListener('change',()=>{data.teacher=$('teacher').value;saveData(false)});
-loadData();
-render();
-</script>
 </body>
-  </html>
+</html>
