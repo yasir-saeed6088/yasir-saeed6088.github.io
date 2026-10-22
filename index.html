@@ -33,6 +33,14 @@ body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .madrasa-header{box-shadow:0 4px 10px #173f2b20;border-radius:0 0 18px 18px}
 }
+
+/* ============================== CSS: ماہ اور سال باکس START ============================== */
+.report-period{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:12px auto;padding:8px 12px;width:fit-content;max-width:95%;background:linear-gradient(135deg,#e8f5ee,#fffdf5);border:1px solid #b8d8c5;border-radius:10px;box-shadow:0 2px 5px #173f2b12;color:#174c36;font-family:'Noto Nastaliq Urdu',serif;font-size:14px}
+.period-item{display:flex;align-items:center;gap:5px}
+.period-label{font-weight:700;color:#23734d}
+.period-value{font-weight:600;color:#174c36}
+/* ============================== CSS: ماہ اور سال باکس END ============================== */
+  
 </style>
 <!-- ============================== CSS END ============================== -->
 </head>
@@ -46,6 +54,22 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 <p class="madrasa-details">ESTD: 1990 | Regd. No. 82/94-95</p>
 </header>
 <!-- ============================== HTML: ہیڈر END ============================== -->
+
+
+<!-- ============================== HTML: ماہ اور سال START ============================== -->
+<section class="report-period">
+<div class="period-item">
+<span class="period-label">ماہِ رپورٹ:</span>
+<span class="period-value">اکتوبر</span>
+</div>
+<div class="period-item">
+<span class="period-label">سنہ:</span>
+<span class="period-value">2026ء</span>
+</div>
+</section>
+<!-- ============================== HTML: ماہ اور سال END ============================== -->
+  
+
 </body>
 </html>
 <!-- ============================== HTML END ============================== -->
