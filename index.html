@@ -34,12 +34,13 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .madrasa-header{box-shadow:0 4px 10px #173f2b20;border-radius:0 0 18px 18px}
 }
 
-/* ============================== CSS: ماہ اور سال باکس START ============================== */
-.report-period{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin:12px auto;padding:8px 12px;width:fit-content;max-width:95%;background:linear-gradient(135deg,#e8f5ee,#fffdf5);border:1px solid #b8d8c5;border-radius:10px;box-shadow:0 2px 5px #173f2b12;color:#174c36;font-family:'Noto Nastaliq Urdu',serif;font-size:14px}
+
+/* ============================== CSS: ماہ اور سال سلیکٹر START ============================== */
+.report-period{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin:12px auto;padding:8px 12px;width:fit-content;max-width:95%;background:linear-gradient(135deg,#e8f5ee,#fffdf5);border:1px solid #b8d8c5;border-radius:10px;box-shadow:0 2px 5px #173f2b12;color:#174c36;font-family:'Noto Nastaliq Urdu',serif;font-size:14px}
 .period-item{display:flex;align-items:center;gap:5px}
 .period-label{font-weight:700;color:#23734d}
-.period-value{font-weight:600;color:#174c36}
-/* ============================== CSS: ماہ اور سال باکس END ============================== */
+.period-select{padding:5px 8px;border:1px solid #b8d8c5;border-radius:6px;background:#fff;color:#174c36;font-family:'Noto Nastaliq Urdu',serif;font-size:13px;cursor:pointer}
+/* ============================== CSS: ماہ اور سال سلیکٹر END ============================== */
   
 </style>
 <!-- ============================== CSS END ============================== -->
@@ -56,19 +57,46 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 <!-- ============================== HTML: ہیڈر END ============================== -->
 
 
-<!-- ============================== HTML: ماہ اور سال START ============================== -->
+
+<!-- ============================== HTML: ماہ اور سال سلیکٹر START ============================== -->
 <section class="report-period">
 <div class="period-item">
-<span class="period-label">ماہِ رپورٹ:</span>
-<span class="period-value">اکتوبر</span>
+<label class="period-label" for="reportMonth">ماہ:</label>
+<select class="period-select" id="reportMonth">
+<option value="1">جنوری</option>
+<option value="2">فروری</option>
+<option value="3">مارچ</option>
+<option value="4">اپریل</option>
+<option value="5">مئی</option>
+<option value="6">جون</option>
+<option value="7">جولائی</option>
+<option value="8">اگست</option>
+<option value="9">ستمبر</option>
+<option value="10" selected>اکتوبر</option>
+<option value="11">نومبر</option>
+<option value="12">دسمبر</option>
+</select>
 </div>
 <div class="period-item">
-<span class="period-label">سنہ:</span>
-<span class="period-value">2026ء</span>
+<label class="period-label" for="reportYear">سال:</label>
+<select class="period-select" id="reportYear"></select>
 </div>
 </section>
-<!-- ============================== HTML: ماہ اور سال END ============================== -->
-  
+<!-- ============================== HTML: ماہ اور سال سلیکٹر END ============================== -->
+
+<!-- ============================== JAVASCRIPT START ============================== -->
+<script>
+const yearSelect=document.getElementById('reportYear');
+for(let year=2020;year<=2040;year++){
+const option=document.createElement('option');
+option.value=year;
+option.textContent=year+'ء';
+if(year===2026)option.selected=true;
+yearSelect.appendChild(option);
+}
+</script>
+<!-- ============================== JAVASCRIPT END ============================== -->
+
 
 </body>
 </html>
