@@ -71,6 +71,7 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 
 
+
 <!-- ============================== HTML: ماہ اور سال سلیکٹر START ============================== -->
 <section class="report-period">
 <div class="period-heading-row">
@@ -89,7 +90,8 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 <div class="period-fields">
 <div class="period-item">
 <label class="period-label" for="reportMonth">ماہِ رپورٹ</label>
-<select class="period-select" id="reportMonth">
+<select class="period-select" id="reportMonth" required>
+<option value="" selected disabled>مہینہ منتخب کریں</option>
 <option value="1">جنوری</option>
 <option value="2">فروری</option>
 <option value="3">مارچ</option>
@@ -99,32 +101,34 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 <option value="7">جولائی</option>
 <option value="8">اگست</option>
 <option value="9">ستمبر</option>
-<option value="10" selected>اکتوبر</option>
+<option value="10">اکتوبر</option>
 <option value="11">نومبر</option>
 <option value="12">دسمبر</option>
 </select>
 </div>
 <div class="period-item">
 <label class="period-label" for="reportYear">سنۂ رپورٹ</label>
-<select class="period-select" id="reportYear"></select>
+<select class="period-select" id="reportYear" required>
+<option value="" selected disabled>سال منتخب کریں</option>
+</select>
 </div>
 </div>
 </section>
 <!-- ============================== HTML: ماہ اور سال سلیکٹر END ============================== -->
 
-
 <!-- ============================== JAVASCRIPT START ============================== -->
 <script>
+/* ============================== JS: سال کے اختیارات START ============================== */
 const yearSelect=document.getElementById('reportYear');
 for(let year=2020;year<=2040;year++){
 const option=document.createElement('option');
 option.value=year;
 option.textContent=year+'ء';
-if(year===2026)option.selected=true;
 yearSelect.appendChild(option);
 }
+/* ============================== JS: سال کے اختیارات END ============================== */
+/* ============================== JAVASCRIPT END ============================== */
 </script>
-<!-- ============================== JAVASCRIPT END ============================== -->
 
 
 </body>
