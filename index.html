@@ -35,13 +35,16 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
 
-/* ============================== CSS: ماہ اور سال سلیکٹر START ============================== */
-.report-period{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin:12px auto;padding:8px 12px;width:fit-content;max-width:95%;background:linear-gradient(135deg,#e8f5ee,#fffdf5);border:1px solid #b8d8c5;border-radius:10px;box-shadow:0 2px 5px #173f2b12;color:#174c36;font-family:'Noto Nastaliq Urdu',serif;font-size:14px}
-.period-item{display:flex;align-items:center;gap:5px}
-.period-label{font-weight:700;color:#23734d}
-.period-select{padding:5px 8px;border:1px solid #b8d8c5;border-radius:6px;background:#fff;color:#174c36;font-family:'Noto Nastaliq Urdu',serif;font-size:13px;cursor:pointer}
-/* ============================== CSS: ماہ اور سال سلیکٹر END ============================== */
-  
+
+/* ============================== CSS: PRO MONTH-YEAR SELECTOR START ============================== */
+.report-period{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin:16px auto;padding:10px 18px;width:fit-content;max-width:96%;background:linear-gradient(135deg,#fffdf6,#eaf4ed);border:1px solid #c4d8c8;border-top:3px solid #347653;border-radius:12px;box-shadow:0 4px 12px #173f2b15;color:#174c36;font-family:'Noto Nastaliq Urdu',serif}
+.period-item{display:flex;align-items:center;gap:8px}
+.period-label{font-family:'Noto Nastaliq Urdu',serif;font-size:14px;font-weight:700;color:#285d43}
+.period-select{appearance:auto;min-width:112px;padding:7px 12px;border:1px solid #b8cdbd;border-radius:8px;background:#fff;color:#174c36;font-family:'Noto Nastaliq Urdu',serif;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 2px 5px #173f2b0c;outline:none}
+.period-select:focus{border-color:#347653;box-shadow:0 0 0 3px #34765320}
+@media(max-width:420px){.report-period{gap:10px;padding:9px 12px}.period-item{gap:5px}.period-select{min-width:100px;font-size:12px}}
+/* ============================== CSS: PRO MONTH-YEAR SELECTOR END ============================== */
+
 </style>
 <!-- ============================== CSS END ============================== -->
 </head>
@@ -61,7 +64,7 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 <!-- ============================== HTML: ماہ اور سال سلیکٹر START ============================== -->
 <section class="report-period">
 <div class="period-item">
-<label class="period-label" for="reportMonth">ماہ:</label>
+<label class="period-label" for="reportMonth">ماہِ رپورٹ</label>
 <select class="period-select" id="reportMonth">
 <option value="1">جنوری</option>
 <option value="2">فروری</option>
@@ -78,7 +81,7 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 </select>
 </div>
 <div class="period-item">
-<label class="period-label" for="reportYear">سال:</label>
+<label class="period-label" for="reportYear">سنۂ رپورٹ</label>
 <select class="period-select" id="reportYear"></select>
 </div>
 </section>
