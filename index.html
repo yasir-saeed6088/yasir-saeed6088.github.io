@@ -35,26 +35,42 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
 
+
 /* ============================== CSS: ماہ اور سال سلیکٹر START ============================== */
-.report-period{width:calc(100% - 28px);max-width:760px;margin:18px auto;padding:18px 22px;background:#fff;border:1px solid #e2e7f0;border-radius:14px;box-shadow:0 6px 22px #243b640d;color:#243b64;font-family:'Noto Nastaliq Urdu',serif}
-.period-heading-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #edf0f5}
-.period-icon{width:42px;height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center;background:#edf3ff;border-radius:11px;color:#294b82}
-.period-icon svg{width:23px;height:23px;display:block}
-.period-heading-text{display:flex;flex-direction:column;gap:2px}
-.period-title-urdu{margin:0;font-family:'Noto Nastaliq Urdu',serif;font-size:17px;font-weight:700;line-height:2;color:#243b64}
-.period-heading{margin:0;font-family:'Roboto',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:1.1px;color:#8792a7;direction:ltr}
-.period-fields{display:flex;align-items:center;justify-content:flex-start;gap:16px;flex-wrap:wrap}
-.period-item{display:flex;align-items:center;gap:9px}
-.period-label{font-size:13px;font-weight:700;color:#344767;white-space:nowrap}
-.period-select{box-sizing:border-box;min-width:175px;min-height:58px;padding:12px 14px;border:1px solid #d7deea;border-radius:8px;background:#f8faff;color:#243b64;font-family:'Noto Nastaliq Urdu',serif;font-size:13px;line-height:2.2;outline:none;cursor:pointer}
-.period-select:focus{border-color:#4569a8;box-shadow:0 0 0 3px #4569a81a}
-@media(max-width:480px){
-.report-period{width:calc(100% - 24px);padding:15px 13px;margin:14px auto}
-.period-heading-row{margin-bottom:12px}
-.period-title-urdu{font-size:15px;line-height:2}
+.report-period{width:calc(100% - 32px);max-width:1380px;margin:18px auto;padding:28px 30px 30px;background:#fff;border:1px solid #dce2ec;border-radius:32px;box-shadow:0 3px 12px #243b6408;color:#243b64;font-family:'Noto Nastaliq Urdu',serif}
+.period-heading-row{display:flex;align-items:center;gap:18px;margin-bottom:28px;padding-bottom:24px;border-bottom:2px solid #e7e9ee}
+.period-icon{width:80px;height:80px;flex:0 0 80px;display:flex;align-items:center;justify-content:center;background:#243f70;border-radius:19px;color:#fff}
+.period-icon svg{width:43px;height:43px;display:block}
+.period-heading-text{display:flex;flex-direction:column;gap:0}
+.period-title-urdu{margin:0;font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(25px,3.5vw,42px);font-weight:700;line-height:1.8;color:#243b64}
+.period-heading{margin:0;font-family:'Roboto',Arial,sans-serif;font-size:clamp(13px,2vw,23px);font-weight:700;letter-spacing:.3px;color:#7d8798;direction:ltr}
+.period-fields{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end}
+.period-item{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0}
+.period-label{font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(17px,2.2vw,27px);font-weight:600;color:#46536a;white-space:nowrap;line-height:1.9}
+.period-select{box-sizing:border-box;width:100%;min-width:0;height:100px;padding:15px 22px;border:2px solid #dce1eb;border-radius:25px;background:#f8f9fe;color:#243b64;font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(19px,2.5vw,32px);font-weight:700;line-height:1.8;outline:none;cursor:pointer}
+.period-select:focus{border-color:#4569a8;box-shadow:0 0 0 4px #4569a81a}
+@media(max-width:600px){
+.report-period{width:calc(100% - 24px);margin:14px auto;padding:20px 16px 22px;border-radius:25px}
+.period-heading-row{gap:13px;margin-bottom:22px;padding-bottom:18px}
+.period-icon{width:58px;height:58px;flex-basis:58px;border-radius:15px}
+.period-icon svg{width:32px;height:32px}
+.period-title-urdu{font-size:clamp(22px,5.5vw,30px);line-height:1.9}
+.period-heading{font-size:clamp(11px,3vw,15px);letter-spacing:0}
 .period-fields{gap:14px}
-.period-item{width:100%;justify-content:space-between;gap:8px}
-.period-select{flex:1;min-width:0;width:68%;max-width:72%;min-height:58px;height:auto;padding:12px 10px;font-size:13px;line-height:2.2}
+.period-item{gap:8px}
+.period-label{font-size:clamp(14px,3.8vw,19px)}
+.period-select{height:72px;padding:10px 8px;border-radius:19px;font-size:clamp(15px,4vw,21px)}
+}
+@media(max-width:360px){
+.report-period{padding:16px 11px}
+.period-heading-row{gap:9px}
+.period-icon{width:48px;height:48px;flex-basis:48px}
+.period-icon svg{width:27px;height:27px}
+.period-title-urdu{font-size:21px}
+.period-heading{font-size:10px}
+.period-fields{gap:10px}
+.period-select{height:66px;font-size:14px;padding:8px 5px}
+.period-label{font-size:13px}
 }
 /* ============================== CSS: ماہ اور سال سلیکٹر END ============================== */
 
