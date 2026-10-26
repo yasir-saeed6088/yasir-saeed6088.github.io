@@ -77,6 +77,34 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 /* ============================== CSS: ماہ اور سال سلیکٹر END ============================== */
 
+
+
+  
+
+
+/* ==================== حفظ کارڈ ڈیزائن START ==================== */
+.hifz-card{position:relative;overflow:hidden;max-width:1380px;margin:20px auto;padding:30px 18px;text-align:center;border:1px solid #d6b76c;border-radius:24px;background:linear-gradient(135deg,#064e3b,#166534 55%,#15803d);color:#fff;box-shadow:0 8px 24px #14532d20}
+.hifz-icon{font-size:48px;margin-bottom:12px;filter:drop-shadow(0 3px 5px #0003)}
+.hifz-card h2{margin:0;font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.7;color:#fff}
+.hifz-subtitle{margin:5px 0 22px;font-size:clamp(16px,2.5vw,20px);color:#fef3c7}
+.hifz-link{padding:12px 25px;border:1px solid #f5d887;border-radius:12px;background:linear-gradient(135deg,#fef3c7,#e8c66a);color:#14532d;font:inherit;font-size:16px;font-weight:800;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.hifz-link:hover{transform:translateY(-2px);box-shadow:0 5px 15px #0002}
+.hifz-link:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.hifz-report{max-width:1380px;margin:20px auto;padding:20px;background:#fff;border:1px solid #dce5dd;border-radius:18px;box-shadow:0 5px 20px #14532d10}
+.hifz-report h3{margin:0 0 18px;color:#166534;font-size:22px}
+.hifz-table-wrap{overflow-x:auto}
+.hifz-report table{width:100%;min-width:1050px;border-collapse:collapse;text-align:center}
+.hifz-report th,.hifz-report td{padding:12px 10px;border:1px solid #dce5dd;white-space:nowrap}
+.hifz-report th{background:#166534;color:#fff;font-weight:700}
+.hifz-report tbody tr:nth-child(even){background:#f0fdf4}
+.hifz-empty{padding:25px!important;color:#64748b;text-align:center}
+@media(max-width:600px){.hifz-card{margin:14px 10px;padding:25px 12px;border-radius:18px}.hifz-icon{font-size:40px}.hifz-report{margin:14px 10px;padding:12px}.hifz-report h3{font-size:19px}}
+/* ==================== حفظ کارڈ ڈیزائن END ==================== */
+
+
+
+
+  
   
 </style>
 <!-- ============================== CSS END ============================== -->
@@ -154,6 +182,35 @@ yearSelect.appendChild(option);
 </script>
 
 
+
+
+
+
+  
+<!-- ==================== حفظ القرآن کارڈ START ==================== -->
+<section class="dept-card hifz-card" dir="rtl">
+  <div class="hifz-icon">📖</div>
+  <h2>حفظ القرآن الکریم</h2>
+  <p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت رپورٹ</p>
+  <button class="hifz-link" id="hifzToggle" aria-expanded="false" aria-controls="hifz-report">رپورٹ درج کریں ↓</button>
+</section>
+<!-- ==================== حفظ القرآن کارڈ END ==================== -->
+
+<!-- ==================== حفظ رپورٹ کالم START ==================== -->
+<section id="hifz-report" class="hifz-report" dir="rtl" hidden>
+  <h3>حفظ القرآن الکریم — ماہانہ رپورٹ</h3>
+  <div class="hifz-table-wrap">
+    <table>
+      <thead><tr>
+        <th>شمارہ</th><th>طالب علم</th><th>سبق ہدف</th><th>سبق تکمیل</th><th>سبق ٪</th><th>آموختہ ہدف</th><th>آموختہ تکمیل</th><th>آموختہ ٪</th><th>کل ایام</th><th>حاضری ایام</th><th>حاضری ٪</th><th>مجموعی ٪</th>
+      </tr></thead>
+      <tbody><tr><td colspan="12" class="hifz-empty">ابھی کوئی طالب علم شامل نہیں کیا گیا۔</td></tr></tbody>
+    </table>
+  </div>
+</section>
+<!-- ==================== حفظ رپورٹ کالم END ==================== -->
+
+ 
 </body>
 </html>
 <!-- ============================== HTML END ============================== -->
