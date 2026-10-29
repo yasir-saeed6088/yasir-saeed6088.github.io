@@ -1,3 +1,4 @@
+
 <!-- ============================== HTML START ============================== -->
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
@@ -8,84 +9,43 @@
 
 <!-- ============================== CSS START ============================== -->
 <style>
-/* ============================== CSS: فونٹس ============================== */
+/* ============================== CSS: فونٹس اور بنیادی سیٹنگ ============================== */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Amiri:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
-
-/* ============================== CSS: بنیادی سیٹنگ ============================== */
 *{box-sizing:border-box}
 body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
+button,select,input{font-family:inherit}
+[hidden]{display:none!important}
 
-/* ============================== CSS: ہیڈر باکس ============================== */
+/* ============================== CSS: ہیڈر ============================== */
 .madrasa-header{width:100%;margin:0 auto;background:linear-gradient(135deg,#e8f5ee,#fffdf5);text-align:center;padding:10px 12px 8px;border-bottom:3px solid #23734d;border-radius:0 0 18px 18px;box-shadow:0 4px 10px #173f2b20;color:#174c36}
-
-/* ============================== CSS: مدرسے کا نام ============================== */
 .madrasa-name{margin:-5px 0 2px;font-family:'Noto Nastaliq Urdu','Amiri',serif;font-size:clamp(23px,5vw,38px);font-weight:700;line-height:1.6}
-
-/* ============================== CSS: رپورٹ کا عنوان ============================== */
 .report-title{margin:6px 0 3px;font-family:'Noto Nastaliq Urdu','Amiri',serif;font-size:clamp(15px,3vw,23px);font-weight:700;color:#9a6b16;line-height:1.6}
+.madrasa-details{margin:4px 0;font-family:Roboto,Arial,sans-serif;font-size:clamp(10px,2vw,13px);font-weight:500;line-height:1.7;direction:ltr;color:#43564b}
 
-/* ============================== CSS: انگریزی تفصیلات ============================== */
-.madrasa-details{margin:4px 0;font-family:'Roboto',Arial,sans-serif;font-size:clamp(10px,2vw,13px);font-weight:500;line-height:1.7;direction:ltr;color:#43564b}
-
-/* ============================== CSS: پرنٹ سیٹنگ ============================== */
-@media print{
-@page{size:A4 portrait;margin:10mm}
-body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.madrasa-header{box-shadow:0 4px 10px #173f2b20;border-radius:0 0 18px 18px}
-}
-
-
-
-
-/* ============================== CSS: ماہ اور سال سلیکٹر START ============================== */
+/* ============================== CSS: ماہ اور سال سلیکٹر ============================== */
 .report-period{width:calc(100% - 32px);max-width:1380px;margin:18px auto;padding:24px 28px 26px;background:#fff;border:1px solid #dce2ec;border-radius:28px;box-shadow:0 3px 12px #243b6408;color:#243b64;font-family:'Noto Nastaliq Urdu',serif}
 .period-heading-row{display:flex;align-items:center;gap:18px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid #e7e9ee}
 .period-icon{width:66px;height:66px;flex:0 0 66px;display:flex;align-items:center;justify-content:center;background:#243f70;border-radius:16px;color:#fff}
 .period-icon svg{width:36px;height:36px;display:block}
 .period-heading-text{display:flex;flex-direction:column;gap:8px}
-.period-title-urdu{margin:0;font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(19px,2.3vw,26px);font-weight:700;line-height:1.8;color:#243b64}
-.period-heading{margin:0;font-family:'Roboto',Arial,sans-serif;font-size:clamp(12px,1.5vw,18px);font-weight:700;letter-spacing:.3px;color:#7d8798;direction:ltr}
+.period-title-urdu{margin:0;font-size:clamp(19px,2.3vw,26px);font-weight:700;line-height:1.8;color:#243b64}
+.period-heading{margin:0;font-family:Roboto,Arial,sans-serif;font-size:clamp(12px,1.5vw,18px);font-weight:700;letter-spacing:.3px;color:#7d8798;direction:ltr}
 .period-fields{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:end}
-.period-item{display:flex;flex-direction:column;align-items:stretch;gap:7px;min-width:0}
-.period-label{font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(15px,1.7vw,21px);font-weight:600;color:#46536a;white-space:nowrap;line-height:1.9}
-.period-select{box-sizing:border-box;width:100%;min-width:0;height:76px;padding:10px 16px;border:1px solid #dce1eb;border-radius:19px;background:#f8f9fe;color:#243b64;font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(17px,2vw,24px);font-weight:600;line-height:1.8;outline:none;cursor:pointer}
+.period-item{display:flex;flex-direction:column;gap:7px;min-width:0}
+.period-label{font-size:clamp(15px,1.7vw,21px);font-weight:600;color:#46536a;white-space:nowrap;line-height:1.9}
+.period-select{width:100%;min-width:0;height:76px;padding:10px 16px;border:1px solid #dce1eb;border-radius:19px;background:#f8f9fe;color:#243b64;font-size:clamp(17px,2vw,24px);font-weight:600;outline:none;cursor:pointer}
 .period-select:focus{border-color:#4569a8;box-shadow:0 0 0 3px #4569a81a}
-@media(max-width:600px){
-.report-period{width:calc(100% - 24px);margin:14px auto;padding:18px 14px 20px;border-radius:22px}
-.period-heading-row{gap:12px;margin-bottom:18px;padding-bottom:15px}
-.period-icon{width:52px;height:52px;flex-basis:52px;border-radius:14px}
-.period-icon svg{width:29px;height:29px}
-.period-heading-text{gap:5px}
-.period-title-urdu{font-size:clamp(18px,4.5vw,22px);line-height:1.9}
-.period-heading{font-size:clamp(10px,2.7vw,13px);letter-spacing:0}
-.period-fields{gap:12px}
-.period-item{gap:6px}
-.period-label{font-size:clamp(13px,3.5vw,16px)}
-.period-select{height:64px;padding:8px 7px;border-radius:15px;font-size:clamp(14px,3.7vw,18px)}
-}
-@media(max-width:360px){
-.report-period{padding:15px 10px}
-.period-heading-row{gap:9px}
-.period-icon{width:45px;height:45px;flex-basis:45px}
-.period-icon svg{width:25px;height:25px}
-.period-title-urdu{font-size:19px}
-.period-heading{font-size:9px}
-.period-fields{gap:9px}
-.period-item{gap:5px}
-.period-label{font-size:12px}
-.period-select{height:58px;font-size:13px;padding:7px 4px}
-}
-/* ============================== CSS: ماہ اور سال سلیکٹر END ============================== */
+.period-notice{margin:14px 0 0;padding:10px 12px;background:#f2f5fa;border-radius:10px;color:#52647d;font-size:13px;line-height:1.9}
+.period-notice.error{background:#fff0f0;color:#b42332}
+.period-notice.success{background:#eaf7ef;color:#176543}
 
-
-
-/* ============================== CSS: شعبۂ حفظ القرآن الکریم START ============================== */
-.hifz-section{width:calc(100% - 32px);max-width:1380px;margin:18px auto;color:#203b32;font-family:'Noto Nastaliq Urdu',serif}
+/* ============================== CSS: شعبۂ حفظ القرآن الکریم ============================== */
+.hifz-section{width:calc(100% - 32px);max-width:1380px;margin:18px auto;color:#203b32}
 .hifz-card{padding:20px 24px 16px;background:linear-gradient(120deg,#e8f5ee,#fffdf7);border:1px solid #d5e7dc;border-right:5px solid #23734d;border-radius:16px;box-shadow:0 4px 14px #173f2b0c}
 .hifz-title{margin:0;font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.9;color:#174c36}
 .hifz-subtitle{margin:0;font-size:clamp(13px,1.6vw,18px);font-weight:600;line-height:1.9;color:#758477}
-.hifz-toggle,.hifz-add{width:100%;min-height:52px;margin-top:10px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#23734d;border:1px solid #1c6040;border-radius:12px;color:#fff;font-family:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:.2s}
-.hifz-add{justify-content:center;background:#fff;color:#23734d;border:1px solid #b9d8c5}
+.hifz-toggle,.hifz-add{width:100%;min-height:50px;margin-top:10px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#23734d;border:1px solid #1c6040;border-radius:12px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:.2s}
+.hifz-add{justify-content:center;background:#fff;color:#23734d;border-color:#b9d8c5}
 .hifz-toggle:hover{background:#195b3b}.hifz-add:hover{background:#edf7f0}
 .hifz-chevron{width:22px;height:22px;flex:0 0 22px;transition:transform .25s}
 .hifz-toggle[aria-expanded="true"] .hifz-chevron{transform:rotate(180deg)}
@@ -96,14 +56,15 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-student-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #e6ece8}
 .hifz-number{padding:5px 12px;background:#e7f3eb;border-radius:9px;color:#176543;font-weight:700;white-space:nowrap}
 .hifz-status{font-size:12px;color:#758477}
-.hifz-fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.hifz-name-grid,.hifz-fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
 .hifz-field{display:flex;flex-direction:column;gap:5px;min-width:0}
 .hifz-label{font-size:14px;font-weight:600;color:#46564c;line-height:1.9}
-.hifz-input{width:100%;min-width:0;height:48px;padding:8px 11px;border:1px solid #dce5df;border-radius:10px;background:#f9fbfa;color:#203b32;font:16px 'Noto Nastaliq Urdu',serif;outline:none}
+.hifz-input{width:100%;min-width:0;height:48px;padding:8px 11px;border:1px solid #dce5df;border-radius:10px;background:#f9fbfa;color:#203b32;font-size:15px;outline:none}
 .hifz-input:focus{border-color:#398760;box-shadow:0 0 0 3px #39876018}
-.hifz-input:disabled{background:#f0f4f1;color:#66766b}
-.hifz-name-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.hifz-percent{margin-top:12px;padding:12px 14px;border:1px solid;border-radius:12px}
+.hifz-input:disabled{background:#f0f4f1;color:#66766b;opacity:1}
+.hifz-input[type="number"]{direction:ltr;text-align:center;font-family:Roboto,Arial,sans-serif}
+.hifz-percent-wrap{width:100%;max-width:100%;margin:14px auto 0}
+.hifz-percent{width:100%;padding:12px 14px;border:1px solid;border-radius:12px}
 .hifz-percent-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700}
 .hifz-percent-number{font-family:Roboto,Arial,sans-serif;font-size:24px;font-weight:700;direction:ltr}
 .hifz-bar{height:9px;margin-top:9px;border-radius:99px;overflow:hidden}
@@ -117,24 +78,57 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-total-label{font-size:18px;font-weight:700}
 .hifz-total-number{font:700 30px Roboto,Arial,sans-serif;direction:ltr}
 .hifz-total .hifz-bar{height:12px;background:#42685a}.hifz-total .hifz-bar-fill{background:#54d6a0}
-.hifz-total-note{margin:9px 0 0;font-size:12px;line-height:1.9;color:#ddece3}
-.hifz-actions{display:flex;gap:9px;margin-top:14px}
-.hifz-btn{flex:1;min-height:44px;padding:8px 12px;border:1px solid #23734d;border-radius:10px;background:#23734d;color:#fff;font:600 14px 'Noto Nastaliq Urdu',serif;cursor:pointer}
+.hifz-message{margin:10px 0 0;color:#b42332;font-size:13px;line-height:1.9}
+.hifz-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.hifz-btn{flex:1;min-width:85px;min-height:44px;padding:8px 12px;border:1px solid #23734d;border-radius:10px;background:#23734d;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
 .hifz-btn:hover{filter:brightness(.94)}
 .hifz-btn-edit{background:#fff;color:#23734d}
 .hifz-btn-delete{background:#fff;color:#b42332;border-color:#efc7cb}
-.hifz-message{margin:10px 0 0;color:#b42332;font-size:13px;line-height:1.9}
-.hifz-empty{text-align:center;padding:24px 12px;color:#758477;border:1px dashed #d5e1d9;border-radius:12px;margin-top:12px}
-@media(max-width:600px){.hifz-section{width:calc(100% - 24px);margin:14px auto}.hifz-card{padding:15px 16px 12px;border-radius:13px}.hifz-toggle,.hifz-add{font-size:14px;min-height:48px}.hifz-fields{padding:10px}.hifz-student{padding:12px}.hifz-fields-grid,.hifz-name-grid{gap:9px}.hifz-label{font-size:12px}.hifz-input{height:44px;padding:7px;font-size:14px}.hifz-percent{padding:10px}.hifz-percent-number{font-size:21px}.hifz-total-number{font-size:27px}.hifz-actions{gap:6px}.hifz-btn{padding:7px 5px;font-size:12px}}
-@media print{.hifz-toggle,.hifz-add,.hifz-actions{display:none!important}.hifz-fields[hidden]{display:block!important}.hifz-student{box-shadow:none;break-inside:avoid}.hifz-input{background:#fff;border-color:#ddd}}
-/* ============================== CSS: شعبۂ حفظ القرآن الکریم END ============================== */
-
-  
+.hifz-empty{text-align:center;padding:24px 12px;color:#758477;border:1px dashed #d5e1d9;border-radius:12px;margin-top:12px;line-height:1.9}
+.hifz-period-title{margin:0 0 12px;color:#46564c;font-size:15px;font-weight:700}
+.hifz-locked{padding:16px;background:#f7f9f7;border:1px dashed #cbd9ce;border-radius:12px;text-align:center;color:#758477;line-height:2}
+@media(max-width:600px){
+.report-period{width:calc(100% - 24px);margin:14px auto;padding:18px 14px 20px;border-radius:22px}
+.period-heading-row{gap:12px;margin-bottom:18px;padding-bottom:15px}
+.period-icon{width:52px;height:52px;flex-basis:52px;border-radius:14px}
+.period-icon svg{width:29px;height:29px}
+.period-heading-text{gap:5px}
+.period-title-urdu{font-size:clamp(18px,4.5vw,22px);line-height:1.9}
+.period-heading{font-size:clamp(10px,2.7vw,13px);letter-spacing:0}
+.period-fields{gap:12px}
+.period-item{gap:6px}
+.period-label{font-size:clamp(13px,3.5vw,16px)}
+.period-select{height:64px;padding:8px 7px;border-radius:15px;font-size:clamp(14px,3.7vw,18px)}
+.hifz-section{width:calc(100% - 24px);margin:14px auto}
+.hifz-card{padding:15px 16px 12px;border-radius:13px}
+.hifz-toggle,.hifz-add{font-size:13px;min-height:46px;padding:8px}
+.hifz-fields{padding:10px}
+.hifz-student{padding:11px}
+.hifz-name-grid,.hifz-fields-grid{gap:8px}
+.hifz-label{font-size:12px;line-height:1.8}
+.hifz-input{height:44px;padding:6px;font-size:13px}
+.hifz-percent{padding:10px}
+.hifz-percent-number{font-size:21px}
+.hifz-total-number{font-size:27px}
+.hifz-actions{gap:6px}
+.hifz-btn{min-width:0;padding:7px 4px;font-size:12px}
+}
+@media(max-width:360px){.period-fields{gap:8px}.period-select{padding:6px 3px;font-size:12px}.hifz-percent-number{font-size:19px}.hifz-btn{font-size:11px}}
+/* ============================== CSS: پرنٹ سیٹنگ ============================== */
+@media print{
+@page{size:A4 portrait;margin:10mm}
+body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.madrasa-header{box-shadow:none}
+.hifz-toggle,.hifz-add,.hifz-actions{display:none!important}
+.hifz-fields[hidden]{display:block!important}
+.hifz-student{box-shadow:none;break-inside:avoid}
+.hifz-input{background:#fff;border-color:#ddd}
+}
 </style>
 <!-- ============================== CSS END ============================== -->
 </head>
-
 <body>
+
 <!-- ============================== HTML: ہیڈر START ============================== -->
 <header class="madrasa-header">
 <h1 class="madrasa-name">مدرسہ دار القرآن والسنہ بیجاپور</h1>
@@ -144,197 +138,85 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 </header>
 <!-- ============================== HTML: ہیڈر END ============================== -->
 
-
-
-
 <!-- ============================== HTML: ماہ اور سال سلیکٹر START ============================== -->
 <section class="report-period">
 <div class="period-heading-row">
-<div class="period-icon" aria-hidden="true">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-<rect x="3" y="5" width="18" height="16" rx="2"/>
-<path d="M16 3v4M8 3v4M3 10h18"/>
-<path d="m9 15 2 2 4-4"/>
-</svg>
-</div>
-<div class="period-heading-text">
-<h3 class="period-title-urdu">رپورٹ کی مدت</h3>
-<p class="period-heading">MONTHLY REPORT PERIOD</p>
-</div>
+<div class="period-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></div>
+<div class="period-heading-text"><h3 class="period-title-urdu">رپورٹ کی مدت</h3><p class="period-heading">MONTHLY REPORT PERIOD</p></div>
 </div>
 <div class="period-fields">
-<div class="period-item">
-<label class="period-label" for="reportMonth">ماہِ رپورٹ</label>
-<select class="period-select" id="reportMonth" required>
-<option value="" selected disabled>مہینہ منتخب کریں</option>
-<option value="1">جنوری</option>
-<option value="2">فروری</option>
-<option value="3">مارچ</option>
-<option value="4">اپریل</option>
-<option value="5">مئی</option>
-<option value="6">جون</option>
-<option value="7">جولائی</option>
-<option value="8">اگست</option>
-<option value="9">ستمبر</option>
-<option value="10">اکتوبر</option>
-<option value="11">نومبر</option>
-<option value="12">دسمبر</option>
-</select>
+<div class="period-item"><label class="period-label" for="reportMonth">ماہِ رپورٹ</label><select class="period-select" id="reportMonth" required><option value="" selected disabled>مہینہ منتخب کریں</option><option value="1">جنوری</option><option value="2">فروری</option><option value="3">مارچ</option><option value="4">اپریل</option><option value="5">مئی</option><option value="6">جون</option><option value="7">جولائی</option><option value="8">اگست</option><option value="9">ستمبر</option><option value="10">اکتوبر</option><option value="11">نومبر</option><option value="12">دسمبر</option></select></div>
+<div class="period-item"><label class="period-label" for="reportYear">سنۂ رپورٹ</label><select class="period-select" id="reportYear" required><option value="" selected disabled>سال منتخب کریں</option></select></div>
 </div>
-<div class="period-item">
-<label class="period-label" for="reportYear">سنۂ رپورٹ</label>
-<select class="period-select" id="reportYear" required>
-<option value="" selected disabled>سال منتخب کریں</option>
-</select>
-</div>
-</div>
+<p class="period-notice" id="periodNotice">پہلے رپورٹ کا مہینہ اور سال منتخب کریں۔ ہر مہینے کا ریکارڈ الگ محفوظ ہوگا۔</p>
 </section>
 <!-- ============================== HTML: ماہ اور سال سلیکٹر END ============================== -->
 
-
-
-
-  
-
-
 <!-- ============================== HTML: شعبۂ حفظ القرآن الکریم START ============================== -->
 <section class="hifz-section" id="hifzSection">
-  <div class="hifz-card">
-    <h3 class="hifz-title">حفظِ قرآن کریم</h3>
-    <p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p>
-  </div>
-  <button class="hifz-toggle" id="hifzToggle" type="button" aria-expanded="false" aria-controls="hifzReportFields">
-    <span>طلبہ کی کارکردگی درج کریں</span>
-    <svg class="hifz-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-  </button>
-  <div class="hifz-fields" id="hifzReportFields" hidden>
-    <button class="hifz-add" id="hifzAddStudent" type="button">＋ طالب علم کا اندراج کریں</button>
-    <div id="hifzStudentList"></div>
-    <p class="hifz-empty" id="hifzEmpty">ابھی کوئی طالب علم درج نہیں۔ اندراج شروع کرنے کے لیے اوپر بٹن دبائیں۔</p>
-  </div>
+<div class="hifz-card"><h3 class="hifz-title">حفظِ قرآن کریم</h3><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
+<button class="hifz-toggle" id="hifzToggle" type="button" aria-expanded="false" aria-controls="hifzReportFields"><span>طلبہ کی کارکردگی درج کریں</span><svg class="hifz-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="hifz-fields" id="hifzReportFields" hidden>
+<h4 class="hifz-period-title" id="hifzPeriodTitle">ماہانہ رپورٹ</h4>
+<div id="hifzStudentList"></div>
+<p class="hifz-empty" id="hifzEmpty">ابھی کوئی طالب علم درج نہیں۔ نیا اندراج شروع کرنے کے لیے نیچے بٹن دبائیں۔</p>
+<div class="hifz-locked" id="hifzLocked">طالب علم کا اندراج شروع کرنے سے پہلے اوپر سے مہینہ اور سال منتخب کریں۔</div>
+<button class="hifz-add" id="hifzAddStudent" type="button">＋ نیا طالب علم شامل کریں</button>
+</div>
 </section>
 <!-- ============================== HTML: شعبۂ حفظ القرآن الکریم END ============================== -->
 
-  
-
-
-  
 <!-- ============================== JAVASCRIPT START ============================== -->
 <script>
-/* ============================== JS: سال کے اختیارات START ============================== */
+/* ============================== JS: سال کے اختیارات ============================== */
 const yearSelect=document.getElementById('reportYear');
-for(let year=2020;year<=2040;year++){
-const option=document.createElement('option');
-option.value=year;
-option.textContent=year+'ء';
-yearSelect.appendChild(option);
-}
-/* ============================== JS: سال کے اختیارات END ============================== */
+for(let year=2020;year<=2040;year++){const option=document.createElement('option');option.value=year;option.textContent=year+'ء';yearSelect.appendChild(option)}
 
+/* ============================== JS: رپورٹ اور مقامی اسٹوریج ============================== */
+const monthSelect=document.getElementById('reportMonth'),periodNotice=document.getElementById('periodNotice'),periodTitle=document.getElementById('hifzPeriodTitle'),hifzToggle=document.getElementById('hifzToggle'),hifzFields=document.getElementById('hifzReportFields'),hifzAdd=document.getElementById('hifzAddStudent'),hifzList=document.getElementById('hifzStudentList'),hifzEmpty=document.getElementById('hifzEmpty'),hifzLocked=document.getElementById('hifzLocked');
+const monthNames={1:'جنوری',2:'فروری',3:'مارچ',4:'اپریل',5:'مئی',6:'جون',7:'جولائی',8:'اگست',9:'ستمبر',10:'اکتوبر',11:'نومبر',12:'دسمبر'};
+const storageKey='madrasaHifzMonthlyReportsV2';
+let hifzNextId=1,currentReportKey='',hifzData={};
+function hifzReadStorage(){try{const raw=localStorage.getItem(storageKey);return raw?JSON.parse(raw):{}}catch(error){return {}}}
+function hifzWriteStorage(){try{localStorage.setItem(storageKey,JSON.stringify(hifzData));return true}catch(error){periodNotice.textContent='براؤزر میں جگہ دستیاب نہیں یا اسٹوریج بند ہے؛ ریکارڈ محفوظ نہیں ہو سکا۔';periodNotice.className='period-notice error';return false}}
+function hifzMakeKey(){return monthSelect.value&&yearSelect.value?yearSelect.value+'-'+String(monthSelect.value).padStart(2,'0'):''}
+function hifzSetNotice(message,type=''){periodNotice.textContent=message;periodNotice.className='period-notice'+(type?' '+type:'')}
+function hifzUpdatePeriod(){const key=hifzMakeKey();if(!key){currentReportKey='';periodTitle.textContent='ماہانہ رپورٹ';hifzAdd.disabled=true;hifzAdd.style.opacity='.5';hifzAdd.style.cursor='not-allowed';hifzLocked.hidden=false;hifzList.innerHTML='';hifzEmpty.hidden=false;hifzEmpty.textContent='پہلے رپورٹ کا مہینہ اور سال منتخب کریں۔';hifzSetNotice('پہلے رپورٹ کا مہینہ اور سال منتخب کریں۔ ہر مہینے کا ریکارڈ الگ محفوظ ہوگا.');return}currentReportKey=key;periodTitle.textContent=monthNames[Number(monthSelect.value)]+' '+yearSelect.value+'ء — طلبہ کی رپورٹ';hifzAdd.disabled=false;hifzAdd.style.opacity='1';hifzAdd.style.cursor='pointer';hifzLocked.hidden=true;hifzSetNotice('منتخب رپورٹ: '+monthNames[Number(monthSelect.value)]+' '+yearSelect.value+'ء۔ تبدیلیاں محفوظ کرنے پر اسی رپورٹ میں محفوظ ہوں گی۔','success');hifzRenderSaved();}
 
+/* ============================== JS: فیصد کا درست حساب ============================== */
+function hifzPercent(done,target){if(done===''||target===''||!Number.isFinite(Number(done))||!Number.isFinite(Number(target))||Number(target)<=0||Number(done)<0)return null;return Number(done)/Number(target)*100}
+function hifzFormatPercent(value){if(value===null||!Number.isFinite(value))return '—';const rounded=Math.round((value+Number.EPSILON)*100)/100;return String(rounded)+'%'}
+function hifzUpdateCard(card){const data={};card.querySelectorAll('[data-field]').forEach(input=>data[input.dataset.field]=input.value);const lesson=hifzPercent(data.lessonDone,data.lessonTarget),revision=hifzPercent(data.revisionDone,data.revisionTarget),total=lesson!==null&&revision!==null?(lesson+revision)/2:null;[['lesson',lesson],['revision',revision],['total',total]].forEach(([key,value])=>{const number=card.querySelector(`[data-percent="${key}"]`),bar=card.querySelector(`[data-bar="${key}"]`);number.textContent=hifzFormatPercent(value);bar.style.width=(value===null?0:Math.max(0,Math.min(100,value)))+'%'})}
+function hifzField(key,label,value='',type='number',placeholder='درج کریں'){const id='hifz-'+key+'-'+Math.random().toString(36).slice(2,8);return `<div class="hifz-field"><label class="hifz-label" for="${id}">${label}</label><input class="hifz-input" id="${id}" data-field="${key}" type="${type}" ${type==='number'?'min="0" step="any" inputmode="decimal"':''} value="${String(value).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}" placeholder="${placeholder}"></div>`}
 
-/* ============================== JS: حفظ رپورٹ سیٹنگ START ============================== */
-const hifzToggle=document.getElementById('hifzToggle');
-const hifzFields=document.getElementById('hifzReportFields');
-const hifzAdd=document.getElementById('hifzAddStudent');
-const hifzList=document.getElementById('hifzStudentList');
-const hifzEmpty=document.getElementById('hifzEmpty');
-let hifzNextId=1;
-const hifzData=new Map();
+/* ============================== JS: طالب علم کا کارڈ بنانا ============================== */
+function hifzCreateStudent(data={},saved=false){const id='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,7),card=document.createElement('article');card.className='hifz-student';card.dataset.id=id;card.innerHTML=`
+<div class="hifz-student-head"><span class="hifz-number">شمارہ <b data-number></b></span><span class="hifz-status" data-status>${saved?'محفوظ شدہ':'نیا اندراج'}</span></div>
+<div class="hifz-name-grid">${hifzField('name','طالب علم کا نام',data.name||'','text','نام درج کریں')}${hifzField('father','ولدیت',data.father||'','text','والد کا نام درج کریں')}</div>
+<div class="hifz-fields-grid">${hifzField('lessonTarget','ہدفِ سبق (صفحات)',data.lessonTarget??'')}${hifzField('lessonDone','تکمیلِ سبق (صفحات)',data.lessonDone??'')}</div>
+<div class="hifz-percent-wrap"><div class="hifz-percent hifz-lesson"><div class="hifz-percent-head"><span>سبق ٪</span><b class="hifz-percent-number" data-percent="lesson">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-bar="lesson"></div></div></div></div>
+<div class="hifz-fields-grid">${hifzField('revisionTarget','ہدفِ آموختہ (صفحات)',data.revisionTarget??'')}${hifzField('revisionDone','تکمیلِ آموختہ (صفحات)',data.revisionDone??'')}</div>
+<div class="hifz-percent-wrap"><div class="hifz-percent hifz-revision"><div class="hifz-percent-head"><span>آموختہ ٪</span><b class="hifz-percent-number" data-percent="revision">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-bar="revision"></div></div></div></div>
+<div class="hifz-fields-grid">${hifzField('days','تعلیمی ایام',data.days??'')}${hifzField('attendance','ایامِ حاضری',data.attendance??'')}</div>
+<div class="hifz-total"><div class="hifz-total-head"><span class="hifz-total-label">مجموعی ٪</span><b class="hifz-total-number" data-percent="total">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-bar="total"></div></div></div>
+<p class="hifz-message" data-error hidden></p>
+<div class="hifz-actions"><button class="hifz-btn" data-action="save" type="button">${saved?'محفوظ کریں':'محفوظ کریں'}</button><button class="hifz-btn hifz-btn-edit" data-action="edit" type="button" ${saved?'':'hidden'}>ترمیم کریں</button><button class="hifz-btn hifz-btn-delete" data-action="delete" type="button">حذف کریں</button><button class="hifz-btn hifz-add-inline" data-action="add" type="button">＋ نیا طالب علم شامل کریں</button></div>`;
+const fields=[...card.querySelectorAll('[data-field]')];fields.forEach(input=>{if(saved)input.disabled=true;input.addEventListener('input',()=>hifzUpdateCard(card))});
+card.querySelector('[data-action="save"]').addEventListener('click',()=>{if(!currentReportKey){alert('پہلے مہینہ اور سال منتخب کریں۔');return}const values=Object.fromEntries([...card.querySelectorAll('[data-field]')].map(input=>[input.dataset.field,input.value.trim()])),required=['name','father','lessonTarget','lessonDone','revisionTarget','revisionDone','days','attendance'];let error='';if(required.some(key=>values[key]===''))error='تمام خانے پُر کریں۔';else if(!['lessonTarget','lessonDone','revisionTarget','revisionDone','days','attendance'].every(key=>Number.isFinite(Number(values[key]))&&Number(values[key])>=0))error='تمام عددی خانوں میں درست مثبت عدد درج کریں۔';else if(Number(values.lessonTarget)<=0||Number(values.revisionTarget)<=0||Number(values.days)<=0)error='ہدف اور تعلیمی ایام صفر سے زیادہ ہونے چاہییں۔';else if(Number(values.lessonDone)>Number(values.lessonTarget)||Number(values.revisionDone)>Number(values.revisionTarget))error='تکمیل مقررہ ہدف سے زیادہ نہیں ہو سکتی۔';else if(Number(values.attendance)>Number(values.days))error='ایامِ حاضری، تعلیمی ایام سے زیادہ نہیں ہو سکتے۔';const message=card.querySelector('[data-error]');message.textContent=error;message.hidden=!error;if(error)return;const report=hifzData[currentReportKey]||(hifzData[currentReportKey]=[]),index=report.findIndex(item=>item.id===id),record={id,...values};if(index>=0)report[index]=record;else report.push(record);if(!hifzWriteStorage())return;fields.forEach(input=>input.disabled=true);card.querySelector('[data-status]').textContent='محفوظ شدہ';card.querySelector('[data-action="save"]').hidden=true;card.querySelector('[data-action="edit"]').hidden=false;hifzRenumber();hifzSetNotice('طالب علم کی معلومات محفوظ ہوگئیں۔','success')});
+card.querySelector('[data-action="edit"]').addEventListener('click',()=>{fields.forEach(input=>input.disabled=false);card.querySelector('[data-status]').textContent='ترمیم جاری ہے';card.querySelector('[data-action="save"]').hidden=false;card.querySelector('[data-action="edit"]').hidden=true});
+card.querySelector('[data-action="delete"]').addEventListener('click',()=>{if(!confirm('کیا آپ یہ طالب علم کا اندراج حذف کرنا چاہتے ہیں؟'))return;if(currentReportKey){hifzData[currentReportKey]=(hifzData[currentReportKey]||[]).filter(item=>item.id!==id);hifzWriteStorage()}card.remove();hifzRenumber();hifzSetNotice('اندراج حذف کردیا گیا۔','success')});
+card.querySelector('[data-action="add"]').addEventListener('click',()=>{hifzCreateStudent();});
+hifzList.appendChild(card);hifzRenumber();hifzUpdateCard(card);if(!saved){card.querySelector('[data-field="name"]').focus();card.scrollIntoView({behavior:'smooth',block:'nearest'})}return card}
 
-hifzToggle.addEventListener('click',()=>{
-  const opened=hifzToggle.getAttribute('aria-expanded')==='true';
-  hifzToggle.setAttribute('aria-expanded',String(!opened));
-  hifzFields.hidden=opened;
-});
-
-function hifzPercent(done,target){
-  if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;
-  return Math.min(100,Math.round(Number(done)/Number(target)*100));
-}
-function hifzUpdateCard(card){
-  const data={};
-  card.querySelectorAll('[data-field]').forEach(input=>data[input.dataset.field]=input.value);
-  const lesson=hifzPercent(data.lessonDone,data.lessonTarget);
-  const revision=hifzPercent(data.revisionDone,data.revisionTarget);
-  const total=lesson!==null&&revision!==null?Math.round((lesson+revision)/2):null;
-  [['lesson',lesson],['revision',revision],['total',total]].forEach(([key,value])=>{
-    const number=card.querySelector(`[data-percent="${key}"]`);
-    const bar=card.querySelector(`[data-bar="${key}"]`);
-    number.textContent=value===null?'—':value+'%';
-    bar.style.width=(value===null?0:value)+'%';
-  });
-}
-function hifzField(key,label,value='',type='number',placeholder='درج کریں'){
-  return `<div class="hifz-field"><label class="hifz-label">${label}</label><input class="hifz-input" data-field="${key}" type="${type}" ${type==='number'?'min="0" step="1"':''} value="${value}" placeholder="${placeholder}"></div>`;
-}
-function hifzCreateStudent(){
-  const id=hifzNextId++;
-  const card=document.createElement('article');
-  card.className='hifz-student';
-  card.dataset.id=id;
-  card.innerHTML=`
-    <div class="hifz-student-head"><span class="hifz-number">شمارہ <b data-number></b></span><span class="hifz-status" data-status>نیا اندراج</span></div>
-    <div class="hifz-name-grid">${hifzField('name','طالب علم کا نام','','text','نام درج کریں')}${hifzField('father','ولدیت','','text','والد کا نام درج کریں')}</div>
-    <div class="hifz-fields-grid">${hifzField('lessonTarget','ہدفِ سبق')}${hifzField('lessonDone','تکمیلِ سبق')}</div>
-    <div class="hifz-percent hifz-lesson"><div class="hifz-percent-head"><span>سبق ٪</span><b class="hifz-percent-number" data-percent="lesson">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-bar="lesson"></div></div></div>
-    <div class="hifz-fields-grid">${hifzField('revisionTarget','ہدفِ آموختہ')}${hifzField('revisionDone','تکمیلِ آموختہ')}</div>
-    <div class="hifz-percent hifz-revision"><div class="hifz-percent-head"><span>آموختہ ٪</span><b class="hifz-percent-number" data-percent="revision">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-bar="revision"></div></div></div>
-    <div class="hifz-fields-grid">${hifzField('days','تعلیمی ایام')}${hifzField('attendance','ایامِ حاضری')}</div>
-    <div class="hifz-total"><div class="hifz-total-head"><span class="hifz-total-label">مجموعی ٪</span><b class="hifz-total-number" data-percent="total">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-bar="total"></div></div><p class="hifz-total-note">سبق ٪ اور آموختہ ٪ کا اوسط۔ حاضری مجموعی فیصد میں شامل نہیں۔</p></div>
-    <p class="hifz-message" data-error hidden></p>
-    <div class="hifz-actions"><button class="hifz-btn" data-action="save" type="button">محفوظ کریں</button><button class="hifz-btn hifz-btn-edit" data-action="edit" type="button" hidden>ترمیم کریں</button><button class="hifz-btn hifz-btn-delete" data-action="delete" type="button">حذف کریں</button></div>`;
-  card.querySelectorAll('[data-field]').forEach(input=>input.addEventListener('input',()=>hifzUpdateCard(card)));
-  card.querySelector('[data-action="save"]').addEventListener('click',()=>{
-    const inputs=[...card.querySelectorAll('[data-field]')];
-    const values=Object.fromEntries(inputs.map(input=>[input.dataset.field,input.value.trim()]));
-    const required=['name','father','lessonTarget','lessonDone','revisionTarget','revisionDone','days','attendance'];
-    let error='';
-    if(required.some(key=>!values[key]))error='تمام خانے پُر کریں۔';
-    else if(Number(values.lessonTarget)<=0||Number(values.revisionTarget)<=0||Number(values.days)<=0)error='ہدف اور تعلیمی ایام صفر سے زیادہ ہونے چاہییں۔';
-    else if(Number(values.lessonDone)>Number(values.lessonTarget)||Number(values.revisionDone)>Number(values.revisionTarget))error='تکمیل مقررہ ہدف سے زیادہ نہیں ہو سکتی۔';
-    else if(Number(values.attendance)>Number(values.days))error='ایامِ حاضری، تعلیمی ایام سے زیادہ نہیں ہو سکتے۔';
-    const message=card.querySelector('[data-error]');
-    message.textContent=error;message.hidden=!error;
-    if(error)return;
-    hifzData.set(id,{...values,saved:true});
-    inputs.forEach(input=>input.disabled=true);
-    card.querySelector('[data-status]').textContent='محفوظ شدہ';
-    card.querySelector('[data-action="save"]').hidden=true;
-    card.querySelector('[data-action="edit"]').hidden=false;
-    hifzRenumber();
-  });
-  card.querySelector('[data-action="edit"]').addEventListener('click',()=>{
-    card.querySelectorAll('[data-field]').forEach(input=>input.disabled=false);
-    card.querySelector('[data-status]').textContent='ترمیم جاری ہے';
-    card.querySelector('[data-action="save"]').hidden=false;
-    card.querySelector('[data-action="edit"]').hidden=true;
-    hifzData.delete(id);
-  });
-  card.querySelector('[data-action="delete"]').addEventListener('click',()=>{
-    if(confirm('کیا آپ یہ طالب علم کا اندراج حذف کرنا چاہتے ہیں؟')){
-      hifzData.delete(id);card.remove();hifzRenumber();
-    }
-  });
-  hifzList.appendChild(card);
-  hifzRenumber();
-  hifzEmpty.hidden=true;
-  hifzUpdateCard(card);
-  card.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-function hifzRenumber(){
-  [...hifzList.querySelectorAll('.hifz-student')].forEach((card,index)=>{
-    card.querySelector('[data-number]').textContent=String(index+1).padStart(2,'0');
-  });
-  hifzEmpty.hidden=hifzList.children.length>0;
-}
-hifzAdd.addEventListener('click',hifzCreateStudent);
-/* ============================== JS: حفظ رپورٹ سیٹنگ END ============================== */
-  
-  
+/* ============================== JS: محفوظ شدہ ریکارڈ دکھانا ============================== */
+function hifzRenderSaved(){hifzList.innerHTML='';const records=hifzData[currentReportKey]||[];records.forEach(record=>hifzCreateStudent(record,true));hifzRenumber()}
+function hifzRenumber(){[...hifzList.querySelectorAll('.hifz-student')].forEach((card,index)=>card.querySelector('[data-number]').textContent=String(index+1).padStart(2,'0'));hifzEmpty.hidden=hifzList.children.length>0;hifzEmpty.textContent=hifzList.children.length?'':'اس ماہ کے لیے ابھی کوئی طالب علم درج نہیں۔ نیچے بٹن سے نیا اندراج شروع کریں۔'}
+hifzAdd.addEventListener('click',()=>{if(!currentReportKey){alert('پہلے مہینہ اور سال منتخب کریں۔');return}hifzCreateStudent()});
+hifzToggle.addEventListener('click',()=>{const opened=hifzToggle.getAttribute('aria-expanded')==='true';hifzToggle.setAttribute('aria-expanded',String(!opened));hifzFields.hidden=opened});
+monthSelect.addEventListener('change',hifzUpdatePeriod);yearSelect.addEventListener('change',hifzUpdatePeriod);
+hifzData=hifzReadStorage();hifzUpdatePeriod();
 /* ============================== JAVASCRIPT END ============================== */
 </script>
- 
 </body>
 </html>
 <!-- ============================== HTML END ============================== -->
