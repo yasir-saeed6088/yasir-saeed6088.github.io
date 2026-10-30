@@ -263,6 +263,30 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   
 
 
+
+
+<!-- ============================== HTML: شعبۂ ناظرہ قرآن کریم START ============================== -->
+<section class="hifz-section" id="nazraSection">
+<div class="hifz-card"><h3 class="hifz-title">ناظرہ قرآن کریم</h3><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
+<button class="hifz-toggle" id="nazraToggle" type="button" aria-expanded="false" aria-controls="nazraReportFields"><span>طلبہ کی کارکردگی درج کریں</span><svg class="hifz-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="hifz-fields" id="nazraReportFields" hidden>
+<button class="hifz-add" id="nazraAddStudent" type="button">＋ طالب علم کا اندراج کریں</button>
+<div id="nazraStudentForm"></div>
+<div class="hifz-table-wrap" id="nazraTableWrap" hidden>
+<table class="hifz-table">
+<thead><tr><th>شمارہ</th><th>طالب علم کا نام</th><th>ولدیت</th><th>ہدفِ سبق (صفحات)</th><th>تکمیلِ سبق (صفحات)</th><th>سبق ٪</th><th>تعلیمی ایام</th><th>ایامِ حاضری</th><th>حاضری ٪</th><th>مجموعی ٪</th><th>عمل</th></tr></thead>
+<tbody id="nazraStudentList"></tbody>
+</table>
+</div>
+<p class="hifz-empty" id="nazraEmpty">ابھی کوئی طالب علم درج نہیں۔ اندراج شروع کرنے کے لیے اوپر بٹن دبائیں۔</p>
+</div>
+</section>
+<!-- ============================== HTML: شعبۂ ناظرہ قرآن کریم END ============================== -->
+
+
+
+  
+
   
 <!-- ============================== JAVASCRIPT START ============================== -->
 <script>
@@ -358,6 +382,106 @@ hifzData=hifzReadStorage();
 try{const p=JSON.parse(localStorage.getItem(hifzPeriodKey)||'null');if(p&&p.month&&p.year){monthSelect.value=p.month;yearSelect.value=p.year;currentReportKey=hifzMakeKey()}}catch(e){}
 hifzRenderSaved();
 /* ============================== JS: حفظ رپورٹ سیٹنگ END ============================== */
+
+
+
+
+
+/* ============================== JS: ناظرہ رپورٹ سیٹنگ START ============================== */
+const nazraToggle=document.getElementById('nazraToggle'),nazraFields=document.getElementById('nazraReportFields'),nazraAdd=document.getElementById('nazraAddStudent'),nazraList=document.getElementById('nazraStudentList'),nazraEmpty=document.getElementById('nazraEmpty'),nazraForm=document.getElementById('nazraStudentForm'),nazraTable=document.getElementById('nazraTableWrap');
+const nazraStorageKey='madrasaNazraMonthlyReportsV1';
+let nazraData={},nazraEditingId=null,nazraFormOpen=false;
+function nazraReadStorage(){try{return JSON.parse(localStorage.getItem(nazraStorageKey)||'{}')}catch(e){return {}}}
+function nazraWriteStorage(){try{localStorage.setItem(nazraStorageKey,JSON.stringify(nazraData))}catch(e){alert('ناظرہ کا ڈیٹا محفوظ نہیں ہو سکا۔ براؤزر کی اسٹوریج چیک کریں۔')}}
+function nazraRecords(){if(!currentReportKey)return [];if(!Array.isArray(nazraData[currentReportKey]))nazraData[currentReportKey]=[];return nazraData[currentReportKey]}
+function nazraPercent(done,target){if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;return Math.min(100,Math.round(Number(done)/Number(target)*100))}
+function nazraFormat(v){return v===null?'—':v+'%'}
+function nazraEscape(v){return hifzEscape(v)}
+function nazraUpdateControls(){nazraAdd.disabled=!currentReportKey||nazraFormOpen;nazraAdd.style.opacity=nazraAdd.disabled?'.55':'1';nazraAdd.style.cursor=nazraAdd.disabled?'not-allowed':'pointer'}
+function nazraRender(){
+const records=nazraRecords();nazraList.innerHTML='';
+records.forEach((s,i)=>{
+const lesson=nazraPercent(s.lessonDone,s.lessonTarget),attendance=nazraPercent(s.attendance,s.days),total=lesson;
+const tr=document.createElement('tr');
+tr.innerHTML=`<td>${String(i+1).padStart(2,'0')}</td><td class="hifz-table-name">${nazraEscape(s.name)}</td><td>${nazraEscape(s.father)}</td><td>${nazraEscape(s.lessonTarget)}</td><td>${nazraEscape(s.lessonDone)}</td><td><b>${nazraFormat(lesson)}</b><div class="hifz-mini-bar"><div class="hifz-mini-fill" style="width:${lesson||0}%"></div></div></td><td>${nazraEscape(s.days)}</td><td>${nazraEscape(s.attendance)}</td><td><b>${nazraFormat(attendance)}</b><div class="hifz-mini-bar"><div class="hifz-mini-fill revision" style="width:${attendance||0}%"></div></div></td><td><b>${nazraFormat(total)}</b><div class="hifz-mini-bar"><div class="hifz-mini-fill total" style="width:${total||0}%"></div></div></td><td><div class="hifz-table-actions"><button class="hifz-table-btn" data-nazra-edit="${nazraEscape(s.id)}" type="button">ترمیم</button><button class="hifz-table-btn delete" data-nazra-delete="${nazraEscape(s.id)}" type="button">حذف</button></div></td>`;
+nazraList.appendChild(tr);
+});
+nazraTable.hidden=records.length===0;
+nazraEmpty.hidden=records.length>0||nazraFormOpen;
+if(!records.length&&!nazraFormOpen)nazraEmpty.textContent=currentReportKey?'ابھی کوئی طالب علم درج نہیں۔ اندراج شروع کرنے کے لیے اوپر بٹن دبائیں۔':'پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔';
+nazraUpdateControls();
+}
+function nazraField(key,label,value='',type='number'){
+return `<div class="hifz-field"><label class="hifz-label" for="nz-${key}">${label}</label><input class="hifz-input" id="nz-${key}" data-nz-field="${key}" type="${type}" ${type==='number'?'min="0" step="1"':''} value="${nazraEscape(value)}" required></div>`;
+}
+function nazraFormMarkup(s={}){
+return `<div class="hifz-form"><h4 class="hifz-form-title">${nazraEditingId===null?'نیا طالب علم درج کریں':'طالب علم کی معلومات میں ترمیم کریں'}</h4>
+<div class="hifz-name-grid">${nazraField('name','طالب علم کا نام',s.name||'','text')}${nazraField('father','ولدیت',s.father||'','text')}</div>
+<div class="hifz-fields-grid">${nazraField('lessonTarget','ہدفِ سبق (صفحات)',s.lessonTarget??'')}${nazraField('lessonDone','تکمیلِ سبق (صفحات)',s.lessonDone??'')}</div>
+<div class="hifz-percent hifz-lesson"><div class="hifz-percent-head"><span>سبق ٪</span><b class="hifz-percent-number" data-nz-percent="lesson">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-nz-bar="lesson"></div></div></div>
+<div class="hifz-fields-grid">${nazraField('days','تعلیمی ایام',s.days??'')}${nazraField('attendance','ایامِ حاضری',s.attendance??'')}</div>
+<div class="hifz-percent hifz-revision"><div class="hifz-percent-head"><span>حاضری ٪</span><b class="hifz-percent-number" data-nz-percent="attendance">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-nz-bar="attendance"></div></div></div>
+<div class="hifz-total"><div class="hifz-total-head"><span class="hifz-total-label">مجموعی ٪</span><b class="hifz-total-number" data-nz-percent="total">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-nz-bar="total"></div></div><p class="hifz-total-note">مجموعی فیصد صرف سبق کی تکمیل پر مشتمل ہے۔ حاضری کا فیصد الگ شمار ہوگا اور مجموعی فیصد میں شامل نہیں ہوگا۔</p></div>
+<p class="hifz-message" data-nz-error hidden></p>
+<div class="hifz-actions"><button class="hifz-btn" data-nz-action="save" type="button">محفوظ کریں</button><button class="hifz-btn hifz-btn-edit" data-nz-action="cancel" type="button">منسوخ کریں</button></div></div>`;
+}
+function nazraUpdateFormPercents(){
+const card=nazraForm.querySelector('.hifz-form');if(!card)return;
+const d={};card.querySelectorAll('[data-nz-field]').forEach(x=>d[x.dataset.nzField]=x.value);
+const lesson=nazraPercent(d.lessonDone,d.lessonTarget),attendance=nazraPercent(d.attendance,d.days),total=lesson;
+[['lesson',lesson],['attendance',attendance],['total',total]].forEach(([k,v])=>{
+card.querySelector(`[data-nz-percent="${k}"]`).textContent=nazraFormat(v);
+card.querySelector(`[data-nz-bar="${k}"]`).style.width=(v||0)+'%';
+});
+}
+function nazraOpenForm(id=null){
+if(!currentReportKey){alert('پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔');return}
+if(nazraFormOpen){alert('پہلے موجودہ اندراج محفوظ کریں یا منسوخ کریں۔');return}
+nazraEditingId=id===null?null:String(id);
+const old=id===null?{}:nazraRecords().find(s=>String(s.id)===String(id));
+if(id!==null&&!old)return;
+nazraFormOpen=true;nazraForm.innerHTML=nazraFormMarkup(old||{});nazraEmpty.hidden=true;nazraUpdateControls();nazraUpdateFormPercents();
+nazraForm.querySelectorAll('[data-nz-field]').forEach(x=>x.addEventListener('input',nazraUpdateFormPercents));
+nazraForm.querySelector('[data-nz-action="cancel"]').addEventListener('click',nazraCancelForm);
+nazraForm.querySelector('[data-nz-action="save"]').addEventListener('click',nazraSaveForm);
+nazraForm.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function nazraCancelForm(){nazraFormOpen=false;nazraEditingId=null;nazraForm.innerHTML='';nazraRender()}
+function nazraSaveForm(){
+const card=nazraForm.querySelector('.hifz-form'),values={};
+card.querySelectorAll('[data-nz-field]').forEach(x=>values[x.dataset.nzField]=x.value.trim());
+const required=['name','father','lessonTarget','lessonDone','days','attendance'];let error='';
+if(required.some(k=>!values[k]))error='تمام خانے پُر کریں۔';
+else if(Number(values.lessonTarget)<=0||Number(values.days)<=0)error='ہدفِ سبق اور تعلیمی ایام صفر سے زیادہ ہونے چاہییں۔';
+else if(Number(values.lessonDone)>Number(values.lessonTarget))error='تکمیلِ سبق مقررہ ہدف سے زیادہ نہیں ہو سکتی۔';
+else if(Number(values.attendance)>Number(values.days))error='ایامِ حاضری، تعلیمی ایام سے زیادہ نہیں ہو سکتے۔';
+const msg=card.querySelector('[data-nz-error]');msg.textContent=error;msg.hidden=!error;if(error)return;
+const records=nazraRecords();
+if(nazraEditingId!==null){
+const index=records.findIndex(s=>String(s.id)===nazraEditingId);
+if(index<0){alert('یہ اندراج نہیں ملا۔');return}
+records[index]={...records[index],...values};
+}else{records.push({id:Date.now().toString(),...values})}
+nazraData[currentReportKey]=records;nazraWriteStorage();nazraFormOpen=false;nazraEditingId=null;nazraForm.innerHTML='';nazraRender();
+}
+nazraAdd.addEventListener('click',()=>nazraOpenForm());
+nazraList.addEventListener('click',e=>{
+const edit=e.target.closest('[data-nazra-edit]'),del=e.target.closest('[data-nazra-delete]');
+if(edit)nazraOpenForm(edit.dataset.nazraEdit);
+if(del&&confirm('کیا آپ یہ طالب علم کا اندراج حذف کرنا چاہتے ہیں؟')){
+nazraData[currentReportKey]=nazraRecords().filter(s=>String(s.id)!==String(del.dataset.nazraDelete));
+nazraWriteStorage();nazraRender();
+}
+});
+nazraToggle.addEventListener('click',()=>{
+const opened=nazraToggle.getAttribute('aria-expanded')==='true';
+nazraToggle.setAttribute('aria-expanded',String(!opened));nazraFields.hidden=opened;
+});
+nazraData=nazraReadStorage();
+nazraRender();
+/* ============================== JS: ناظرہ رپورٹ سیٹنگ END ============================== */
+
+
 
   
   
