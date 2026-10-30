@@ -376,7 +376,7 @@ const key=hifzMakeKey();if(!key){alert('براہِ کرم ماہ اور سال �
 if(formOpen&&!confirm('موجودہ فارم منسوخ کرکے نئی مدت کھولیں؟'))return;
 if(formOpen){formOpen=false;editingId=null;hifzForm.innerHTML=''}
 currentReportKey=key;try{localStorage.setItem(hifzPeriodKey,JSON.stringify({month:monthSelect.value,year:yearSelect.value}))}catch(e){}
-hifzRenderSaved();alert('ماہ اور سال محفوظ ہوگئے۔');
+hifzRenderSaved();nazraRender();alert('ماہ اور سال محفوظ ہوگئے۔');
 });
 hifzData=hifzReadStorage();
 try{const p=JSON.parse(localStorage.getItem(hifzPeriodKey)||'null');if(p&&p.month&&p.year){monthSelect.value=p.month;yearSelect.value=p.year;currentReportKey=hifzMakeKey()}}catch(e){}
