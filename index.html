@@ -330,8 +330,8 @@ function hifzReadStorage(){try{return JSON.parse(localStorage.getItem(hifzStorag
 function hifzWriteStorage(){try{localStorage.setItem(hifzStorageKey,JSON.stringify(hifzData))}catch(e){alert('ڈیٹا محفوظ نہیں ہو سکا۔ براہِ کرم براؤزر کی اسٹوریج چیک کریں۔')}}
 function hifzMakeKey(){return monthSelect.value&&yearSelect.value?yearSelect.value+'-'+String(monthSelect.value).padStart(2,'0'):''}
 function hifzEscape(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function hifzPercent(done,target){if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;return Math.min(100,Math.round(Number(done)/Number(target)*100))}
-function hifzFormat(v){return v===null?'—':v+'%'}
+function hifzPercent(done,target){if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;return Math.min(100,Number((Number(done)/Number(target)*100).toFixed(2)));}
+function hifzFormat(v){return v===null?'—':Number(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:2})+'%';}
 function hifzRecords(){if(!currentReportKey)return [];if(!Array.isArray(hifzData[currentReportKey]))hifzData[currentReportKey]=[];return hifzData[currentReportKey]}
 function hifzUpdateControls(){hifzAdd.disabled=!currentReportKey||formOpen;hifzAdd.style.opacity=hifzAdd.disabled?'.55':'1';hifzAdd.style.cursor=hifzAdd.disabled?'not-allowed':'pointer'}
 function hifzSetNotice(text){hifzEmpty.textContent=text}
@@ -412,8 +412,8 @@ let nazraData={},nazraEditingId=null,nazraFormOpen=false;
 function nazraReadStorage(){try{return JSON.parse(localStorage.getItem(nazraStorageKey)||'{}')}catch(e){return {}}}
 function nazraWriteStorage(){try{localStorage.setItem(nazraStorageKey,JSON.stringify(nazraData))}catch(e){alert('ناظرہ کا ڈیٹا محفوظ نہیں ہو سکا۔ براؤزر کی اسٹوریج چیک کریں۔')}}
 function nazraRecords(){if(!currentReportKey)return [];if(!Array.isArray(nazraData[currentReportKey]))nazraData[currentReportKey]=[];return nazraData[currentReportKey]}
-function nazraPercent(done,target){if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;return Math.min(100,Math.round(Number(done)/Number(target)*100))}
-function nazraFormat(v){return v===null?'—':v+'%'}
+function nazraPercent(done,target){if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;return Math.min(100,Number((Number(done)/Number(target)*100).toFixed(2)));}
+function nazraFormat(v){return v===null?'—':Number(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:2})+'%';}
 function nazraEscape(v){return hifzEscape(v)}
 function nazraUpdateControls(){nazraAdd.disabled=!currentReportKey||nazraFormOpen;nazraAdd.style.opacity=nazraAdd.disabled?'.55':'1';nazraAdd.style.cursor=nazraAdd.disabled?'not-allowed':'pointer'}
 function nazraRender(){
@@ -507,23 +507,11 @@ const qaidaToggle=document.getElementById('qaidaToggle'),qaidaFields=document.ge
 const qaidaStorageKey='madrasaQaidaMonthlyReportsV1';
 let qaidaData={},qaidaEditingId=null,qaidaFormOpen=false;
 
-function qaidaReadStorage(){
-try{return JSON.parse(localStorage.getItem(qaidaStorageKey)||'{}')}catch(e){return {}}
-}
-function qaidaWriteStorage(){
-try{localStorage.setItem(qaidaStorageKey,JSON.stringify(qaidaData))}
-catch(e){alert('قاعدہ کا ڈیٹا محفوظ نہیں ہو سکا۔ براؤزر کی اسٹوریج چیک کریں۔')}
-}
-function qaidaRecords(){
-if(!currentReportKey)return [];
-if(!Array.isArray(qaidaData[currentReportKey]))qaidaData[currentReportKey]=[];
-return qaidaData[currentReportKey];
-}
-function qaidaPercent(done,target){
-if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;
-return Math.min(100,Math.round(Number(done)/Number(target)*100));
-}
-function qaidaFormat(v){return v===null?'—':v+'%'}
+function qaidaReadStorage(){try{return JSON.parse(localStorage.getItem(qaidaStorageKey)||'{}')}catch(e){return {}}}
+function qaidaWriteStorage(){try{localStorage.setItem(qaidaStorageKey,JSON.stringify(qaidaData))}catch(e){alert('قاعدہ کا ڈیٹا محفوظ نہیں ہو سکا۔ براؤزر کی اسٹوریج چیک کریں۔')}}
+function qaidaRecords(){if(!currentReportKey)return [];if(!Array.isArray(qaidaData[currentReportKey]))qaidaData[currentReportKey]=[];return qaidaData[currentReportKey];}
+function qaidaPercent(done,target){if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;return Math.min(100,Number((Number(done)/Number(target)*100).toFixed(2)));}
+function qaidaFormat(v){return v===null?'—':Number(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:2})+'%';}
 function qaidaEscape(v){return hifzEscape(v)}
 function qaidaUpdateControls(){
 qaidaAdd.disabled=!currentReportKey||qaidaFormOpen;
