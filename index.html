@@ -6,38 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مدرسہ دار القرآن والسنہ بیجاپور</title>
 
+
+
 <!-- ============================== CSS START ============================== -->
 <style>
-/* ============================== CSS: فونٹس ============================== */
+/* ============================== 1. فونٹس ============================== */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Amiri:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
 
-/* ============================== CSS: بنیادی سیٹنگ ============================== */
+/* ============================== 2. بنیادی سیٹنگ ============================== */
 *{box-sizing:border-box}
 body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 
-/* ============================== CSS: ہیڈر باکس ============================== */
+/* ============================== 3. ہیڈر اور عنوانات ============================== */
 .madrasa-header{width:100%;margin:0 auto;background:linear-gradient(135deg,#e8f5ee,#fffdf5);text-align:center;padding:10px 12px 8px;border-bottom:3px solid #23734d;border-radius:0 0 18px 18px;box-shadow:0 4px 10px #173f2b20;color:#174c36}
-
-/* ============================== CSS: مدرسے کا نام ============================== */
 .madrasa-name{margin:-5px 0 2px;font-family:'Noto Nastaliq Urdu','Amiri',serif;font-size:clamp(23px,5vw,38px);font-weight:700;line-height:1.6}
-
-/* ============================== CSS: رپورٹ کا عنوان ============================== */
 .report-title{margin:6px 0 3px;font-family:'Noto Nastaliq Urdu','Amiri',serif;font-size:clamp(15px,3vw,23px);font-weight:700;color:#9a6b16;line-height:1.6}
-
-/* ============================== CSS: انگریزی تفصیلات ============================== */
 .madrasa-details{margin:4px 0;font-family:'Roboto',Arial,sans-serif;font-size:clamp(10px,2vw,13px);font-weight:500;line-height:1.7;direction:ltr;color:#43564b}
 
-/* ============================== CSS: پرنٹ سیٹنگ ============================== */
-@media print{
-@page{size:A4 portrait;margin:10mm}
-body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.madrasa-header{box-shadow:0 4px 10px #173f2b20;border-radius:0 0 18px 18px}
-}
-
-
-
-
-/* ============================== CSS: ماہ اور سال سلیکٹر START ============================== */
+/* ============================== 4. ماہ اور سال سلیکٹر ============================== */
 .report-period{width:calc(100% - 32px);max-width:1380px;margin:18px auto;padding:24px 28px 26px;background:#fff;border:1px solid #dce2ec;border-radius:28px;box-shadow:0 3px 12px #243b6408;color:#243b64;font-family:'Noto Nastaliq Urdu',serif}
 .period-heading-row{display:flex;align-items:center;gap:18px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid #e7e9ee}
 .period-icon{width:66px;height:66px;flex:0 0 66px;display:flex;align-items:center;justify-content:center;background:#243f70;border-radius:16px;color:#fff}
@@ -50,6 +36,107 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .period-label{font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(15px,1.7vw,21px);font-weight:600;color:#46536a;white-space:nowrap;line-height:1.9}
 .period-select{box-sizing:border-box;width:100%;min-width:0;height:76px;padding:10px 16px;border:1px solid #dce1eb;border-radius:19px;background:#f8f9fe;color:#243b64;font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(17px,2vw,24px);font-weight:600;line-height:1.8;outline:none;cursor:pointer}
 .period-select:focus{border-color:#4569a8;box-shadow:0 0 0 3px #4569a81a}
+
+/* ============================== 5. تینوں شعبوں کا مشترکہ ڈیزائن ============================== */
+.hifz-section{width:calc(100% - 32px);max-width:1380px;margin:18px auto;color:#203b32;font-family:'Noto Nastaliq Urdu',serif}
+.hifz-card{padding:20px 24px 16px;background:linear-gradient(120deg,#e8f5ee,#fffdf7);border:1px solid #d5e7dc;border-right:5px solid #23734d;border-radius:16px;box-shadow:0 4px 14px #173f2b0c}
+.hifz-title{margin:0;font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.9;color:#174c36}
+.hifz-subtitle{margin:0;font-size:clamp(13px,1.6vw,18px);font-weight:600;line-height:1.9;color:#758477}
+.hifz-toggle,.hifz-add{width:100%;min-height:52px;margin-top:10px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#23734d;border:1px solid #1c6040;border-radius:12px;color:#fff;font-family:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:.2s}
+.hifz-add{justify-content:center;background:#fff;color:#23734d;border:1px solid #b9d8c5}
+.hifz-toggle:hover{background:#195b3b}
+.hifz-add:hover{background:#edf7f0}
+.hifz-chevron{width:22px;height:22px;flex:0 0 22px;transition:transform .25s}
+.hifz-toggle[aria-expanded="true"] .hifz-chevron{transform:rotate(180deg)}
+.hifz-fields{margin-top:12px;padding:16px;background:#fff;border:1px solid #dce7e0;border-radius:14px}
+.hifz-fields[hidden]{display:none}
+
+/* ============================== 6. طلبہ کی ٹیبل ============================== */
+.hifz-table-wrap{width:100%;margin-top:14px;overflow-x:auto;border:1px solid #dce7e0;border-radius:12px;background:#fff;-webkit-overflow-scrolling:touch}
+.hifz-table{width:100%;min-width:1150px;border-collapse:separate;border-spacing:0;font-size:13px;text-align:center;table-layout:auto}
+.hifz-table th,.hifz-table td{padding:10px 8px;border-left:1px solid #e0e7e2;border-bottom:1px solid #e0e7e2;white-space:nowrap;vertical-align:middle}
+.hifz-table th{background:#e1eee6;color:#174c36;font-weight:700}
+.hifz-table thead th{background:#e1eee6}
+.hifz-table tbody tr:nth-child(odd) td:nth-child(odd){background:#e8f3ec}
+.hifz-table tbody tr:nth-child(odd) td:nth-child(even){background:#edf2f6}
+.hifz-table tbody tr:nth-child(even) td:nth-child(odd){background:#e2ece6}
+.hifz-table tbody tr:nth-child(even) td:nth-child(even){background:#f2f4f7}
+.hifz-table tbody tr:hover td{filter:brightness(.98)}
+.hifz-table .hifz-table-name{text-align:right;min-width:125px}
+.hifz-table .hifz-table-number{font-family:Roboto,Arial,sans-serif;direction:ltr}
+.hifz-mini-bar{height:7px;min-width:55px;margin-top:4px;background:#dce6df;border-radius:99px;overflow:hidden}
+.hifz-mini-fill{height:100%;border-radius:99px;background:#3478db}
+.hifz-mini-fill.revision{background:#e69a36}
+.hifz-mini-fill.total{background:#23734d}
+.hifz-table-actions{display:flex;gap:5px;justify-content:center}
+.hifz-table-btn{padding:5px 9px;border:1px solid #b9d8c5;border-radius:7px;background:#fff;color:#23734d;font:600 12px 'Noto Nastaliq Urdu',serif;cursor:pointer}
+.hifz-table-btn.delete{color:#b42332;border-color:#efc7cb}
+
+/* ============================== 7. فارم اور ان پٹ ============================== */
+.hifz-form{margin-top:14px;padding:16px;background:#fff;border:1px solid #dce7e0;border-radius:14px}
+.hifz-form-title{margin:0 0 10px;color:#174c36;font-size:18px}
+.hifz-fields-grid,.hifz-name-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.hifz-field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.hifz-label{font-size:14px;font-weight:600;color:#46564c;line-height:1.9}
+.hifz-input{width:100%;min-width:0;height:48px;padding:8px 11px;border:1px solid #dce5df;border-radius:10px;background:#f9fbfa;color:#203b32;font:16px 'Noto Nastaliq Urdu',serif;outline:none}
+.hifz-input:focus{border-color:#398760;box-shadow:0 0 0 3px #39876018}
+.hifz-input:disabled{background:#f0f4f1;color:#66766b}
+
+/* ============================== 8. فیصد اور پروگریس بار ============================== */
+.hifz-percent{margin-top:12px;padding:12px 14px;border:1px solid;border-radius:12px}
+.hifz-percent-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700}
+.hifz-percent-number{font-family:Roboto,Arial,sans-serif;font-size:24px;font-weight:700;direction:ltr}
+.hifz-bar{height:9px;margin-top:9px;border-radius:99px;overflow:hidden}
+.hifz-bar-fill{height:100%;width:0;border-radius:99px;transition:width .25s}
+.hifz-lesson{background:#f0f6ff;border-color:#d6e7ff;color:#245db0}
+.hifz-lesson .hifz-bar{background:#d8e7fb}
+.hifz-lesson .hifz-bar-fill{background:#3478db}
+.hifz-revision{background:#fff5e9;border-color:#f4dfc3;color:#a75b13}
+.hifz-revision .hifz-bar{background:#f5dfc3}
+.hifz-revision .hifz-bar-fill{background:#e69a36}
+.hifz-total{margin-top:14px;padding:16px;background:#123d32;border-radius:14px;color:#fff}
+.hifz-total-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hifz-total-label{font-size:18px;font-weight:700}
+.hifz-total-number{font:700 30px Roboto,Arial,sans-serif;direction:ltr}
+.hifz-total .hifz-bar{height:12px;background:#42685a}
+.hifz-total .hifz-bar-fill{background:#54d6a0}
+.hifz-total-note{margin:9px 0 0;font-size:12px;line-height:1.9;color:#ddece3}
+
+/* ============================== 9. بٹن اور پیغامات ============================== */
+.hifz-actions{display:flex;gap:9px;margin-top:14px}
+.hifz-btn{flex:1;min-height:44px;padding:8px 12px;border:1px solid #23734d;border-radius:10px;background:#23734d;color:#fff;font:600 14px 'Noto Nastaliq Urdu',serif;cursor:pointer}
+.hifz-btn:hover{filter:brightness(.94)}
+.hifz-btn-edit{background:#fff;color:#23734d}
+.hifz-btn-delete{background:#fff;color:#b42332;border-color:#efc7cb}
+.hifz-message{margin:10px 0 0;color:#b42332;font-size:13px;line-height:1.9}
+.hifz-empty{text-align:center;padding:24px 12px;color:#758477;border:1px dashed #d5e1d9;border-radius:12px;margin-top:12px}
+.hifz-period-save{width:100%;min-height:48px;margin-top:14px;padding:9px 14px;border:1px solid #1c6040;border-radius:12px;background:#23734d;color:#fff;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.hifz-period-save:hover{background:#195b3b}
+
+/* ============================== 10. شعبہ حفظ: ٹیبل کی چوڑائی ============================== */
+#hifzSection .hifz-table{min-width:1350px}
+#hifzSection .hifz-table th:nth-child(1),#hifzSection .hifz-table td:nth-child(1){min-width:55px}
+#hifzSection .hifz-table th:nth-child(2),#hifzSection .hifz-table td:nth-child(2){min-width:145px}
+#hifzSection .hifz-table th:nth-child(3),#hifzSection .hifz-table td:nth-child(3){min-width:115px}
+#hifzSection .hifz-table th:nth-child(4),#hifzSection .hifz-table td:nth-child(4),#hifzSection .hifz-table th:nth-child(5),#hifzSection .hifz-table td:nth-child(5),#hifzSection .hifz-table th:nth-child(7),#hifzSection .hifz-table td:nth-child(7),#hifzSection .hifz-table th:nth-child(8),#hifzSection .hifz-table td:nth-child(8){min-width:125px}
+#hifzSection .hifz-table th:nth-child(6),#hifzSection .hifz-table td:nth-child(6),#hifzSection .hifz-table th:nth-child(9),#hifzSection .hifz-table td:nth-child(9),#hifzSection .hifz-table th:nth-child(12),#hifzSection .hifz-table td:nth-child(12){min-width:85px}
+#hifzSection .hifz-table th:nth-child(10),#hifzSection .hifz-table td:nth-child(10),#hifzSection .hifz-table th:nth-child(11),#hifzSection .hifz-table td:nth-child(11){min-width:95px}
+#hifzSection .hifz-table th:nth-child(13),#hifzSection .hifz-table td:nth-child(13){min-width:100px}
+
+/* ============================== 11. شعبہ ناظرہ: موجودہ چوڑائی برقرار ============================== */
+/* ناظرہ کے لیے کوئی اضافی چوڑائی مقرر نہیں کی گئی؛ مشترکہ ٹیبل CSS ہی لاگو رہے گی۔ */
+
+/* ============================== 12. شعبہ قاعدہ: ٹیبل کی چوڑائی ============================== */
+#qaidaSection .hifz-table{min-width:1150px}
+#qaidaSection .hifz-table th:nth-child(1),#qaidaSection .hifz-table td:nth-child(1){min-width:55px}
+#qaidaSection .hifz-table th:nth-child(2),#qaidaSection .hifz-table td:nth-child(2){min-width:145px}
+#qaidaSection .hifz-table th:nth-child(3),#qaidaSection .hifz-table td:nth-child(3){min-width:115px}
+#qaidaSection .hifz-table th:nth-child(4),#qaidaSection .hifz-table td:nth-child(4),#qaidaSection .hifz-table th:nth-child(5),#qaidaSection .hifz-table td:nth-child(5){min-width:125px}
+#qaidaSection .hifz-table th:nth-child(6),#qaidaSection .hifz-table td:nth-child(6),#qaidaSection .hifz-table th:nth-child(9),#qaidaSection .hifz-table td:nth-child(9),#qaidaSection .hifz-table th:nth-child(10),#qaidaSection .hifz-table td:nth-child(10){min-width:85px}
+#qaidaSection .hifz-table th:nth-child(7),#qaidaSection .hifz-table td:nth-child(7),#qaidaSection .hifz-table th:nth-child(8),#qaidaSection .hifz-table td:nth-child(8){min-width:95px}
+#qaidaSection .hifz-table th:nth-child(11),#qaidaSection .hifz-table td:nth-child(11){min-width:100px}
+
+/* ============================== 13. موبائل ریسپانسیو ڈیزائن ============================== */
 @media(max-width:600px){
 .report-period{width:calc(100% - 24px);margin:14px auto;padding:18px 14px 20px;border-radius:22px}
 .period-heading-row{gap:12px;margin-bottom:18px;padding-bottom:15px}
@@ -62,88 +149,6 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .period-item{gap:6px}
 .period-label{font-size:clamp(13px,3.5vw,16px)}
 .period-select{height:64px;padding:8px 7px;border-radius:15px;font-size:clamp(14px,3.7vw,18px)}
-}
-@media(max-width:360px){
-.report-period{padding:15px 10px}
-.period-heading-row{gap:9px}
-.period-icon{width:45px;height:45px;flex-basis:45px}
-.period-icon svg{width:25px;height:25px}
-.period-title-urdu{font-size:19px}
-.period-heading{font-size:9px}
-.period-fields{gap:9px}
-.period-item{gap:5px}
-.period-label{font-size:12px}
-.period-select{height:58px;font-size:13px;padding:7px 4px}
-}
-/* ============================== CSS: ماہ اور سال سلیکٹر END ============================== */
-
-
-
-
-/* ============================== CSS: شعبۂ حفظ القرآن الکریم START ============================== */
-.hifz-section{width:calc(100% - 32px);max-width:1380px;margin:18px auto;color:#203b32;font-family:'Noto Nastaliq Urdu',serif}
-.hifz-card{padding:20px 24px 16px;background:linear-gradient(120deg,#e8f5ee,#fffdf7);border:1px solid #d5e7dc;border-right:5px solid #23734d;border-radius:16px;box-shadow:0 4px 14px #173f2b0c}
-.hifz-title{margin:0;font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.9;color:#174c36}
-.hifz-subtitle{margin:0;font-size:clamp(13px,1.6vw,18px);font-weight:600;line-height:1.9;color:#758477}
-.hifz-toggle,.hifz-add{width:100%;min-height:52px;margin-top:10px;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#23734d;border:1px solid #1c6040;border-radius:12px;color:#fff;font-family:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:.2s}
-.hifz-add{justify-content:center;background:#fff;color:#23734d;border:1px solid #b9d8c5}
-.hifz-toggle:hover{background:#195b3b}.hifz-add:hover{background:#edf7f0}
-.hifz-chevron{width:22px;height:22px;flex:0 0 22px;transition:transform .25s}
-.hifz-toggle[aria-expanded="true"] .hifz-chevron{transform:rotate(180deg)}
-.hifz-fields{margin-top:12px;padding:16px;background:#fff;border:1px solid #dce7e0;border-radius:14px}
-.hifz-fields[hidden]{display:none}
-.hifz-table-wrap{width:100%;margin-top:14px;overflow-x:auto;border:1px solid #dce7e0;border-radius:12px;background:#fff;-webkit-overflow-scrolling:touch}
-.hifz-table{width:100%;min-width:1150px;border-collapse:separate;border-spacing:0;font-size:13px;text-align:center}
-.hifz-table th,.hifz-table td{padding:10px 8px;border-left:1px solid #e0e7e2;border-bottom:1px solid #e0e7e2;white-space:nowrap;vertical-align:middle}
-.hifz-table th{background:#e1eee6;color:#174c36;font-weight:700}
-.hifz-table th:nth-child(odd),.hifz-table td:nth-child(odd){background-color:#edf5ef}
-.hifz-table th:nth-child(even),.hifz-table td:nth-child(even){background-color:#f5f6f8}
-.hifz-table thead th{background:#e1eee6}
-.hifz-table tbody tr:nth-child(odd) td{background-color:#e8f3ec}
-.hifz-table tbody tr:nth-child(even) td{background-color:#f2f4f7}
-.hifz-table tbody tr:hover td{filter:brightness(.98)}
-.hifz-table .hifz-table-name{text-align:right;min-width:125px}
-.hifz-table .hifz-table-number{font-family:Roboto,Arial,sans-serif;direction:ltr}
-.hifz-mini-bar{height:7px;min-width:55px;margin-top:4px;background:#dce6df;border-radius:99px;overflow:hidden}
-.hifz-mini-fill{height:100%;border-radius:99px;background:#3478db}
-.hifz-mini-fill.revision{background:#e69a36}
-.hifz-mini-fill.total{background:#23734d}
-.hifz-table-actions{display:flex;gap:5px;justify-content:center}
-.hifz-table-btn{padding:5px 9px;border:1px solid #b9d8c5;border-radius:7px;background:#fff;color:#23734d;font:600 12px 'Noto Nastaliq Urdu',serif;cursor:pointer}
-.hifz-table-btn.delete{color:#b42332;border-color:#efc7cb}
-.hifz-form{margin-top:14px;padding:16px;background:#fff;border:1px solid #dce7e0;border-radius:14px}
-.hifz-form-title{margin:0 0 10px;color:#174c36;font-size:18px}
-.hifz-fields-grid,.hifz-name-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.hifz-field{display:flex;flex-direction:column;gap:5px;min-width:0}
-.hifz-label{font-size:14px;font-weight:600;color:#46564c;line-height:1.9}
-.hifz-input{width:100%;min-width:0;height:48px;padding:8px 11px;border:1px solid #dce5df;border-radius:10px;background:#f9fbfa;color:#203b32;font:16px 'Noto Nastaliq Urdu',serif;outline:none}
-.hifz-input:focus{border-color:#398760;box-shadow:0 0 0 3px #39876018}
-.hifz-input:disabled{background:#f0f4f1;color:#66766b}
-.hifz-percent{margin-top:12px;padding:12px 14px;border:1px solid;border-radius:12px}
-.hifz-percent-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700}
-.hifz-percent-number{font-family:Roboto,Arial,sans-serif;font-size:24px;font-weight:700;direction:ltr}
-.hifz-bar{height:9px;margin-top:9px;border-radius:99px;overflow:hidden}
-.hifz-bar-fill{height:100%;width:0;border-radius:99px;transition:width .25s}
-.hifz-lesson{background:#f0f6ff;border-color:#d6e7ff;color:#245db0}
-.hifz-lesson .hifz-bar{background:#d8e7fb}.hifz-lesson .hifz-bar-fill{background:#3478db}
-.hifz-revision{background:#fff5e9;border-color:#f4dfc3;color:#a75b13}
-.hifz-revision .hifz-bar{background:#f5dfc3}.hifz-revision .hifz-bar-fill{background:#e69a36}
-.hifz-total{margin-top:14px;padding:16px;background:#123d32;border-radius:14px;color:#fff}
-.hifz-total-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.hifz-total-label{font-size:18px;font-weight:700}
-.hifz-total-number{font:700 30px Roboto,Arial,sans-serif;direction:ltr}
-.hifz-total .hifz-bar{height:12px;background:#42685a}.hifz-total .hifz-bar-fill{background:#54d6a0}
-.hifz-total-note{margin:9px 0 0;font-size:12px;line-height:1.9;color:#ddece3}
-.hifz-actions{display:flex;gap:9px;margin-top:14px}
-.hifz-btn{flex:1;min-height:44px;padding:8px 12px;border:1px solid #23734d;border-radius:10px;background:#23734d;color:#fff;font:600 14px 'Noto Nastaliq Urdu',serif;cursor:pointer}
-.hifz-btn:hover{filter:brightness(.94)}
-.hifz-btn-edit{background:#fff;color:#23734d}
-.hifz-btn-delete{background:#fff;color:#b42332;border-color:#efc7cb}
-.hifz-message{margin:10px 0 0;color:#b42332;font-size:13px;line-height:1.9}
-.hifz-empty{text-align:center;padding:24px 12px;color:#758477;border:1px dashed #d5e1d9;border-radius:12px;margin-top:12px}
-.hifz-period-save{width:100%;min-height:48px;margin-top:14px;padding:9px 14px;border:1px solid #1c6040;border-radius:12px;background:#23734d;color:#fff;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer}
-.hifz-period-save:hover{background:#195b3b}
-@media(max-width:600px){
 .hifz-section{width:calc(100% - 24px);margin:14px auto}
 .hifz-card{padding:15px 16px 12px;border-radius:13px}
 .hifz-toggle,.hifz-add{font-size:14px;min-height:48px}
@@ -161,27 +166,38 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-form{padding:11px}
 }
 @media(max-width:360px){
+.report-period{padding:15px 10px}
+.period-heading-row{gap:9px}
+.period-icon{width:45px;height:45px;flex-basis:45px}
+.period-icon svg{width:25px;height:25px}
+.period-title-urdu{font-size:19px}
+.period-heading{font-size:9px}
+.period-fields{gap:9px}
+.period-item{gap:5px}
+.period-label{font-size:12px}
+.period-select{height:58px;font-size:13px;padding:7px 4px}
 .hifz-table{min-width:1050px}
 .hifz-table th,.hifz-table td{padding:7px 5px}
 }
+
+/* ============================== 14. پرنٹ اور A4 سیٹنگ ============================== */
 @media print{
+@page{size:A4 portrait;margin:10mm}
+body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.madrasa-header{box-shadow:0 4px 10px #173f2b20;border-radius:0 0 18px 18px}
 .hifz-toggle,.hifz-add,.hifz-actions,.hifz-period-save{display:none!important}
 .hifz-fields[hidden]{display:block!important}
 .hifz-table-wrap{overflow:visible}
-.hifz-table{min-width:0;font-size:8px}
-.hifz-table th,.hifz-table td{padding:4px 3px;white-space:normal}
+.hifz-table{min-width:0!important;width:100%;font-size:8px;table-layout:fixed}
+.hifz-table th,.hifz-table td{padding:4px 3px;white-space:normal;overflow-wrap:anywhere}
+#hifzSection .hifz-table th,#hifzSection .hifz-table td,#qaidaSection .hifz-table th,#qaidaSection .hifz-table td{min-width:0}
 .hifz-form{break-inside:avoid}
 .hifz-input{background:#fff;border-color:#ddd}
 }
-/* طلبہ کی ٹیبل کے رنگ */
-.hifz-table tbody tr:nth-child(odd) td:nth-child(odd){background:#e8f3ec}
-.hifz-table tbody tr:nth-child(odd) td:nth-child(even){background:#edf2f6}
-.hifz-table tbody tr:nth-child(even) td:nth-child(odd){background:#e2ece6}
-.hifz-table tbody tr:nth-child(even) td:nth-child(even){background:#f2f4f7}
-/* ============================== CSS: شعبۂ حفظ القرآن الکریم END ============================== */
-  
 </style>
 <!-- ============================== CSS END ============================== -->
+  
+  
 </head>
 
 <body>
@@ -294,7 +310,7 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 <div id="qaidaStudentForm"></div>
 <div class="hifz-table-wrap" id="qaidaTableWrap" hidden>
 <table class="hifz-table">
-<thead><tr><th>شمارہ</th><th>طالب علم کا نام</th><th>ولدیت</th><th>(صفحات) ہدفِ سبق</th><th>(صفحات) تکمیلِ سبق</th><th>سبق ٪</th><th>تعلیمی ایام</th><th>ایامِ حاضری</th><th>حاضری ٪</th><th>مجموعی ٪</th><th>عمل</th></tr></thead>
+<thead><tr><th>شمارہ</th><th>طالب علم کا نام</th><th>ولدیت</th><th>ہدفِ سبق (صفحات)</th><th>تکمیلِ سبق (صفحات)</th><th>سبق ٪</th><th>تعلیمی ایام</th><th>ایامِ حاضری</th><th>حاضری ٪</th><th>مجموعی ٪</th><th>عمل</th></tr></thead>
 <tbody id="qaidaStudentList"></tbody>
 </table>
 </div>
@@ -428,7 +444,7 @@ if(!records.length&&!qaidaFormOpen)qaidaEmpty.textContent=currentReportKey?'اب
 qaidaUpdateControls();
 }
 function qaidaField(key,label,value='',type='number'){return `<div class="hifz-field"><label class="hifz-label" for="qd-${key}">${label}</label><input class="hifz-input" id="qd-${key}" data-qd-field="${key}" type="${type}" ${type==='number'?'min="0" step="1"':''} value="${qaidaEscape(value)}" required></div>`}
-function qaidaFormMarkup(s={}){return `<div class="hifz-form"><h4 class="hifz-form-title">${qaidaEditingId===null?'نیا طالب علم درج کریں':'طالب علم کی معلومات میں ترمیم کریں'}</h4><div class="hifz-name-grid">${qaidaField('name','طالب علم کا نام',s.name||'','text')}${qaidaField('father','ولدیت',s.father||'','text')}</div><div class="hifz-fields-grid">${qaidaField('lessonTarget','(صفحات) ہدفِ سبق',s.lessonTarget??'')}${qaidaField('lessonDone','(صفحات) تکمیلِ سبق',s.lessonDone??'')}</div><div class="hifz-percent hifz-lesson"><div class="hifz-percent-head"><span>سبق ٪</span><b class="hifz-percent-number" data-qd-percent="lesson">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="lesson"></div></div></div><div class="hifz-fields-grid">${qaidaField('days','تعلیمی ایام',s.days??'')}${qaidaField('attendance','ایامِ حاضری',s.attendance??'')}</div><div class="hifz-percent hifz-revision"><div class="hifz-percent-head"><span>حاضری ٪</span><b class="hifz-percent-number" data-qd-percent="attendance">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="attendance"></div></div></div><div class="hifz-total"><div class="hifz-total-head"><span class="hifz-total-label">مجموعی ٪</span><b class="hifz-total-number" data-qd-percent="total">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="total"></div></div><p class="hifz-total-note">مجموعی فیصد صرف سبق کی تکمیل پر مشتمل ہے۔ حاضری کا فیصد الگ شمار ہوگا اور مجموعی فیصد میں شامل نہیں ہوگا۔</p></div><p class="hifz-message" data-qd-error hidden></p><div class="hifz-actions"><button class="hifz-btn" data-qd-action="save" type="button">محفوظ کریں</button><button class="hifz-btn hifz-btn-edit" data-qd-action="cancel" type="button">منسوخ کریں</button></div></div>`}
+function qaidaFormMarkup(s={}){return `<div class="hifz-form"><h4 class="hifz-form-title">${qaidaEditingId===null?'نیا طالب علم درج کریں':'طالب علم کی معلومات میں ترمیم کریں'}</h4><div class="hifz-name-grid">${qaidaField('name','طالب علم کا نام',s.name||'','text')}${qaidaField('father','ولدیت',s.father||'','text')}</div><div class="hifz-fields-grid">${qaidaField('lessonTarget','ہدفِ سبق (صفحات)',s.lessonTarget??'')}${qaidaField('lessonDone','تکمیلِ سبق (صفحات)',s.lessonDone??'')}</div><div class="hifz-percent hifz-lesson"><div class="hifz-percent-head"><span>سبق ٪</span><b class="hifz-percent-number" data-qd-percent="lesson">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="lesson"></div></div></div><div class="hifz-fields-grid">${qaidaField('days','تعلیمی ایام',s.days??'')}${qaidaField('attendance','ایامِ حاضری',s.attendance??'')}</div><div class="hifz-percent hifz-revision"><div class="hifz-percent-head"><span>حاضری ٪</span><b class="hifz-percent-number" data-qd-percent="attendance">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="attendance"></div></div></div><div class="hifz-total"><div class="hifz-total-head"><span class="hifz-total-label">مجموعی ٪</span><b class="hifz-total-number" data-qd-percent="total">—</b></div><div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="total"></div></div><p class="hifz-total-note">مجموعی فیصد صرف سبق کی تکمیل پر مشتمل ہے۔ حاضری کا فیصد الگ شمار ہوگا اور مجموعی فیصد میں شامل نہیں ہوگا۔</p></div><p class="hifz-message" data-qd-error hidden></p><div class="hifz-actions"><button class="hifz-btn" data-qd-action="save" type="button">محفوظ کریں</button><button class="hifz-btn hifz-btn-edit" data-qd-action="cancel" type="button">منسوخ کریں</button></div></div>`}
 function qaidaUpdateFormPercents(){const card=qaidaForm.querySelector('.hifz-form');if(!card)return;const d={};card.querySelectorAll('[data-qd-field]').forEach(x=>d[x.dataset.qdField]=x.value);const lesson=qaidaPercent(d.lessonDone,d.lessonTarget),attendance=qaidaPercent(d.attendance,d.days),total=lesson;[['lesson',lesson],['attendance',attendance],['total',total]].forEach(([k,v])=>{card.querySelector(`[data-qd-percent="${k}"]`).textContent=qaidaFormat(v);card.querySelector(`[data-qd-bar="${k}"]`).style.width=(v||0)+'%'})}
 function qaidaOpenForm(id=null){if(!currentReportKey){alert('پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔');return}if(qaidaFormOpen){alert('پہلے موجودہ اندراج محفوظ کریں یا منسوخ کریں۔');return}qaidaEditingId=id===null?null:String(id);const old=id===null?{}:qaidaRecords().find(s=>String(s.id)===String(id));if(id!==null&&!old)return;qaidaFormOpen=true;qaidaForm.innerHTML=qaidaFormMarkup(old||{});qaidaEmpty.hidden=true;qaidaUpdateControls();qaidaUpdateFormPercents();qaidaForm.querySelectorAll('[data-qd-field]').forEach(x=>x.addEventListener('input',qaidaUpdateFormPercents));qaidaForm.querySelector('[data-qd-action="cancel"]').addEventListener('click',qaidaCancelForm);qaidaForm.querySelector('[data-qd-action="save"]').addEventListener('click',qaidaSaveForm);qaidaForm.scrollIntoView({behavior:'smooth',block:'nearest'})}
 function qaidaCancelForm(){qaidaFormOpen=false;qaidaEditingId=null;qaidaForm.innerHTML='';qaidaRender()}
