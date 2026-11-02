@@ -285,6 +285,24 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 
 
+<!-- ============================== HTML: شعبۂ نورانی قاعدہ START ============================== -->
+<section class="hifz-section" id="qaidaSection">
+<div class="hifz-card"><h3 class="hifz-title">نورانی قاعدہ</h3><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
+<button class="hifz-toggle" id="qaidaToggle" type="button" aria-expanded="false" aria-controls="qaidaReportFields"><span>طلبہ کی کارکردگی درج کریں</span><svg class="hifz-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="hifz-fields" id="qaidaReportFields" hidden>
+<button class="hifz-add" id="qaidaAddStudent" type="button">＋ طالب علم کا اندراج کریں</button>
+<div id="qaidaStudentForm"></div>
+<div class="hifz-table-wrap" id="qaidaTableWrap" hidden>
+<table class="hifz-table">
+<thead><tr><th>شمارہ</th><th>طالب علم کا نام</th><th>ولدیت</th><th>ہدفِ سبق</th><th>تکمیلِ سبق</th><th>سبق ٪</th><th>تعلیمی ایام</th><th>ایامِ حاضری</th><th>حاضری ٪</th><th>مجموعی ٪</th><th>عمل</th></tr></thead>
+<tbody id="qaidaStudentList"></tbody>
+</table>
+</div>
+<p class="hifz-empty" id="qaidaEmpty">ابھی کوئی طالب علم درج نہیں۔ اندراج شروع کرنے کے لیے اوپر بٹن دبائیں۔</p>
+</div>
+</section>
+<!-- ============================== HTML: شعبۂ نورانی قاعدہ END ============================== -->
+  
   
 
   
@@ -376,7 +394,7 @@ const key=hifzMakeKey();if(!key){alert('براہِ کرم ماہ اور سال �
 if(formOpen&&!confirm('موجودہ فارم منسوخ کرکے نئی مدت کھولیں؟'))return;
 if(formOpen){formOpen=false;editingId=null;hifzForm.innerHTML=''}
 currentReportKey=key;try{localStorage.setItem(hifzPeriodKey,JSON.stringify({month:monthSelect.value,year:yearSelect.value}))}catch(e){}
-hifzRenderSaved();nazraRender();alert('ماہ اور سال محفوظ ہوگئے۔');
+hifzRenderSaved();nazraRender();qaidaRender();alert('ماہ اور سال محفوظ ہوگئے۔');
 });
 hifzData=hifzReadStorage();
 try{const p=JSON.parse(localStorage.getItem(hifzPeriodKey)||'null');if(p&&p.month&&p.year){monthSelect.value=p.month;yearSelect.value=p.year;currentReportKey=hifzMakeKey()}}catch(e){}
@@ -482,6 +500,164 @@ nazraRender();
 /* ============================== JS: ناظرہ رپورٹ سیٹنگ END ============================== */
 
 
+
+
+/* ============================== JS: نورانی قاعدہ رپورٹ سیٹنگ START ============================== */
+const qaidaToggle=document.getElementById('qaidaToggle'),qaidaFields=document.getElementById('qaidaReportFields'),qaidaAdd=document.getElementById('qaidaAddStudent'),qaidaList=document.getElementById('qaidaStudentList'),qaidaEmpty=document.getElementById('qaidaEmpty'),qaidaForm=document.getElementById('qaidaStudentForm'),qaidaTable=document.getElementById('qaidaTableWrap');
+const qaidaStorageKey='madrasaQaidaMonthlyReportsV1';
+let qaidaData={},qaidaEditingId=null,qaidaFormOpen=false;
+
+function qaidaReadStorage(){
+try{return JSON.parse(localStorage.getItem(qaidaStorageKey)||'{}')}catch(e){return {}}
+}
+function qaidaWriteStorage(){
+try{localStorage.setItem(qaidaStorageKey,JSON.stringify(qaidaData))}
+catch(e){alert('قاعدہ کا ڈیٹا محفوظ نہیں ہو سکا۔ براؤزر کی اسٹوریج چیک کریں۔')}
+}
+function qaidaRecords(){
+if(!currentReportKey)return [];
+if(!Array.isArray(qaidaData[currentReportKey]))qaidaData[currentReportKey]=[];
+return qaidaData[currentReportKey];
+}
+function qaidaPercent(done,target){
+if(done===''||target===''||Number(target)<=0||Number(done)<0)return null;
+return Math.min(100,Math.round(Number(done)/Number(target)*100));
+}
+function qaidaFormat(v){return v===null?'—':v+'%'}
+function qaidaEscape(v){return hifzEscape(v)}
+function qaidaUpdateControls(){
+qaidaAdd.disabled=!currentReportKey||qaidaFormOpen;
+qaidaAdd.style.opacity=qaidaAdd.disabled?'.55':'1';
+qaidaAdd.style.cursor=qaidaAdd.disabled?'not-allowed':'pointer';
+}
+function qaidaRender(){
+const records=qaidaRecords();
+qaidaList.innerHTML='';
+records.forEach((s,i)=>{
+const lesson=qaidaPercent(s.lessonDone,s.lessonTarget);
+const attendance=qaidaPercent(s.attendance,s.days);
+const total=lesson;
+const tr=document.createElement('tr');
+tr.innerHTML=`<td>${String(i+1).padStart(2,'0')}</td><td class="hifz-table-name">${qaidaEscape(s.name)}</td><td>${qaidaEscape(s.father)}</td><td>${qaidaEscape(s.lessonTarget)}</td><td>${qaidaEscape(s.lessonDone)}</td><td><b>${qaidaFormat(lesson)}</b><div class="hifz-mini-bar"><div class="hifz-mini-fill" style="width:${lesson||0}%"></div></div></td><td>${qaidaEscape(s.days)}</td><td>${qaidaEscape(s.attendance)}</td><td><b>${qaidaFormat(attendance)}</b><div class="hifz-mini-bar"><div class="hifz-mini-fill revision" style="width:${attendance||0}%"></div></div></td><td><b>${qaidaFormat(total)}</b><div class="hifz-mini-bar"><div class="hifz-mini-fill total" style="width:${total||0}%"></div></div></td><td><div class="hifz-table-actions"><button class="hifz-table-btn" data-qaida-edit="${qaidaEscape(s.id)}" type="button">ترمیم</button><button class="hifz-table-btn delete" data-qaida-delete="${qaidaEscape(s.id)}" type="button">حذف</button></div></td>`;
+qaidaList.appendChild(tr);
+});
+qaidaTable.hidden=records.length===0;
+qaidaEmpty.hidden=records.length>0||qaidaFormOpen;
+if(!records.length&&!qaidaFormOpen){
+qaidaEmpty.textContent=currentReportKey?'ابھی کوئی طالب علم درج نہیں۔ اندراج شروع کرنے کے لیے اوپر بٹن دبائیں۔':'پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔';
+}
+qaidaUpdateControls();
+}
+function qaidaField(key,label,value='',type='number'){
+return `<div class="hifz-field"><label class="hifz-label" for="qd-${key}">${label}</label><input class="hifz-input" id="qd-${key}" data-qd-field="${key}" type="${type}" ${type==='number'?'min="0" step="1"':''} value="${qaidaEscape(value)}" required></div>`;
+}
+function qaidaFormMarkup(s={}){
+return `<div class="hifz-form">
+<h4 class="hifz-form-title">${qaidaEditingId===null?'نیا طالب علم درج کریں':'طالب علم کی معلومات میں ترمیم کریں'}</h4>
+<div class="hifz-name-grid">${qaidaField('name','طالب علم کا نام',s.name||'','text')}${qaidaField('father','ولدیت',s.father||'','text')}</div>
+<div class="hifz-fields-grid">${qaidaField('lessonTarget','ہدفِ سبق',s.lessonTarget??'')}${qaidaField('lessonDone','تکمیلِ سبق',s.lessonDone??'')}</div>
+<div class="hifz-percent hifz-lesson">
+<div class="hifz-percent-head"><span>سبق ٪</span><b class="hifz-percent-number" data-qd-percent="lesson">—</b></div>
+<div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="lesson"></div></div>
+</div>
+<div class="hifz-fields-grid">${qaidaField('days','تعلیمی ایام',s.days??'')}${qaidaField('attendance','ایامِ حاضری',s.attendance??'')}</div>
+<div class="hifz-percent hifz-revision">
+<div class="hifz-percent-head"><span>حاضری ٪</span><b class="hifz-percent-number" data-qd-percent="attendance">—</b></div>
+<div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="attendance"></div></div>
+</div>
+<div class="hifz-total">
+<div class="hifz-total-head"><span class="hifz-total-label">مجموعی ٪</span><b class="hifz-total-number" data-qd-percent="total">—</b></div>
+<div class="hifz-bar"><div class="hifz-bar-fill" data-qd-bar="total"></div></div>
+<p class="hifz-total-note">مجموعی فیصد صرف سبق کی تکمیل پر مشتمل ہے۔ حاضری کا فیصد الگ شمار ہوگا اور مجموعی فیصد میں شامل نہیں ہوگا۔</p>
+</div>
+<p class="hifz-message" data-qd-error hidden></p>
+<div class="hifz-actions"><button class="hifz-btn" data-qd-action="save" type="button">محفوظ کریں</button><button class="hifz-btn hifz-btn-edit" data-qd-action="cancel" type="button">منسوخ کریں</button></div>
+</div>`;
+}
+function qaidaUpdateFormPercents(){
+const card=qaidaForm.querySelector('.hifz-form');
+if(!card)return;
+const d={};
+card.querySelectorAll('[data-qd-field]').forEach(x=>d[x.dataset.qdField]=x.value);
+const lesson=qaidaPercent(d.lessonDone,d.lessonTarget);
+const attendance=qaidaPercent(d.attendance,d.days);
+const total=lesson;
+[['lesson',lesson],['attendance',attendance],['total',total]].forEach(([k,v])=>{
+card.querySelector(`[data-qd-percent="${k}"]`).textContent=qaidaFormat(v);
+card.querySelector(`[data-qd-bar="${k}"]`).style.width=(v||0)+'%';
+});
+}
+function qaidaOpenForm(id=null){
+if(!currentReportKey){alert('پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔');return}
+if(qaidaFormOpen){alert('پہلے موجودہ اندراج محفوظ کریں یا منسوخ کریں۔');return}
+qaidaEditingId=id===null?null:String(id);
+const old=id===null?{}:qaidaRecords().find(s=>String(s.id)===String(id));
+if(id!==null&&!old)return;
+qaidaFormOpen=true;
+qaidaForm.innerHTML=qaidaFormMarkup(old||{});
+qaidaEmpty.hidden=true;
+qaidaUpdateControls();
+qaidaUpdateFormPercents();
+qaidaForm.querySelectorAll('[data-qd-field]').forEach(x=>x.addEventListener('input',qaidaUpdateFormPercents));
+qaidaForm.querySelector('[data-qd-action="cancel"]').addEventListener('click',qaidaCancelForm);
+qaidaForm.querySelector('[data-qd-action="save"]').addEventListener('click',qaidaSaveForm);
+qaidaForm.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function qaidaCancelForm(){
+qaidaFormOpen=false;
+qaidaEditingId=null;
+qaidaForm.innerHTML='';
+qaidaRender();
+}
+function qaidaSaveForm(){
+const card=qaidaForm.querySelector('.hifz-form');
+const values={};
+card.querySelectorAll('[data-qd-field]').forEach(x=>values[x.dataset.qdField]=x.value.trim());
+const required=['name','father','lessonTarget','lessonDone','days','attendance'];
+let error='';
+if(required.some(k=>!values[k]))error='تمام خانے پُر کریں۔';
+else if(Number(values.lessonTarget)<=0||Number(values.days)<=0)error='ہدفِ سبق اور تعلیمی ایام صفر سے زیادہ ہونے چاہییں۔';
+else if(Number(values.lessonDone)>Number(values.lessonTarget))error='تکمیلِ سبق مقررہ ہدف سے زیادہ نہیں ہو سکتی۔';
+else if(Number(values.attendance)>Number(values.days))error='ایامِ حاضری، تعلیمی ایام سے زیادہ نہیں ہو سکتے۔';
+const msg=card.querySelector('[data-qd-error]');
+msg.textContent=error;
+msg.hidden=!error;
+if(error)return;
+const records=qaidaRecords();
+if(qaidaEditingId!==null){
+const index=records.findIndex(s=>String(s.id)===qaidaEditingId);
+if(index<0){alert('یہ اندراج نہیں ملا۔');return}
+records[index]={...records[index],...values};
+}else{
+records.push({id:Date.now().toString(),...values});
+}
+qaidaData[currentReportKey]=records;
+qaidaWriteStorage();
+qaidaFormOpen=false;
+qaidaEditingId=null;
+qaidaForm.innerHTML='';
+qaidaRender();
+}
+qaidaAdd.addEventListener('click',()=>qaidaOpenForm());
+qaidaList.addEventListener('click',e=>{
+const edit=e.target.closest('[data-qaida-edit]');
+const del=e.target.closest('[data-qaida-delete]');
+if(edit)qaidaOpenForm(edit.dataset.qaidaEdit);
+if(del&&confirm('کیا آپ یہ طالب علم کا اندراج حذف کرنا چاہتے ہیں؟')){
+qaidaData[currentReportKey]=qaidaRecords().filter(s=>String(s.id)!==String(del.dataset.qaidaDelete));
+qaidaWriteStorage();
+qaidaRender();
+}
+});
+qaidaToggle.addEventListener('click',()=>{
+const opened=qaidaToggle.getAttribute('aria-expanded')==='true';
+qaidaToggle.setAttribute('aria-expanded',String(!opened));
+qaidaFields.hidden=opened;
+});
+qaidaData=qaidaReadStorage();
+qaidaRender();
+/* ============================== JS: نورانی قاعدہ رپورٹ سیٹنگ END ============================== */
+  
 
   
   
