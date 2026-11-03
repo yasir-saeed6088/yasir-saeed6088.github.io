@@ -406,6 +406,45 @@ hifzList.addEventListener('click',e=>{const edit=e.target.closest('[data-edit]')
 hifzToggle.addEventListener('click',()=>{const opened=hifzToggle.getAttribute('aria-expanded')==='true';hifzToggle.setAttribute('aria-expanded',String(!opened));hifzFields.hidden=opened});
 const hifzPeriodButton=document.createElement('button');hifzPeriodButton.type='button';hifzPeriodButton.className='hifz-period-save';hifzPeriodButton.textContent='ماہ اور سال محفوظ کریں';document.querySelector('.report-period .period-fields').after(hifzPeriodButton);
 hifzPeriodButton.addEventListener('click',()=>{const key=hifzMakeKey();if(!key){alert('براہِ کرم ماہ اور سال دونوں منتخب کریں۔');return}if(formOpen&&!confirm('موجودہ فارم منسوخ کرکے نئی مدت کھولیں؟'))return;if(formOpen){formOpen=false;editingId=null;hifzForm.innerHTML=''}currentReportKey=key;try{localStorage.setItem(hifzPeriodKey,JSON.stringify({month:monthSelect.value,year:yearSelect.value}))}catch(e){}hifzRenderSaved();nazraRender();qaidaRender();alert('ماہ اور سال محفوظ ہوگئے۔')});
+
+/* ============================== 10. ڈاؤن لوڈ رپورٹ بٹن START ============================== */
+const hifzDownloadButton=document.createElement('button');
+hifzDownloadButton.type='button';
+hifzDownloadButton.className='hifz-download-btn';
+hifzDownloadButton.innerHTML='<svg class="hifz-download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg><span>مکمل ماہانہ رپورٹ ڈاؤن لوڈ کریں</span>';
+hifzPeriodButton.after(hifzDownloadButton);
+hifzDownloadButton.disabled=true;
+/* ============================== 10. ڈاؤن لوڈ رپورٹ بٹن END ============================== */
+
+/* ============================== 11. PNG ماہانہ رپورٹ تیار و ڈاؤن لوڈ START ============================== */
+function downloadReportCell(value){return `<td>${hifzEscape(value??'—')}</td>`}
+function downloadReportPercent(value){const v=value===null?'—':Number(value).toLocaleString('en-US',{maximumFractionDigits:2})+'%';return `<td class="download-report-percent"><span class="download-report-percent-value">${v}</span><div class="download-report-bar"><div class="download-report-bar-fill" style="width:${value||0}%"></div></div></td>`}
+function downloadReportTable(title,records,type){
+let headings=type==='hifz'?['شمارہ','طالب علم کا نام','ہدفِ حفظ (صفحات)','تکمیلِ حفظ (صفحات)','ہدفِ آموختہ (صفحات)','تکمیلِ آموختہ (صفحات)','مجموعی ٪']:['شمارہ','طالب علم کا نام','ہدفِ سبق (صفحات)','تکمیلِ سبق (صفحات)','مجموعی ٪'];
+let html=`<section class="download-report-section"><h2 class="download-report-section-title">${title}</h2>`;
+if(!records.length)return html+'</section>';
+html+='<table class="download-report-table"><thead><tr>'+headings.map(x=>`<th>${x}</th>`).join('')+'</tr></thead><tbody>';
+records.forEach((s,i)=>{
+const lesson=type==='hifz'?hifzPercent(s.lessonDone,s.lessonTarget):type==='nazra'?nazraPercent(s.lessonDone,s.lessonTarget):qaidaPercent(s.lessonDone,s.lessonTarget);
+const revision=type==='hifz'?hifzPercent(s.revisionDone,s.revisionTarget):null;
+const total=type==='hifz'?(lesson!==null&&revision!==null?Math.round((lesson+revision)/2):null):lesson;
+html+='<tr>'+downloadReportCell(String(i+1).padStart(2,'0'))+`<td class="download-report-name">${hifzEscape((s.name||'')+(s.father?' بن '+s.father:''))}</td>`;
+if(type==='hifz')html+=downloadReportCell(s.lessonTarget)+downloadReportCell(s.lessonDone)+downloadReportCell(s.revisionTarget)+downloadReportCell(s.revisionDone);
+else html+=downloadReportCell(s.lessonTarget)+downloadReportCell(s.lessonDone);
+html+=downloadReportPercent(total)+'</tr>';});
+return html+'</tbody></table></section>';}
+async function hifzDownloadMonthlyReport(){
+if(!currentReportKey){alert('پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔');return}
+if(typeof html2canvas!=='function'){alert('PNG بنانے والی لائبریری لوڈ نہیں ہوئی۔ انٹرنیٹ چیک کرکے صفحہ دوبارہ کھولیں۔');return}
+const [year,month]=currentReportKey.split('-');
+const report=document.createElement('div');report.className='hifz-download-report';report.id='hifzDownloadReport';
+report.innerHTML=`<header class="download-report-header"><h1>مدرسہ دار القرآن والسنہ</h1><h2>بیجاپور</h2><p>MONTHLY STUDENT PERFORMANCE REPORT</p></header><div class="download-report-period">ماہانہ رپورٹ: ${hifzMonthNames[Number(month)]} ${year}</div>${downloadReportTable('حفظِ قرآن',hifzRecords(),'hifz')}${downloadReportTable('ناظرہ قرآن',nazraRecords(),'nazra')}${downloadReportTable('نورانی قاعدہ',qaidaRecords(),'qaida')}<footer class="download-report-footer">مدرسہ دار القرآن والسنہ بیجاپور</footer>`;
+document.body.appendChild(report);hifzDownloadButton.disabled=true;const oldText=hifzDownloadButton.innerHTML;hifzDownloadButton.textContent='رپورٹ تیار ہو رہی ہے...';
+try{if(document.fonts?.ready)await document.fonts.ready;const canvas=await html2canvas(report,{backgroundColor:'#ffffff',scale:2,useCORS:true,logging:false});const link=document.createElement('a');link.download=`Madrasa-Report-${currentReportKey}.png`;link.href=canvas.toDataURL('image/png');link.click()}catch(e){console.error(e);alert('رپورٹ ڈاؤن لوڈ نہیں ہو سکی۔ براہِ کرم دوبارہ کوشش کریں۔')}finally{report.remove();hifzDownloadButton.innerHTML=oldText;hifzDownloadButton.disabled=false}}
+hifzDownloadButton.addEventListener('click',hifzDownloadMonthlyReport);
+/* ============================== 11. PNG ماہانہ رپورٹ تیار و ڈاؤن لوڈ END ============================== */
+
+
 hifzData=hifzReadStorage();
 try{const p=JSON.parse(localStorage.getItem(hifzPeriodKey)||'null');if(p&&p.month&&p.year){monthSelect.value=p.month;yearSelect.value=p.year;currentReportKey=hifzMakeKey()}}catch(e){}
 hifzRenderSaved();
