@@ -533,9 +533,8 @@ qaidaAdd.addEventListener('click',()=>qaidaOpenForm());
 qaidaList.addEventListener('click',e=>{const edit=e.target.closest('[data-qaida-edit]'),del=e.target.closest('[data-qaida-delete]');if(edit)qaidaOpenForm(edit.dataset.qaidaEdit);if(del&&confirm('کیا آپ یہ طالب علم کا اندراج حذف کرنا چاہتے ہیں؟')){qaidaData[currentReportKey]=qaidaRecords().filter(s=>String(s.id)!==String(del.dataset.qaidaDelete));qaidaWriteStorage();qaidaRender()}});
 qaidaToggle.addEventListener('click',()=>{const opened=qaidaToggle.getAttribute('aria-expanded')==='true';qaidaToggle.setAttribute('aria-expanded',String(!opened));qaidaFields.hidden=opened});
 qaidaData=qaidaReadStorage();qaidaRender();
+hifzDownloadButton.disabled=!currentReportKey;
 /* ============================== JS: نورانی قاعدہ رپورٹ سیٹنگ END ============================== */
-
-
  
   
   
