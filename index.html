@@ -55,8 +55,10 @@ body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 .hifz-table-wrap{width:100%;margin-top:14px;overflow-x:auto;border:1px solid #dce7e0;border-radius:12px;background:#fff;-webkit-overflow-scrolling:touch}
 .hifz-table{width:100%;min-width:1150px;border-collapse:separate;border-spacing:0;font-size:13px;text-align:center;table-layout:auto}
 .hifz-table th,.hifz-table td{padding:10px 8px;border-left:1px solid #e0e7e2;border-bottom:1px solid #e0e7e2;white-space:nowrap;vertical-align:middle}
-.hifz-table th{background:#e1eee6;color:#174c36;font-weight:700}
-.hifz-table thead th{background:#e1eee6}
+/* ============================== ٹیبل: ہیڈر اور کالم کے یکساں رنگ ============================== */
+.hifz-table th:nth-child(odd){background-color:#edf5ef}
+.hifz-table th:nth-child(even){background-color:#f5f6f8}
+.hifz-table th{color:#174c36;font-weight:700}
 .hifz-table tbody tr:nth-child(odd) td:nth-child(odd){background:#e8f3ec}
 .hifz-table tbody tr:nth-child(odd) td:nth-child(even){background:#edf2f6}
 .hifz-table tbody tr:nth-child(even) td:nth-child(odd){background:#e2ece6}
