@@ -7,7 +7,11 @@
 <title>مدرسہ دار القرآن والسنہ بیجاپور</title>
 
 
+<!-- ============================== LIBRARY: PNG DOWNLOAD START ============================== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<!-- ============================== LIBRARY: PNG DOWNLOAD END ============================== -->
 
+  
 <!-- ============================== CSS START ============================== -->
 <style>
 /* ============================== 1. فونٹس ============================== */
@@ -115,6 +119,37 @@ body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 .hifz-period-save{width:100%;min-height:48px;margin-top:14px;padding:9px 14px;border:1px solid #1c6040;border-radius:12px;background:#23734d;color:#fff;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer}
 .hifz-period-save:hover{background:#195b3b}
 
+/* ============================== 9.1. ڈاؤن لوڈ رپورٹ بٹن START ============================== */
+.hifz-download-btn{width:100%;min-height:52px;margin-top:10px;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid #243f70;border-radius:12px;background:#243f70;color:#fff;font-family:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:.2s}
+.hifz-download-btn:hover{background:#1b3159}
+.hifz-download-btn:disabled{opacity:.6;cursor:wait}
+.hifz-download-icon{width:21px;height:21px;flex:0 0 21px}
+.hifz-download-report{position:fixed;top:0;left:-10000px;width:1100px;padding:35px;background:#fff;color:#203b32;font-family:'Noto Nastaliq Urdu',serif;direction:rtl;z-index:-1}
+.download-report-header{text-align:center;padding:10px 10px 18px;margin-bottom:22px;border-bottom:3px solid #23734d;background:linear-gradient(135deg,#e8f5ee,#fffdf5)}
+.download-report-header h1{margin:0;color:#174c36;font-size:34px;line-height:1.8}
+.download-report-header h2{margin:4px 0;color:#9a6b16;font-size:23px;line-height:1.8}
+.download-report-header p{margin:3px 0;color:#43564b;font:500 13px Roboto,Arial,sans-serif;direction:ltr}
+.download-report-period{margin:12px 0 22px;text-align:center;color:#243b64;font-size:20px;font-weight:700}
+.download-report-section{margin:0 0 25px;break-inside:avoid}
+.download-report-section-title{margin:0 0 10px;padding:8px 14px;background:linear-gradient(120deg,#e8f5ee,#fffdf7);border:1px solid #d5e7dc;border-right:5px solid #23734d;border-radius:8px;color:#174c36;font-size:23px;font-weight:700}
+.download-report-table{width:100%;border-collapse:collapse;table-layout:fixed;text-align:center;font-size:15px}
+.download-report-table th,.download-report-table td{padding:9px 6px;border:1px solid #d5e1d9;vertical-align:middle;overflow-wrap:anywhere}
+.download-report-table th{color:#174c36;font-weight:700}
+.download-report-table th:nth-child(odd){background:#edf5ef}
+.download-report-table th:nth-child(even){background:#f5f6f8}
+.download-report-table tbody tr:nth-child(odd) td:nth-child(odd){background:#e8f3ec}
+.download-report-table tbody tr:nth-child(odd) td:nth-child(even){background:#edf2f6}
+.download-report-table tbody tr:nth-child(even) td:nth-child(odd){background:#e2ece6}
+.download-report-table tbody tr:nth-child(even) td:nth-child(even){background:#f2f4f7}
+.download-report-name{text-align:right}
+.download-report-percent{min-width:100px}
+.download-report-percent-value{display:block;margin-bottom:5px;font:700 14px Roboto,Arial,sans-serif;color:#174c36;direction:ltr}
+.download-report-bar{height:9px;width:100%;background:#dce6df;border-radius:99px;overflow:hidden}
+.download-report-bar-fill{height:100%;border-radius:99px;background:#23734d}
+.download-report-empty{padding:10px;text-align:center;color:#758477;font-size:14px}
+.download-report-footer{margin-top:20px;padding-top:10px;border-top:1px solid #d5e1d9;text-align:center;color:#758477;font-size:12px}
+/* ============================== 9.1. ڈاؤن لوڈ رپورٹ بٹن END ============================== */
+  
 /* ============================== 10. شعبہ حفظ: ٹیبل کی چوڑائی ============================== */
 #hifzSection .hifz-table{min-width:1350px}
 #hifzSection .hifz-table th:nth-child(1),#hifzSection .hifz-table td:nth-child(1){min-width:55px}
