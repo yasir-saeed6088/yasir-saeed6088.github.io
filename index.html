@@ -405,8 +405,8 @@ hifzAdd.addEventListener('click',()=>hifzOpenForm());
 hifzList.addEventListener('click',e=>{const edit=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(edit)hifzOpenForm(edit.dataset.edit);if(del&&confirm('کیا آپ یہ طالب علم کا اندراج حذف کرنا چاہتے ہیں؟')){hifzData[currentReportKey]=hifzRecords().filter(s=>String(s.id)!==String(del.dataset.delete));hifzWriteStorage();hifzRenderSaved()}});
 hifzToggle.addEventListener('click',()=>{const opened=hifzToggle.getAttribute('aria-expanded')==='true';hifzToggle.setAttribute('aria-expanded',String(!opened));hifzFields.hidden=opened});
 const hifzPeriodButton=document.createElement('button');hifzPeriodButton.type='button';hifzPeriodButton.className='hifz-period-save';hifzPeriodButton.textContent='ماہ اور سال محفوظ کریں';document.querySelector('.report-period .period-fields').after(hifzPeriodButton);
-hifzPeriodButton.addEventListener('click',()=>{const key=hifzMakeKey();if(!key){alert('براہِ کرم ماہ اور سال دونوں منتخب کریں۔');return}if(formOpen&&!confirm('موجودہ فارم منسوخ کرکے نئی مدت کھولیں؟'))return;if(formOpen){formOpen=false;editingId=null;hifzForm.innerHTML=''}currentReportKey=key;try{localStorage.setItem(hifzPeriodKey,JSON.stringify({month:monthSelect.value,year:yearSelect.value}))}catch(e){}hifzRenderSaved();nazraRender();qaidaRender();alert('ماہ اور سال محفوظ ہوگئے۔')});
-
+hifzPeriodButton.addEventListener('click',()=>{const key=hifzMakeKey();if(!key){alert('براہِ کرم ماہ اور سال دونوں منتخب کریں۔');return}if(formOpen&&!confirm('موجودہ فارم منسوخ کرکے نئی مدت کھولیں؟'))return;if(formOpen){formOpen=false;editingId=null;hifzForm.innerHTML=''}currentReportKey=key;try{localStorage.setItem(hifzPeriodKey,JSON.stringify({month:monthSelect.value,year:yearSelect.value}))}catch(e){}hifzRenderSaved();nazraRender();qaidaRender();hifzDownloadButton.disabled=false;alert('ماہ اور سال محفوظ ہوگئے۔')});
+  
 /* ============================== 10. ڈاؤن لوڈ رپورٹ بٹن START ============================== */
 const hifzDownloadButton=document.createElement('button');
 hifzDownloadButton.type='button';
