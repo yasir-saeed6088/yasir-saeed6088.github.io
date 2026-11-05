@@ -340,22 +340,34 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   color:#243b64;
 }
 
-/* ================= DOWNLOAD REPORT: STYLISH BLUE BANNER ================= */
-.hifz-download-report .download-report-period{
-  margin:10px auto 25px;
-  padding:14px 24px;
-  width:fit-content;
-  min-width:420px;
-  background:linear-gradient(135deg, #0975b9 0%, #004d82 100%);
-  color:#fff;
-  border:2px solid #d4d8de;
-  border-radius:28px;
-  text-align:center;
-  font-size:24px;
-  font-weight:700;
-  direction:rtl;
-  box-shadow:0 5px 15px rgba(0, 77, 130, 0.3);
-  font-family:'Noto Nastaliq Urdu',serif;
+/* ================= DOWNLOAD REPORT: PURE CSS BLUE BANNER ================= */
+.hifz-download-report .download-report-period {
+  position: relative;
+  margin: 15px auto 28px;
+  padding: 14px 40px;
+  width: 75%;
+  max-width: 850px;
+  background: linear-gradient(135deg, #0975b9 0%, #004d82 100%);
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  direction: rtl;
+  font-family: 'Noto Nastaliq Urdu', serif;
+  
+  /* کنارے کی خاص نقش کٹنگ (Reference Shape) */
+  clip-path: polygon(
+    0% 50%, 
+    20px 0%, 
+    calc(100% - 20px) 0%, 
+    100% 50%, 
+    calc(100% - 20px) 100%, 
+    20px 100%
+  );
+  
+  /* ہلکا سا شیڈو اور بارڈر لک دینے کے لیے */
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+  border-radius: 12px;
 }
 </style>
 <!-- ============================== CSS END ============================== -->
