@@ -242,13 +242,12 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-input{background:#fff;border-color:#ddd}
 }
 
-
 /* ================= DOWNLOAD REPORT: NEW URDU HEADER START ================= */
 .hifz-download-report .download-report-header{
   position:relative;
   width:100%;
   box-sizing:border-box;
-  padding:34px 28px 22px;
+  padding:25px 20px 18px;
   margin:0 0 18px;
   background:#fff;
   border:2px solid #b8d7c7;
@@ -259,90 +258,97 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-download-report .download-report-header::before{
   content:"";
   position:absolute;
-  top:0;left:0;width:100%;height:25px;
-  background-color:#075b40;
-  background-image:
-    repeating-linear-gradient(45deg,transparent 0 9px,#c9a64b 9px 11px,transparent 11px 20px),
-    repeating-linear-gradient(-45deg,transparent 0 9px,#c9a64b 9px 11px,transparent 11px 20px);
-  border-bottom:3px solid #c9a64b;
+  top:0;left:0;width:100%;height:14px;
+  background-color:#165b33;
 }
 .hifz-download-report .download-header-main{
   display:grid;
-  grid-template-columns:115px 1fr 145px;
+  grid-template-columns:90px 1fr 140px;
   align-items:center;
-  gap:15px;
-  padding-top:9px;
+  gap:12px;
+  padding-top:6px;
 }
 .hifz-download-report .download-report-logo{
-  width:100px;height:100px;
-  border:4px double #c9a64b;
+  width:85px;height:85px;
+  border:2px solid #165b33;
   border-radius:50%;
-  background:#075b40;
+  background:#165b33;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 2px 7px #0002;
+  box-shadow:0 2px 5px #0002;
 }
 .hifz-download-report .download-report-logo svg{
-  width:75px;height:75px;
+  width:65px;height:65px;
 }
 .hifz-download-report .download-brand{
   text-align:center;
   direction:rtl;
-  color:#075b40;
+  color:#113826;
 }
 .hifz-download-report .download-brand h1{
   margin:0;
-  font-size:35px;
-  font-weight:800;
-  line-height:1.5;
+  font-size:26px;
+  font-weight:700;
+  line-height:1.4;
+  font-family:'Noto Nastaliq Urdu',serif;
 }
 .hifz-download-report .download-brand h2{
-  margin:0;
-  color:#a87925;
-  font-size:27px;
-  line-height:1.5;
+  margin:2px 0 0;
+  color:#113826;
+  font-size:20px;
+  font-weight:700;
+  line-height:1.4;
+  font-family:'Noto Nastaliq Urdu',serif;
 }
 .hifz-download-report .download-brand .association{
-  margin-top:4px;
-  font-size:19px;
-  font-weight:800;
+  margin-top:3px;
+  font-size:16px;
+  font-weight:600;
+  color:#113826;
+  font-family:'Noto Nastaliq Urdu',serif;
 }
 .hifz-download-report .download-brand .address{
-  margin-top:3px;
-  font-size:15px;
-  color:#455b51;
+  margin-top:2px;
+  font-size:13px;
+  color:#43564b;
+  font-family:'Noto Nastaliq Urdu',serif;
 }
 .hifz-download-report .download-prepared{
-  padding:12px 7px;
-  background:#e8f3f5;
-  border:1px solid #a9cbd1;
-  border-radius:9px;
+  padding:10px 8px;
+  background:#f0f4fa;
+  border:1px solid #d7e0ed;
+  border-radius:10px;
   text-align:center;
   direction:rtl;
-  color:#17465c;
-  font-size:15px;
-  line-height:1.8;
+  color:#243f70;
+  font-size:13px;
+  font-weight:600;
+  font-family:'Roboto',Arial,sans-serif;
 }
 .hifz-download-report .download-prepared strong{
   display:block;
-  font-size:17px;
+  font-size:14px;
+  margin-top:2px;
+  color:#243b64;
 }
 .hifz-download-report .download-report-period{
-  margin:0 55px 22px;
-  padding:13px 18px;
-  background:linear-gradient(180deg,#0879b7,#07538d);
+  margin:0 auto 20px;
+  padding:12px 18px;
+  width:fit-content;
+  min-width:320px;
+  background:linear-gradient(135deg,#243f70,#1b3159);
   color:#fff;
-  border:3px solid #c9a64b;
-  border-radius:13px;
+  border:none;
+  border-radius:14px;
   text-align:center;
-  font-size:27px;
-  font-weight:800;
+  font-size:22px;
+  font-weight:700;
   direction:rtl;
-  box-shadow:0 4px 7px #0002;
+  box-shadow:0 3px 10px rgba(36,63,112,0.25);
+  font-family:'Noto Nastaliq Urdu',serif;
 }
 /* ================= DOWNLOAD REPORT: NEW URDU HEADER END ================= */
-
   
 </style>
 <!-- ============================== CSS END ============================== -->
@@ -546,20 +552,18 @@ async function hifzDownloadMonthlyReport(){
   report.className='hifz-download-report';
   report.id='hifzDownloadReport';
 
-  report.innerHTML=`
- 
+report.innerHTML=`
     <header class="download-report-header">
       <div class="download-header-main">
 
         <div class="download-report-logo">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="46" fill="#075b40" stroke="#d5b45e" stroke-width="3"/>
+            <circle cx="50" cy="50" r="46" fill="#165b33" stroke="#d5b45e" stroke-width="3"/>
             <circle cx="50" cy="50" r="39" fill="none" stroke="#d5b45e" stroke-width="1.5"/>
             <path d="M50 66 Q31 53 18 59 L18 35 Q34 30 50 43 Q66 30 82 35 L82 59 Q66 53 50 66Z" fill="#f8f1d8" stroke="#d5b45e" stroke-width="2"/>
-            <path d="M50 43 V66" stroke="#075b40" stroke-width="2"/>
-            <path d="M27 42 Q38 40 46 48 M73 42 Q62 40 54 48" fill="none" stroke="#075b40" stroke-width="1.5"/>
+            <path d="M50 43 V66" stroke="#165b33" stroke-width="2"/>
+            <path d="M27 42 Q38 40 46 48 M73 42 Q62 40 54 48" fill="none" stroke="#165b33" stroke-width="1.5"/>
             <path d="M50 12 C36 25 42 36 55 36 C67 36 72 24 63 16 C65 29 53 31 50 12Z" fill="#d5b45e"/>
-            <path d="M70 17 L72 22 L77 22 L73 26 L74 31 L70 28 L66 31 L67 26 L63 22 L68 22Z" fill="#f8e6a7"/>
           </svg>
         </div>
 
@@ -571,7 +575,7 @@ async function hifzDownloadMonthlyReport(){
         </div>
 
         <div class="download-prepared">
-          <div>▦ تاریخِ تیاری</div>
+          <div>📅 تاریخِ تیاری</div>
           <strong>${hifzEscape(new Date().toLocaleDateString('ur-IN'))}</strong>
         </div>
 
