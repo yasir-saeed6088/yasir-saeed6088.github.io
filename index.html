@@ -339,21 +339,24 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   margin-top:2px;
   color:#243b64;
 }
-/* ================= DOWNLOAD REPORT: STYLISH BLUE BANNER ================= */
+/* ================= DOWNLOAD REPORT: ORIGINAL BANNER IMAGE ================= */
 .hifz-download-report .download-report-period{
-  margin:10px auto 25px;
-  padding:14px 24px;
-  width:fit-content;
-  min-width:420px;
-  background:linear-gradient(135deg, #0975b9 0%, #004d82 100%);
+  margin:15px auto 28px;
+  padding:16px 30px;
+  width:85%; /* Poore poster ke hisaab se bada size */
+  max-width:950px;
+  background-image: url('https://raw.githubusercontent.com/yasir-saeed6088/yasir-saeed6088.github.io/main/Gemini_Generated_Image_w8av1dw8av1dw8av.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
   color:#fff;
-  border:2px solid #d4d8de;
-  border-radius:28px;
+  border: none;
+  border-radius: 0;
   text-align:center;
-  font-size:24px;
+  font-size:25px;
   font-weight:700;
   direction:rtl;
-  box-shadow:0 5px 15px rgba(0, 77, 130, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   font-family:'Noto Nastaliq Urdu',serif;
 }
 /* ================= DOWNLOAD REPORT: NEW URDU HEADER END ================= */
@@ -564,12 +567,12 @@ report.innerHTML=`
     <header class="download-report-header">
       <div class="download-header-main">
 
-        <!-- دائیں جانب اصل تصویر کا لوگو -->
+        <!-- Dayin janib asli logo tasveer -->
         <div class="download-report-logo">
           <img src="https://raw.githubusercontent.com/yasir-saeed6088/yasir-saeed6088.github.io/main/Screenshot_20261017-130932.jpg" alt="Madrasa Logo">
         </div>
 
-        <!-- درمیان میں مدرسہ کا نام اور تفصیلات -->
+        <!-- Darmiyan mein madrasa ka naam -->
         <div class="download-brand">
           <h1>مدرسہ دار القرآن والسنہ</h1>
           <h2>بیجاپور</h2>
@@ -577,7 +580,7 @@ report.innerHTML=`
           <div class="address">کنّات مسجد کمپلیکس، بیجاپور</div>
         </div>
 
-        <!-- بائیں جانب تاریخ کا خانہ -->
+        <!-- Bayin janib tareekh ka khana -->
         <div class="download-prepared">
           <div>📅 تاریخِ تیاری</div>
           <strong>${hifzEscape(new Date().toLocaleDateString('ur-IN'))}</strong>
