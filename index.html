@@ -339,28 +339,35 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   margin-top:2px;
   color:#243b64;
 }
-/* ================= DOWNLOAD REPORT: ORIGINAL BANNER IMAGE ================= */
-.hifz-download-report .download-report-period{
-  margin:15px auto 28px;
-  padding:16px 30px;
-  width:85%; /* Poore poster ke hisaab se bada size */
-  max-width:950px;
-  background-image: url('https://raw.githubusercontent.com/yasir-saeed6088/yasir-saeed6088.github.io/main/Gemini_Generated_Image_w8av1dw8av1dw8av.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  color:#fff;
-  border: none;
-  border-radius: 0;
-  text-align:center;
-  font-size:25px;
-  font-weight:700;
-  direction:rtl;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  font-family:'Noto Nastaliq Urdu',serif;
-}
-/* ================= DOWNLOAD REPORT: NEW URDU HEADER END ================= */
+/* ================= DOWNLOAD REPORT: PURE CSS BLUE BANNER ================= */
+.hifz-download-report .download-report-period {
+  position: relative;
+  margin: 15px auto 28px;
+  padding: 14px 40px;
+  width: 75%;
+  max-width: 850px;
+  background: linear-gradient(135deg, #0975b9 0%, #004d82 100%);
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  direction: rtl;
+  font-family: 'Noto Nastaliq Urdu', serif;
   
+  /* کنارے کی خاص نقش کٹنگ (Reference Shape) */
+  clip-path: polygon(
+    0% 50%, 
+    20px 0%, 
+    calc(100% - 20px) 0%, 
+    100% 50%, 
+    calc(100% - 20px) 100%, 
+    20px 100%
+  );
+  
+  /* ہلکا سا شیڈو اور بارڈر لک دینے کے لیے */
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+  border-radius: 12px;
+}
 </style>
 <!-- ============================== CSS END ============================== -->
 
