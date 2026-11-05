@@ -339,20 +339,21 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   margin-top:2px;
   color:#243b64;
 }
+/* ================= DOWNLOAD REPORT: STYLISH BLUE BANNER ================= */
 .hifz-download-report .download-report-period{
-  margin:0 auto 20px;
-  padding:12px 18px;
+  margin:10px auto 25px;
+  padding:14px 24px;
   width:fit-content;
-  min-width:320px;
-  background:linear-gradient(135deg,#243f70,#1b3159);
+  min-width:420px;
+  background:linear-gradient(135deg, #0975b9 0%, #004d82 100%);
   color:#fff;
-  border:none;
-  border-radius:14px;
+  border:2px solid #d4d8de;
+  border-radius:28px;
   text-align:center;
-  font-size:22px;
+  font-size:24px;
   font-weight:700;
   direction:rtl;
-  box-shadow:0 3px 10px rgba(36,63,112,0.25);
+  box-shadow:0 5px 15px rgba(0, 77, 130, 0.3);
   font-family:'Noto Nastaliq Urdu',serif;
 }
 /* ================= DOWNLOAD REPORT: NEW URDU HEADER END ================= */
@@ -563,7 +564,7 @@ report.innerHTML=`
     <header class="download-report-header">
       <div class="download-header-main">
 
-        <!-- دائیں جانب اصل بڑی تصویر کا لوگو -->
+        <!-- دائیں جانب اصل تصویر کا لوگو -->
         <div class="download-report-logo">
           <img src="https://raw.githubusercontent.com/yasir-saeed6088/yasir-saeed6088.github.io/main/Screenshot_20261017-130932.jpg" alt="Madrasa Logo">
         </div>
@@ -586,7 +587,7 @@ report.innerHTML=`
     </header>
 
     <div class="download-report-period">
-      ماہانہ رپورٹ: ${hifzEscape(hifzMonthNames[Number(month)]||month)} ${hifzEscape(year)}
+      ماہنامہ علمی کارکردگیِ طلبہ — ${hifzEscape(hifzMonthNames[Number(month)]||month)} ${hifzEscape(year)}ء
     </div>
 
     ${downloadReportTable('حفظِ قرآن',hifzRecords(),'hifz')}
