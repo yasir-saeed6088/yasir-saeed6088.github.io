@@ -269,14 +269,21 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   padding-top:6px;
 }
 .hifz-download-report .download-report-logo{
-  width:85px;height:85px;
-  border:2px solid #165b33;
-  border-radius:50%;
+  width:110px;
+  height:110px;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid #c9a64b;
   background:#165b33;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 2px 5px #0002;
+  box-shadow:0 3px 6px rgba(0,0,0,0.15);
+}
+.hifz-download-report .download-report-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 .hifz-download-report .download-report-logo svg{
   width:65px;height:65px;
@@ -556,12 +563,12 @@ report.innerHTML=`
     <header class="download-report-header">
       <div class="download-header-main">
 
-        <!-- دائیں جانب آپ کی اصل تصویر والا لوگو -->
+        <!-- دائیں جانب اصل بڑی تصویر کا لوگو -->
         <div class="download-report-logo">
-          <img src="https://github.com/yasir-saeed6088/yasir-saeed6088.github.io/raw/main/Screenshot_20261017-130932.jpg" alt="Madrasa Logo">
+          <img src="https://raw.githubusercontent.com/yasir-saeed6088/yasir-saeed6088.github.io/main/Screenshot_20261017-130932.jpg" alt="Madrasa Logo">
         </div>
 
-        <!-- درمیان میں مدرسہ کی معلومات -->
+        <!-- درمیان میں مدرسہ کا نام اور تفصیلات -->
         <div class="download-brand">
           <h1>مدرسہ دار القرآن والسنہ</h1>
           <h2>بیجاپور</h2>
