@@ -288,39 +288,52 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-download-report .download-report-logo svg{
   width:65px;height:65px;
 }
+
+/* ================= PROFESSIONAL MADRASA HEADER ================= */
+
 .hifz-download-report .download-brand{
   text-align:center;
   direction:rtl;
   color:#113826;
 }
+
 .hifz-download-report .download-brand h1{
   margin:0;
   font-size:26px;
   font-weight:700;
-  line-height:1.4;
+  line-height:1.7;
+  letter-spacing:1.2px;
+  word-spacing:5px;
+  color:#165b33;
   font-family:'Noto Nastaliq Urdu',serif;
 }
+
 .hifz-download-report .download-brand h2{
-  margin:2px 0 0;
-  color:#113826;
+  margin:2px 0 5px;
   font-size:20px;
   font-weight:700;
-  line-height:1.4;
+  line-height:1.5;
+  color:#243f70;
   font-family:'Noto Nastaliq Urdu',serif;
 }
+
 .hifz-download-report .download-brand .association{
-  margin-top:3px;
+  margin-top:5px;
   font-size:16px;
   font-weight:600;
-  color:#113826;
-  font-family:'Noto Nastaliq Urdu',serif;
-}
-.hifz-download-report .download-brand .address{
-  margin-top:2px;
-  font-size:13px;
+  line-height:1.8;
   color:#43564b;
   font-family:'Noto Nastaliq Urdu',serif;
 }
+
+.hifz-download-report .download-brand .association small{
+  font-size:12px;
+  font-weight:500;
+  color:#777;
+}
+
+/* ================= HEADER END ================= */
+
 .hifz-download-report .download-prepared{
   padding:10px 8px;
   background:#f0f4fa;
@@ -574,12 +587,16 @@ report.innerHTML=`
         </div>
 
         <!-- Darmiyan mein madrasa ka naam -->
-        <div class="download-brand">
-          <h1>مدرسہ دار القرآن والسنہ</h1>
-          <h2>بیجاپور</h2>
-          <div class="association">سلفیہ ایسوسی ایشن</div>
-          <div class="address">کنّات مسجد کمپلیکس، بیجاپور</div>
-        </div>
+        
+<div class="download-brand">
+  <h1>مدرسہ دار القرآن والسنہ</h1>
+  <h2>بیجاپور</h2>
+  <div class="association">
+    سلفیہ ایسوسی ایشن، کنّات مسجد کمپلیکس،
+    <small>(بیجاپور)</small>
+  </div>
+</div>
+
 
         <!-- Bayin janib tareekh ka khana -->
         <div class="download-prepared">
