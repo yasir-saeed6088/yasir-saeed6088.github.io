@@ -242,7 +242,9 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-input{background:#fff;border-color:#ddd}
 }
 
+
 /* ================= DOWNLOAD REPORT: NEW URDU HEADER START ================= */
+
 .hifz-download-report .download-report-header{
   position:relative;
   width:100%;
@@ -255,22 +257,31 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   overflow:hidden;
   direction:ltr;
 }
+
 .hifz-download-report .download-report-header::before{
   content:"";
   position:absolute;
-  top:0;left:0;width:100%;height:14px;
+  top:0;
+  left:0;
+  width:100%;
+  height:14px;
   background-color:#165b33;
 }
+
 .hifz-download-report .download-header-main{
   display:grid;
-  grid-template-columns:90px 1fr 140px;
+  grid-template-columns:110px minmax(0,1fr) 140px;
   align-items:center;
-  gap:12px;
+  gap:14px;
   padding-top:6px;
+  width:100%;
+  box-sizing:border-box;
 }
+
 .hifz-download-report .download-report-logo{
   width:110px;
   height:110px;
+  box-sizing:border-box;
   border-radius:12px;
   overflow:hidden;
   border:2px solid #c9a64b;
@@ -280,19 +291,25 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   justify-content:center;
   box-shadow:0 3px 6px rgba(0,0,0,0.15);
 }
+
 .hifz-download-report .download-report-logo img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
+
 .hifz-download-report .download-report-logo svg{
-  width:65px;height:65px;
+  width:65px;
+  height:65px;
 }
 
 
 /* ===== TWO LINE MADRASA HEADER ===== */
 
 .hifz-download-report .download-brand{
+  min-width:0;
+  width:100%;
+  box-sizing:border-box;
   text-align:center;
   direction:rtl;
   color:#113826;
@@ -311,11 +328,11 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 .hifz-download-report .download-brand .association{
   margin-top:3px;
-  font-size:15px;
+  font-size:14px;
   font-weight:600;
-  line-height:1.8;
+  line-height:1.9;
   color:#43564b;
-  white-space:nowrap;
+  white-space:normal;
   font-family:'Noto Nastaliq Urdu',serif;
 }
 
@@ -327,7 +344,10 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 /* ===== HEADER END ===== */
 
+
 .hifz-download-report .download-prepared{
+  width:140px;
+  box-sizing:border-box;
   padding:10px 8px;
   background:#f0f4fa;
   border:1px solid #d7e0ed;
@@ -339,6 +359,7 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   font-weight:600;
   font-family:'Roboto',Arial,sans-serif;
 }
+
 .hifz-download-report .download-prepared strong{
   display:block;
   font-size:14px;
@@ -348,6 +369,7 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 
 /* ================= DOWNLOAD REPORT: STYLISH BLUE BANNER START ================= */
+
 .hifz-download-report .download-report-period{
   margin:10px auto 25px;
   padding:14px 34px;
@@ -365,7 +387,12 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   box-shadow:0 5px 15px rgba(0, 77, 130, 0.3);
   font-family:'Noto Nastaliq Urdu',serif;
 }
+
 /* ================= DOWNLOAD REPORT: STYLISH BLUE BANNER END ================= */
+ 
+
+
+
 
 
 </style>
@@ -558,19 +585,26 @@ hifzDownloadButton.disabled=true;
 
 
 /* ============================== 11. PNG ماہانہ رپورٹ تیار و ڈاؤن لوڈ START ============================== */
+
 function downloadReportCell(value){return `<td>${hifzEscape(value??'—')}</td>`}
+
 function downloadReportPercent(value){const valid=value!==null&&value!==undefined&&Number.isFinite(Number(value)),percent=valid?Math.max(0,Math.min(100,Number(value))):0,label=valid?percent.toLocaleString('en-US',{maximumFractionDigits:2})+'%':'—';return `<td class="download-report-percent"><span class="download-report-percent-value">${label}</span><div class="download-report-bar"><div class="download-report-bar-fill" style="width:${percent}%"></div></div></td>`}
+
 function downloadReportTable(title,records,type){const headings=type==='hifz'?['شمارہ','طالب علم کا نام','ہدفِ حفظ (صفحات)','تکمیلِ حفظ (صفحات)','ہدفِ آموختہ (صفحات)','تکمیلِ آموختہ (صفحات)','مجموعی ٪']:['شمارہ','طالب علم کا نام','ہدفِ سبق (صفحات)','تکمیلِ سبق (صفحات)','مجموعی ٪'];let html=`<section class="download-report-section"><h2 class="download-report-section-title">${hifzEscape(title)}</h2>`;if(!records.length)return html+'</section>';const tableClass=type==='hifz'?'download-report-table-hifz':'download-report-table-five',colCount=type==='hifz'?7:5;html+=`<table class="download-report-table ${tableClass}"><colgroup>${Array.from({length:colCount},()=>'<col>').join('')}</colgroup><thead><tr>${headings.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>`;records.forEach((s,i)=>{const lesson=type==='hifz'?hifzPercent(s.lessonDone,s.lessonTarget):type==='nazra'?nazraPercent(s.lessonDone,s.lessonTarget):qaidaPercent(s.lessonDone,s.lessonTarget),revision=type==='hifz'?hifzPercent(s.revisionDone,s.revisionTarget):null,total=type==='hifz'?(lesson!==null&&revision!==null?Math.round((lesson+revision)/2):null):lesson,studentName=(s.name||'')+(s.father?' بن '+s.father:'');html+='<tr>'+downloadReportCell(String(i+1).padStart(2,'0'))+`<td class="download-report-name">${hifzEscape(studentName||'—')}</td>`;if(type==='hifz')html+=downloadReportCell(s.lessonTarget)+downloadReportCell(s.lessonDone)+downloadReportCell(s.revisionTarget)+downloadReportCell(s.revisionDone);else html+=downloadReportCell(s.lessonTarget)+downloadReportCell(s.lessonDone);html+=downloadReportPercent(total)+'</tr>'});return html+'</tbody></table></section>'}
 
+
 async function hifzDownloadMonthlyReport(){
+
   if(!currentReportKey){alert('پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔');return}
+
   if(typeof html2canvas!=='function'){alert('PNG بنانے والی لائبریری لوڈ نہیں ہوئی۔ انٹرنیٹ چیک کرکے صفحہ دوبارہ کھولیں۔');return}
 
   const reportKey=currentReportKey,[year,month]=reportKey.split('-'),report=document.createElement('div');
+
   report.className='hifz-download-report';
   report.id='hifzDownloadReport';
 
-report.innerHTML=`
+  report.innerHTML=`
     <header class="download-report-header">
       <div class="download-header-main">
 
@@ -580,18 +614,13 @@ report.innerHTML=`
         </div>
 
         <!-- Darmiyan mein madrasa ka naam -->
-        
-
-
-<div class="download-brand">
-  <h1>مدرسہ دار القرآن والسنہ</h1>
-  <div class="association">
-    سلفیہ ایسوسی ایشن، کنّات مسجد کمپلیکس،
-    <small>(بیجاپور)</small>
-  </div>
-</div>
-
-
+        <div class="download-brand">
+          <h1>مدرسہ دار القرآن والسنہ</h1>
+          <div class="association">
+            سلفیہ ایسوسی ایشن، کنّات مسجد کمپلیکس،
+            <small>(بیجاپور)</small>
+          </div>
+        </div>
 
         <!-- Bayin janib tareekh ka khana -->
         <div class="download-prepared">
@@ -614,29 +643,40 @@ report.innerHTML=`
   `;
 
   document.body.appendChild(report);
+
   const oldText=hifzDownloadButton.innerHTML;
+
   hifzDownloadButton.disabled=true;
   hifzDownloadButton.textContent='رپورٹ تیار ہو رہی ہے...';
 
   try{
+
     if(document.fonts?.ready)await document.fonts.ready;
+
     const canvas=await html2canvas(report,{backgroundColor:'#ffffff',scale:2,useCORS:true,logging:false}),link=document.createElement('a');
+
     link.download=`Madrasa-Report-${reportKey}.png`;
     link.href=canvas.toDataURL('image/png');
     link.click()
+
   }catch(e){
+
     console.error(e);
     alert('رپورٹ ڈاؤن لوڈ نہیں ہو سکی۔ براہِ کرم دوبارہ کوشش کریں۔')
+
   }finally{
+
     report.remove();
     hifzDownloadButton.innerHTML=oldText;
     hifzDownloadButton.disabled=!currentReportKey
+
   }
 }
 
 hifzDownloadButton.addEventListener('click',hifzDownloadMonthlyReport);
-/* ============================== 11. PNG ماہانہ رپورٹ تیار و ڈاؤن لوڈ END ============================== */
 
+/* ============================== 11. PNG ماہانہ رپورٹ تیار و ڈاؤن لوڈ END ============================== */
+  
 hifzData=hifzReadStorage();
 try{const p=JSON.parse(localStorage.getItem(hifzPeriodKey)||'null');if(p&&p.month&&p.year){monthSelect.value=p.month;yearSelect.value=p.year;currentReportKey=hifzMakeKey()}}catch(e){}
 hifzRenderSaved();
