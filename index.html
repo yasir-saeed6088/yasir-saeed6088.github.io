@@ -614,6 +614,8 @@ async function hifzDownloadMonthlyReport(){
   report.className='hifz-download-report';
   report.id='hifzDownloadReport';
 
+const startDate=new Date(Number(year),Number(month)-1,1),endDate=new Date(Number(year),Number(month),0),dateFmt=d=>d.toLocaleDateString('ur-IN',{day:'numeric',month:'long',year:'numeric'}),studentCount=hifzRecords().length+nazraRecords().length+qaidaRecords().length;
+  
   report.innerHTML=`
     <header class="download-report-header">
       <div class="download-header-main">
