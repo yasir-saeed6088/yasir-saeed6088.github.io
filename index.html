@@ -390,6 +390,19 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 
 
+/* ================= DOWNLOAD REPORT: STUDENT INFO PANEL START ================= */
+.hifz-download-report .download-info-panel{width:100%;margin:0 auto 24px;padding:13px 16px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;direction:ltr;background:linear-gradient(110deg,#eaf5f3,#e5f0f5);border:2px solid #a9c9c9;border-radius:17px;box-shadow:0 3px 10px #244c5012;box-sizing:border-box}
+.hifz-download-report .download-info-item{min-width:0;min-height:76px;padding:5px 12px;display:flex;align-items:center;justify-content:center;gap:11px;direction:ltr}
+.hifz-download-report .download-info-item:not(:last-child){border-right:1px solid #b5cdcf}
+.hifz-download-report .download-info-icon{width:45px;height:45px;min-width:45px;display:flex;align-items:center;justify-content:center;color:#16734b}
+.hifz-download-report .download-info-icon svg{width:43px;height:43px;display:block}
+.hifz-download-report .download-info-text{min-width:0;text-align:right;direction:rtl}
+.hifz-download-report .download-info-label{margin:0 0 3px;color:#315d57;font-size:17px;font-weight:700;line-height:1.8;font-family:'Noto Nastaliq Urdu',serif}
+.hifz-download-report .download-info-value{margin:0;color:#172f36;font-size:18px;font-weight:700;line-height:1.8;white-space:nowrap;font-family:'Noto Nastaliq Urdu',serif}
+.hifz-download-report .download-info-item:nth-child(2) .download-info-icon{color:#2875a5}
+.hifz-download-report .download-info-item:nth-child(3) .download-info-icon{color:#19844e}
+/* ================= DOWNLOAD REPORT: STUDENT INFO PANEL END ================= */
+  
 
 
 </style>
@@ -631,6 +644,24 @@ async function hifzDownloadMonthlyReport(){
     <div class="download-report-period">
       ماہنامہ علمی کارکردگیِ طلبہ — ${hifzEscape(hifzMonthNames[Number(month)]||month)} ${hifzEscape(year)}ء
     </div>
+
+
+<div class="download-info-panel">
+  <div class="download-info-item">
+    <div class="download-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2z"/></svg></div>
+    <div class="download-info-text"><p class="download-info-label">استاد کا نام</p><p class="download-info-value">یاسر سعید</p></div>
+  </div>
+  <div class="download-info-item">
+    <div class="download-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></div>
+    <div class="download-info-text"><p class="download-info-label">مدت</p><p class="download-info-value">${dateFmt(startDate)} تا ${dateFmt(endDate)}</p></div>
+  </div>
+  <div class="download-info-item">
+    <div class="download-info-icon"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="7" r="4"/><circle cx="17" cy="8" r="3.5"/><path d="M1 21v-2a8 8 0 0 1 16 0v2z"/><path d="M15 14a7 7 0 0 1 8 7h-4v-2a10 10 0 0 0-4-5z"/></svg></div>
+    <div class="download-info-text"><p class="download-info-label">کل طلبہ</p><p class="download-info-value">${studentCount} طلبہ</p></div>
+  </div>
+</div>
+
+
 
     ${downloadReportTable('حفظِ قرآن',hifzRecords(),'hifz')}
     ${downloadReportTable('ناظرہ قرآن',nazraRecords(),'nazra')}
