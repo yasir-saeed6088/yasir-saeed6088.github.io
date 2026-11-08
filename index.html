@@ -658,7 +658,8 @@ hifzDownloadButton.disabled=true;
 
 
 
-/* ================= 11. THREE SECTION HEADINGS + REPORT TABLE START ================= */
+
+/* ============================== 11. PNG ماہانہ رپورٹ تیار و ڈاؤن لوڈ START ============================== */
 
 function downloadReportCell(value){return `<td>${hifzEscape(value??'—')}</td>`}
 
@@ -693,7 +694,92 @@ function downloadReportTable(title,records,type){
   return html+'</tbody></table></section>';
 }
 
-/* ================= 11. THREE SECTION HEADINGS + REPORT TABLE END ================= */
+/* PNG MONTHLY REPORT DOWNLOAD */
+async function hifzDownloadMonthlyReport(){
+
+  if(!currentReportKey){alert('پہلے ماہ اور سال منتخب کرکے محفوظ کریں۔');return}
+
+  if(typeof html2canvas!=='function'){alert('PNG بنانے والی لائبریری لوڈ نہیں ہوئی۔ انٹرنیٹ چیک کرکے صفحہ دوبارہ کھولیں۔');return}
+
+  const reportKey=currentReportKey,[year,month]=reportKey.split('-'),report=document.createElement('div');
+
+  report.className='hifz-download-report';
+  report.id='hifzDownloadReport';
+
+  const startDate=new Date(Number(year),Number(month)-1,1),endDate=new Date(Number(year),Number(month),0),dateFmt=d=>d.toLocaleDateString('ur-IN',{day:'numeric',month:'long',year:'numeric'}),studentCount=hifzRecords().length+nazraRecords().length+qaidaRecords().length;
+
+  report.innerHTML=`
+<header class="download-report-header">
+<div class="download-header-main">
+    <div class="download-report-logo">
+      <img src="https://raw.githubusercontent.com/yasir-saeed6088/yasir-saeed6088.github.io/main/Screenshot_20261017-130932.jpg" alt="Madrasa Logo">
+    </div>
+    <div class="download-brand">
+      <h1>مدرسہ دار القرآن والسنہ</h1>
+      <div class="association">
+        سلفیہ ایسوسی ایشن، کنّات مسجد کمپلیکس،
+        <small>(بیجاپور)</small>
+      </div>
+    </div>
+    <div class="download-prepared">
+      <div>📅 تاریخِ تیاری</div>
+      <strong>${hifzEscape(new Date().toLocaleDateString('ur-IN'))}</strong>
+    </div>
+</div>
+</header>
+
+<div class="download-report-period">
+  ماہنامہ علمی کارکردگیِ طلبہ — ${hifzEscape(hifzMonthNames[Number(month)]||month)} ${hifzEscape(year)}ء
+</div>
+
+<div class="download-info-panel">
+  <div class="download-info-item">
+    <div class="download-info-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="9" r="3"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0"/></svg></div>
+    <div class="download-info-text"><p class="download-info-label">استاد کا نام</p><p class="download-info-value">یاسر سعید بن شکیل احمد</p></div>
+  </div>
+  <div class="download-info-item">
+    <div class="download-info-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01M16 17h.01"/></svg></div>
+    <div class="download-info-text"><p class="download-info-label">مدت</p><p class="download-info-value">${dateFmt(startDate)} تا ${dateFmt(endDate)}</p></div>
+  </div>
+  <div class="download-info-item">
+    <div class="download-info-icon"><svg aria-hidden="true" viewBox="0 0 64 48" fill="currentColor"><circle cx="32" cy="11" r="8"/><path d="M17 45V36c0-9 6-15 15-15s15 6 15 15v9z"/><circle cx="10" cy="17" r="6"/><path d="M0 43v-7c0-7 4-12 10-12 4 0 7 2 9 5-3 3-4 7-4 12v2z"/><circle cx="54" cy="17" r="6"/><path d="M64 43v-7c0-7-4-12-10-12-4 0-7 5-9 5 3 3 4 7 4 12v2z"/></svg></div>
+    <div class="download-info-text"><p class="download-info-label">کل طلبہ</p><p class="download-info-value">${studentCount} طلبہ</p></div>
+  </div>
+</div>
+
+${downloadReportTable('حفظِ قرآن',hifzRecords(),'hifz')}
+${downloadReportTable('ناظرہ قرآن',nazraRecords(),'nazra')}
+${downloadReportTable('نورانی قاعدہ',qaidaRecords(),'qaida')}
+
+<footer class="download-report-footer">مدرسہ دار القرآن والسنہ بیجاپور</footer>
+`;
+
+  document.body.appendChild(report);
+
+  const oldText=hifzDownloadButton.innerHTML;
+  hifzDownloadButton.disabled=true;
+  hifzDownloadButton.textContent='رپورٹ تیار ہو رہی ہے...';
+
+  try{
+    if(document.fonts?.ready)await document.fonts.ready;
+    const canvas=await html2canvas(report,{backgroundColor:'#ffffff',scale:2,useCORS:true,logging:false}),link=document.createElement('a');
+    link.download=`Madrasa-Report-${reportKey}.png`;
+    link.href=canvas.toDataURL('image/png');
+    link.click();
+  }catch(e){
+    console.error(e);
+    alert('رپورٹ ڈاؤن لوڈ نہیں ہو سکی۔ براہِ کرم دوبارہ کوشش کریں۔');
+  }finally{
+    report.remove();
+    hifzDownloadButton.innerHTML=oldText;
+    hifzDownloadButton.disabled=!currentReportKey;
+  }
+}
+
+hifzDownloadButton.addEventListener('click',hifzDownloadMonthlyReport);
+
+/* ============================== 11. PNG ماہانہ رپورٹ تیار و ڈاؤن لوڈ END ============================== */
+
 
   
 hifzData=hifzReadStorage();
