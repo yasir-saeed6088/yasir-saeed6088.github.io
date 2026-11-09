@@ -152,28 +152,18 @@ body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 .download-report-percent{min-width:100px}
 .download-report-percent-value{display:block;margin-bottom:5px;font:700 14px Roboto,Arial,sans-serif;color:#174c36;direction:ltr}
 
-/* ================= DOWNLOAD REPORT: PROFESSIONAL PERCENTAGE BAR ================= */
-.hifz-download-report .download-report-percent{
+.download-report-bar{
+  height:9px;
   width:100%;
-  max-width:105px;
-  margin:5px auto 0;
-  text-align:center;
-}
-.hifz-download-report .download-report-bar{
-  width:100%;
-  max-width:105px;
-  height:7px;
-  margin:0 auto;
-  background:#e5ebf2;
-  border-radius:20px;
+  background:#dce6df;
+  border-radius:99px;
   overflow:hidden;
 }
-.hifz-download-report .download-report-bar-fill{
+.download-report-bar-fill{
   height:100%;
-  background:#3478b9;
-  border-radius:20px;
+  border-radius:99px;
+  background:#23734d;
 }
-  
 .download-report-empty{padding:10px;text-align:center;color:#758477;font-size:14px}
 .download-report-footer{margin-top:25px;padding:12px 8px 5px;border-top:2px solid #d5e7dc;text-align:center;color:#617367;font-size:14px;font-weight:600}
 
@@ -724,23 +714,23 @@ function downloadReportHeading(type,title){
   return `<h2 class="download-report-section-title ${item.className}"><span class="hifz-heading-content">${item.icon}<span class="hifz-heading-number">${item.number}</span><span class="hifz-heading-main">${item.main}</span><span class="hifz-heading-sub">${item.sub}</span></span></h2>`;
 }
 
-
 /* MONTHLY REPORT TABLE */
 function downloadReportTable(title,records,type){
-  const headings=type==='hifz'?['شمارہ','طالب علم کا نام','ہدفِ حفظ (صفحات)','تکمیلِ حفظ (صفحات)','ہدفِ آموختہ (صفحات)','تکمیلِ آموختہ (صفحات)','تعلیمی ایام','ایامِ حاضری','مجموعی ٪']:['شمارہ','طالب علم کا نام','ہدفِ سبق (صفحات)','تکمیلِ سبق (صفحات)','تعلیمی ایام','ایامِ حاضری','مجموعی ٪'];
+  const headings=type==='hifz'?['شمارہ','طالب علم کا نام','ہدفِ حفظ (صفحات)','تکمیلِ حفظ (صفحات)','ہدفِ آموختہ (صفحات)','تکمیلِ آموختہ (صفحات)','مجموعی ٪']:['شمارہ','طالب علم کا نام','ہدفِ سبق (صفحات)','تکمیلِ سبق (صفحات)','مجموعی ٪'];
   let html=`<section class="download-report-section">${downloadReportHeading(type,title)}`;
   if(!records.length)return html+'</section>';
-  const tableClass=type==='hifz'?'download-report-table-hifz':'download-report-table-five',colCount=type==='hifz'?9:7;
+  const tableClass=type==='hifz'?'download-report-table-hifz':'download-report-table-five',colCount=type==='hifz'?7:5;
   html+=`<table class="download-report-table ${tableClass}"><colgroup>${Array.from({length:colCount},()=>'<col>').join('')}</colgroup><thead><tr>${headings.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>`;
   records.forEach((s,i)=>{
     const lesson=type==='hifz'?hifzPercent(s.lessonDone,s.lessonTarget):type==='nazra'?nazraPercent(s.lessonDone,s.lessonTarget):qaidaPercent(s.lessonDone,s.lessonTarget),revision=type==='hifz'?hifzPercent(s.revisionDone,s.revisionTarget):null,total=type==='hifz'?(lesson!==null&&revision!==null?Math.round((lesson+revision)/2):null):lesson,studentName=(s.name||'')+(s.father?' بن '+s.father:'');
     html+='<tr>'+downloadReportCell(String(i+1).padStart(2,'0'))+`<td class="download-report-name">${hifzEscape(studentName||'—')}</td>`;
     if(type==='hifz')html+=downloadReportCell(s.lessonTarget)+downloadReportCell(s.lessonDone)+downloadReportCell(s.revisionTarget)+downloadReportCell(s.revisionDone);
     else html+=downloadReportCell(s.lessonTarget)+downloadReportCell(s.lessonDone);
-    html+=downloadReportCell(s.days??'—')+downloadReportCell(s.attendance??'—')+downloadReportPercent(total)+'</tr>';
+    html+=downloadReportPercent(total)+'</tr>';
   });
   return html+'</tbody></table></section>';
-  }
+}
+
 
 
 /* PNG MONTHLY REPORT DOWNLOAD */
