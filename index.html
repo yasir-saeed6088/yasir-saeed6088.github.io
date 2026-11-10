@@ -505,6 +505,80 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-download-report .hifz-heading-sub{font-family:'Noto Nastaliq Urdu','Amiri',serif!important;font-size:20px!important;font-weight:600!important;}
 /* ================= THREE SECTION HEADINGS: 3D DESIGN END ================= */
 
+
+
+/* ================= WEBSITE: THREE PREMIUM DEPARTMENT HEADINGS START ================= */
+.hifz-section .hifz-heading-card{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  width:100%;
+  min-height:105px;
+  box-sizing:border-box;
+  margin:14px 0 0;
+  padding:12px 20px;
+  border:1.5px solid;
+  border-radius:11px 11px 0 0;
+  text-align:center;
+  line-height:1.7;
+  font-weight:700;
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.85),0 3px 6px rgba(0,0,0,.08);
+}
+.hifz-section .hifz-heading-content{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  direction:rtl;
+  gap:12px;
+  flex-wrap:nowrap;
+}
+.hifz-section .hifz-heading-content svg{
+  width:46px;
+  height:42px;
+  flex-shrink:0;
+}
+.hifz-section .hifz-title{
+  margin:0;
+  font-family:'Noto Nastaliq Urdu','Amiri',serif;
+  font-size:29px;
+  font-weight:700;
+  line-height:1.8;
+}
+.hifz-section .hifz-subtitle{
+  margin:0;
+  font-family:'Noto Nastaliq Urdu','Amiri',serif;
+  font-size:21px;
+  font-weight:600;
+  line-height:1.8;
+}
+/* حفظ: سبز */
+.hifz-section .hifz-heading-card:not(.nazra-heading-card):not(.qaida-heading-card){
+  background:linear-gradient(135deg,#edf8f0,#d8edde);
+  border-color:#a9cfb3;
+  color:#205d38;
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #b8d7c1,0 7px 12px rgba(32,93,56,.13);
+}
+/* ناظرہ: نیلا */
+.hifz-section .nazra-heading-card{
+  background:linear-gradient(135deg,#f0f6fc,#dceafa);
+  border-color:#b4cce5;
+  color:#28577e;
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #bed2e8,0 7px 12px rgba(40,87,126,.13);
+}
+/* قاعدہ: سنہری */
+.hifz-section .qaida-heading-card{
+  background:linear-gradient(135deg,#fff8ed,#f8e9d2);
+  border-color:#e8cda5;
+  color:#85551f;
+  box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #e8d2b2,0 7px 12px rgba(133,85,31,.13);
+}
+/* ================= WEBSITE: THREE PREMIUM DEPARTMENT HEADINGS END ================= */
+
+  
 </style>
 <!-- ============================== CSS END ============================== -->
 
@@ -579,7 +653,15 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 <!-- ============================== HTML: شعبۂ حفظ القرآن الکریم START ============================== -->
 <section class="hifz-section" id="hifzSection">
-<div class="hifz-card"><h3 class="hifz-title">حفظِ قرآن کریم</h3><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
+
+<div class="hifz-card hifz-heading-card">
+  <div class="hifz-heading-content">
+    <svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8C18 3 9 4 3 7v27c8-3 15-2 21 4 6-6 13-7 21-4V7c-6-3-15-4-21 1Z"/><path d="M24 8v30M7 12c5-2 10-1 14 2M7 19c5-2 10-1 14 2M7 26c5-2 10-1 14 2M41 12c-5-2-10-1-14 2M41 19c-5-2-10-1-14 2M41 26c-5-2-10-1-14 2"/></svg>
+    <h3 class="hifz-title">حفظِ قرآن کریم</h3>
+  </div>
+  <p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p>
+</div>
+  
 <button class="hifz-toggle" id="hifzToggle" type="button" aria-expanded="false" aria-controls="hifzReportFields"><span>طلبہ کی کارکردگی درج کریں</span><svg class="hifz-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
 <div class="hifz-fields" id="hifzReportFields" hidden>
 <button class="hifz-add" id="hifzAddStudent" type="button">＋ طالب علم کا اندراج کریں</button>
@@ -596,7 +678,9 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 <!-- ============================== HTML: شعبۂ ناظرہ قرآن کریم START ============================== -->
 <section class="hifz-section" id="nazraSection">
-<div class="hifz-card"><h3 class="hifz-title">ناظرہ قرآن کریم</h3><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
+  
+<div class="hifz-card nazra-heading-card"><div class="hifz-heading-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M12 2v7l2.5-1.5L17 9V2"/></svg><h3 class="hifz-title">ناظرہ قرآن کریم</h3></div><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
+  
 <button class="hifz-toggle" id="nazraToggle" type="button" aria-expanded="false" aria-controls="nazraReportFields"><span>طلبہ کی کارکردگی درج کریں</span><svg class="hifz-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
 <div class="hifz-fields" id="nazraReportFields" hidden>
 <button class="hifz-add" id="nazraAddStudent" type="button">＋ طالب علم کا اندراج کریں</button>
@@ -616,7 +700,7 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 <!-- ============================== HTML: شعبۂ نورانی قاعدہ START ============================== -->
 <section class="hifz-section" id="qaidaSection">
-<div class="hifz-card"><h3 class="hifz-title">نورانی قاعدہ</h3><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
+<div class="hifz-card qaida-heading-card"><div class="hifz-heading-content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 1 4 17.5z"/><path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H20M8 6h7M8 10h5"/><path d="m15 14 5-5 2 2-5 5-3 1z"/></svg><h3 class="hifz-title">نورانی قاعدہ</h3></div><p class="hifz-subtitle">ماہانہ تعلیمی پیش رفت</p></div>
 <button class="hifz-toggle" id="qaidaToggle" type="button" aria-expanded="false" aria-controls="qaidaReportFields"><span>طلبہ کی کارکردگی درج کریں</span><svg class="hifz-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
 <div class="hifz-fields" id="qaidaReportFields" hidden>
 <button class="hifz-add" id="qaidaAddStudent" type="button">＋ طالب علم کا اندراج کریں</button>
