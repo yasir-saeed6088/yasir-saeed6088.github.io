@@ -167,15 +167,18 @@ body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 .download-report-empty{padding:10px;text-align:center;color:#758477;font-size:14px}
 .download-report-footer{margin-top:25px;padding:12px 8px 5px;border-top:2px solid #d5e7dc;text-align:center;color:#617367;font-size:14px;font-weight:600}
 
+
 /* ============================== 9.2. PNG رپورٹ: ٹیبل کالم سائز ============================== */
-.download-report-table-hifz col:nth-child(1){width:7%}
-.download-report-table-hifz col:nth-child(2){width:18%}
-.download-report-table-hifz col:nth-child(3),.download-report-table-hifz col:nth-child(4),.download-report-table-hifz col:nth-child(5),.download-report-table-hifz col:nth-child(6){width:12%}
-.download-report-table-hifz col:nth-child(7){width:27%}
-.download-report-table-five col:nth-child(1){width:8%}
-.download-report-table-five col:nth-child(2){width:26%}
-.download-report-table-five col:nth-child(3),.download-report-table-five col:nth-child(4){width:18%}
-.download-report-table-five col:nth-child(5){width:30%}
+.download-report-table-hifz col:nth-child(1){width:5%}
+.download-report-table-hifz col:nth-child(2){width:17%}
+.download-report-table-hifz col:nth-child(3),.download-report-table-hifz col:nth-child(4),.download-report-table-hifz col:nth-child(5),.download-report-table-hifz col:nth-child(6){width:10%}
+.download-report-table-hifz col:nth-child(7),.download-report-table-hifz col:nth-child(8){width:9%}
+.download-report-table-hifz col:nth-child(9){width:20%}
+.download-report-table-five col:nth-child(1){width:5%}
+.download-report-table-five col:nth-child(2){width:23%}
+.download-report-table-five col:nth-child(3),.download-report-table-five col:nth-child(4){width:13%}
+.download-report-table-five col:nth-child(5),.download-report-table-five col:nth-child(6){width:11%}
+.download-report-table-five col:nth-child(7){width:24%}
 
 /* ============================== 10. شعبہ حفظ: ٹیبل کی چوڑائی ============================== */
 #hifzSection .hifz-table{min-width:1350px}
@@ -800,11 +803,12 @@ function downloadReportHeading(type,title){
 }
 
 
+
 /* MONTHLY REPORT TABLE */
 function downloadReportTable(title,records,type){
   const isHifz=type==='hifz';
   const headings=isHifz?['شمارہ','طالب علم کا نام','ہدفِ حفظ (صفحات)','تکمیلِ حفظ (صفحات)','ہدفِ آموختہ (صفحات)','تکمیلِ آموختہ (صفحات)','تعلیمی ایام','ایامِ حاضری','مجموعی ٪']:['شمارہ','طالب علم کا نام','ہدفِ سبق (صفحات)','تکمیلِ سبق (صفحات)','تعلیمی ایام','ایامِ حاضری','مجموعی ٪'];
-  const widths=isHifz?[5,17,10,10,10,10,9,9,20]:[5,23,13,13,11,11,23];
+  const widths=isHifz?[5,17,10,10,10,10,9,9,20]:[5,23,13,13,11,11,24];
   let html=`<section class="download-report-section">${downloadReportHeading(type,title)}`;
   if(!records.length)return html+'</section>';
   const tableClass=isHifz?'download-report-table-hifz':'download-report-table-five',colCount=headings.length;
