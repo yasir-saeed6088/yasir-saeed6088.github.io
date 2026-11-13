@@ -160,15 +160,15 @@ body{margin:0;background:#f3f6f4;font-family:'Noto Nastaliq Urdu',serif}
 
 /* ============================== 9.2. PNG رپورٹ: ٹیبل کالم سائز ============================== */
 .download-report-table-hifz col:nth-child(1){width:5%}
-.download-report-table-hifz col:nth-child(2){width:17%}
+.download-report-table-hifz col:nth-child(2){width:20%}
 .download-report-table-hifz col:nth-child(3),.download-report-table-hifz col:nth-child(4),.download-report-table-hifz col:nth-child(5),.download-report-table-hifz col:nth-child(6){width:10%}
 .download-report-table-hifz col:nth-child(7),.download-report-table-hifz col:nth-child(8){width:9%}
-.download-report-table-hifz col:nth-child(9){width:20%}
+.download-report-table-hifz col:nth-child(9){width:17%}
 .download-report-table-five col:nth-child(1){width:5%}
-.download-report-table-five col:nth-child(2){width:23%}
+.download-report-table-five col:nth-child(2){width:27%}
 .download-report-table-five col:nth-child(3),.download-report-table-five col:nth-child(4){width:13%}
 .download-report-table-five col:nth-child(5),.download-report-table-five col:nth-child(6){width:11%}
-.download-report-table-five col:nth-child(7){width:24%}
+.download-report-table-five col:nth-child(7){width:20%}
 
 /* ============================== 10. شعبہ حفظ: ٹیبل کی چوڑائی ============================== */
 #hifzSection .hifz-table{min-width:1350px}
@@ -309,30 +309,23 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .hifz-download-report .download-info-item:nth-child(3) .download-info-icon{color:#19844e}
   
 /* ================= DOWNLOAD REPORT: STUDENT INFO PANEL END ================= */
-  
+
+/* ================= PNG REPORT: GRADED PROGRESS BAR START ================= */
+.hifz-download-report .download-report-percent{min-width:0!important;padding:8px 4px!important}
+.hifz-download-report .download-report-percent-value{position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;z-index:2!important;color:#173b2b!important;font:700 12px Roboto,Arial,sans-serif!important;direction:ltr!important;-webkit-text-stroke:.35px #fff!important;text-shadow:0 0 2px #fff,0 0 3px #fff!important;white-space:nowrap!important}
+.hifz-download-report .download-report-bar{position:relative!important;width:100%!important;height:14px!important;background:#e5e9e6!important;border-radius:99px!important;overflow:hidden!important}
+.hifz-download-report .download-report-bar-fill{position:absolute!important;top:0!important;left:0!important;height:100%!important;border-radius:99px!important;transition:none!important}
+.hifz-download-report .download-report-bar-fill.grade-fail{background:#d77c83!important}
+.hifz-download-report .download-report-bar-fill.grade-maqbool{background:#e4ad64!important}
+.hifz-download-report .download-report-bar-fill.grade-jayyid{background:#79a9d3!important}
+.hifz-download-report .download-report-bar-fill.grade-jayyid-jiddan{background:#70b78e!important}
+.hifz-download-report .download-report-bar-fill.grade-mumtaz{background:#28734d!important}
+.hifz-download-report .download-report-bar-fill.grade-empty{background:transparent!important}
+/* ================= PNG REPORT: GRADED PROGRESS BAR END ================= */
 
 
 /* ================= THREE SECTION HEADINGS: CONNECTED CARD DESIGN START ================= */
-.hifz-download-report .download-report-section-title{
-  position:relative!important;
-  z-index:2!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  direction:rtl!important;
-  gap:11px!important;
-  width:100%!important;
-  min-height:64px!important;
-  box-sizing:border-box!important;
-  margin:14px 0 0!important;
-  padding:10px 20px!important;
-  border:1.5px solid!important;
-  border-radius:11px 11px 0 0!important;
-  text-align:center!important;
-  line-height:1.7!important;
-  font-weight:700!important;
-  box-shadow:inset 0 2px 3px rgba(255,255,255,.85),0 3px 6px rgba(0,0,0,.08)!important;
-}
+.hifz-download-report .download-report-section-title{ position:relative!important; z-index:2!important; display:flex!important; align-items:center!important; justify-content:center!important; direction:rtl!important; gap:11px!important; width:100%!important; min-height:64px!important; box-sizing:border-box!important; margin:14px 0 0!important; padding:10px 20px!important; border:1.5px solid!important; border-radius:11px 11px 0 0!important; text-align:center!important; line-height:1.7!important; font-weight:700!important; box-shadow:inset 0 2px 3px rgba(255,255,255,.85),0 3px 6px rgba(0,0,0,.08)!important;}
 /* ================= THREE SECTION HEADINGS: CONNECTED CARD DESIGN END ================= */
 
 .hifz-download-report .hifz-section-title{background:linear-gradient(135deg,#edf8f0,#d8edde)!important;border-color:#a9cfb3!important;color:#205d38!important;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #b8d7c1,0 7px 12px rgba(32,93,56,.13)!important;}
@@ -348,75 +341,20 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 
 /* ================= WEBSITE: THREE PREMIUM DEPARTMENT HEADINGS START ================= */
-.hifz-section .hifz-heading-card{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:0px;
-  width:100%;
-  min-height:72px;
-  box-sizing:border-box;
-  margin:14px 0 0;
-  padding:8px 16px;
-  border:1.5px solid;
-  border-radius:9px 9px 0 0;
-  text-align:center;
-  line-height:1.7;
-  font-weight:700;
-  box-shadow:inset 0 2px 3px rgba(255,255,255,.85),0 3px 6px rgba(0,0,0,.08);
-}
-.hifz-section .hifz-heading-content{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  direction:rtl;
-  gap:9px;
-  flex-wrap:nowrap;
-}
-.hifz-section .hifz-heading-content svg{
-  width:36px;
-  height:33px;
-  flex-shrink:0;
-}
-.hifz-section .hifz-title{
-  margin:0;
-  font-family:'Noto Nastaliq Urdu','Amiri',serif;
-  font-size:24px;
-  font-weight:700;
-  line-height:1.7;
-  color:inherit;
-}
-.hifz-section .hifz-subtitle{
-  margin:0;
-  font-family:'Noto Nastaliq Urdu','Amiri',serif;
-  font-size:21px;
-  font-weight:600;
-  line-height:1.8;
-}
+.hifz-section .hifz-heading-card{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center;gap:0px; width:100%; min-height:72px; box-sizing:border-box; margin:14px 0 0; padding:8px 16px; border:1.5px solid; border-radius:9px 9px 0 0; text-align:center; line-height:1.7; font-weight:700; box-shadow:inset 0 2px 3px rgba(255,255,255,.85),0 3px 6px rgba(0,0,0,.08);}
+.hifz-section .hifz-heading-content{ display:flex; align-items:center; justify-content:center; direction:rtl; gap:9px; flex-wrap:nowrap;}
+.hifz-section .hifz-heading-content svg{ width:36px; height:33px; flex-shrink:0;}
+.hifz-section .hifz-title{ margin:0; font-family:'Noto Nastaliq Urdu','Amiri',serif; font-size:24px; font-weight:700; line-height:1.7; color:inherit;}
+.hifz-section .hifz-subtitle{ margin:0; font-family:'Noto Nastaliq Urdu','Amiri',serif; font-size:21px; font-weight:600; line-height:1.8;}
+  
 /* حفظ: سبز */
-.hifz-section .hifz-heading-card:not(.nazra-heading-card):not(.qaida-heading-card){
-  background:linear-gradient(135deg,#edf8f0,#d8edde);
-  border-color:#a9cfb3;
-  color:#205d38;
-  box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #b8d7c1,0 7px 12px rgba(32,93,56,.13);
-}
+.hifz-section .hifz-heading-card:not(.nazra-heading-card):not(.qaida-heading-card){ background:linear-gradient(135deg,#edf8f0,#d8edde); border-color:#a9cfb3; color:#205d38; box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #b8d7c1,0 7px 12px rgba(32,93,56,.13);}
+
 /* ناظرہ: نیلا */
-.hifz-section .nazra-heading-card{
-  background:linear-gradient(135deg,#f0f6fc,#dceafa);
-  border-color:#b4cce5;
-  color:#28577e;
-  box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #bed2e8,0 7px 12px rgba(40,87,126,.13);
-}
+.hifz-section .nazra-heading-card{ background:linear-gradient(135deg,#f0f6fc,#dceafa); border-color:#b4cce5; color:#28577e; box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #bed2e8,0 7px 12px rgba(40,87,126,.13);}
+  
 /* قاعدہ: سنہری */
-.hifz-section .qaida-heading-card{
-  background:linear-gradient(135deg,#fff8ed,#f8e9d2);
-  border-color:#e8cda5;
-  color:#85551f;
-  box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #e8d2b2,0 7px 12px rgba(133,85,31,.13);
-}
+.hifz-section .qaida-heading-card{ background:linear-gradient(135deg,#fff8ed,#f8e9d2);  border-color:#e8cda5; color:#85551f; box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -2px 3px rgba(0,0,0,.04),0 4px 0 #e8d2b2,0 7px 12px rgba(133,85,31,.13);}
 /* ================= WEBSITE: THREE PREMIUM DEPARTMENT HEADINGS END ================= */
 
   
@@ -625,8 +563,11 @@ hifzDownloadButton.disabled=true;
 
 function downloadReportCell(value){return `<td>${hifzEscape(value??'—')}</td>`}
 
-function downloadReportPercent(value){const valid=value!==null&&value!==undefined&&Number.isFinite(Number(value)),percent=valid?Math.max(0,Math.min(100,Number(value))):0,label=valid?percent.toLocaleString('en-US',{maximumFractionDigits:2})+'%':'—';return `<td class="download-report-percent"><span class="download-report-percent-value">${label}</span><div class="download-report-bar"><div class="download-report-bar-fill" style="width:${percent}%"></div></div></td>`}
-
+function downloadReportPercent(value){
+  const valid=value!==null&&value!==undefined&&Number.isFinite(Number(value)),percent=valid?Math.max(0,Math.min(100,Number(value))):0,rounded=Math.round(percent),label=valid?percent.toLocaleString('en-US',{maximumFractionDigits:2})+'%':'—';
+  const grade=!valid?'grade-empty':rounded<40?'grade-fail':rounded<=60?'grade-maqbool':rounded<=80?'grade-jayyid':rounded<=90?'grade-jayyid-jiddan':'grade-mumtaz';
+  return `<td class="download-report-percent"><div class="download-report-bar"><div class="download-report-bar-fill ${grade}" style="width:${percent}%"></div><span class="download-report-percent-value">${label}</span></div></td>`;
+                                                                                                                                }
 /* THREE DEPARTMENT HEADING CONTENT */
 function downloadReportHeading(type,title){
   const headings={
@@ -645,7 +586,7 @@ function downloadReportHeading(type,title){
 function downloadReportTable(title,records,type){
   const isHifz=type==='hifz';
   const headings=isHifz?['شمارہ','طالب علم کا نام','ہدفِ حفظ (صفحات)','تکمیلِ حفظ (صفحات)','ہدفِ آموختہ (صفحات)','تکمیلِ آموختہ (صفحات)','تعلیمی ایام','ایامِ حاضری','مجموعی ٪']:['شمارہ','طالب علم کا نام','ہدفِ سبق (صفحات)','تکمیلِ سبق (صفحات)','تعلیمی ایام','ایامِ حاضری','مجموعی ٪'];
-  const widths=isHifz?[5,17,10,10,10,10,9,9,20]:[5,23,13,13,11,11,24];
+  const widths=isHifz?[5,20,10,10,10,10,9,9,17]:[5,27,13,13,11,11,20];
   let html=`<section class="download-report-section">${downloadReportHeading(type,title)}`;
   if(!records.length)return html+'</section>';
   const tableClass=isHifz?'download-report-table-hifz':'download-report-table-five',colCount=headings.length;
