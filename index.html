@@ -311,19 +311,19 @@ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 /* ================= DOWNLOAD REPORT: STUDENT INFO PANEL END ================= */
 
 /* ================= PNG REPORT: GRADED PROGRESS BAR START ================= */
-.hifz-download-report .download-report-percent{min-width:0!important;padding:8px 4px!important}
-.hifz-download-report .download-report-percent-value{position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;z-index:2!important;color:#173b2b!important;font:700 12px Roboto,Arial,sans-serif!important;direction:ltr!important;-webkit-text-stroke:.35px #fff!important;text-shadow:0 0 2px #fff,0 0 3px #fff!important;white-space:nowrap!important}
-.hifz-download-report .download-report-bar{position:relative!important;width:100%!important;height:14px!important;background:#e5e9e6!important;border-radius:99px!important;overflow:hidden!important}
-.hifz-download-report .download-report-bar-fill{position:absolute!important;top:0!important;left:0!important;height:100%!important;border-radius:99px!important;transition:none!important}
-.hifz-download-report .download-report-bar-fill.grade-fail{background:#d77c83!important}
-.hifz-download-report .download-report-bar-fill.grade-maqbool{background:#e4ad64!important}
-.hifz-download-report .download-report-bar-fill.grade-jayyid{background:#79a9d3!important}
-.hifz-download-report .download-report-bar-fill.grade-jayyid-jiddan{background:#70b78e!important}
-.hifz-download-report .download-report-bar-fill.grade-mumtaz{background:#28734d!important}
+.hifz-download-report .download-report-percent{min-width:0!important;padding:8px 3px!important}
+.hifz-download-report .download-report-bar{position:relative!important;direction:rtl!important;width:100%!important;height:17px!important;background:#e2e6e3!important;border-radius:99px!important;overflow:hidden!important}
+.hifz-download-report .download-report-bar-fill{position:absolute!important;top:0!important;right:0!important;left:auto!important;height:100%!important;border-radius:99px!important;transition:none!important}
+.hifz-download-report .download-report-percent-value{position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;z-index:2!important;color:#fff!important;font:900 13px Roboto,Arial,sans-serif!important;direction:ltr!important;text-shadow:0 1px 2px rgba(0,0,0,.55)!important;white-space:nowrap!important;line-height:1!important}
+.hifz-download-report .download-report-bar-fill.grade-fail{background:#c94752!important}
+.hifz-download-report .download-report-bar-fill.grade-maqbool{background:#d98a27!important}
+.hifz-download-report .download-report-bar-fill.grade-jayyid{background:#347fb8!important}
+.hifz-download-report .download-report-bar-fill.grade-jayyid-jiddan{background:#319568!important}
+.hifz-download-report .download-report-bar-fill.grade-mumtaz{background:#17633d!important}
 .hifz-download-report .download-report-bar-fill.grade-empty{background:transparent!important}
 /* ================= PNG REPORT: GRADED PROGRESS BAR END ================= */
 
-
+  
 /* ================= THREE SECTION HEADINGS: CONNECTED CARD DESIGN START ================= */
 .hifz-download-report .download-report-section-title{ position:relative!important; z-index:2!important; display:flex!important; align-items:center!important; justify-content:center!important; direction:rtl!important; gap:11px!important; width:100%!important; min-height:64px!important; box-sizing:border-box!important; margin:14px 0 0!important; padding:10px 20px!important; border:1.5px solid!important; border-radius:11px 11px 0 0!important; text-align:center!important; line-height:1.7!important; font-weight:700!important; box-shadow:inset 0 2px 3px rgba(255,255,255,.85),0 3px 6px rgba(0,0,0,.08)!important;}
 /* ================= THREE SECTION HEADINGS: CONNECTED CARD DESIGN END ================= */
@@ -564,10 +564,10 @@ hifzDownloadButton.disabled=true;
 function downloadReportCell(value){return `<td>${hifzEscape(value??'—')}</td>`}
 
 function downloadReportPercent(value){
-  const valid=value!==null&&value!==undefined&&Number.isFinite(Number(value)),percent=valid?Math.max(0,Math.min(100,Number(value))):0,rounded=Math.round(percent),label=valid?percent.toLocaleString('en-US',{maximumFractionDigits:2})+'%':'—';
-  const grade=!valid?'grade-empty':rounded<40?'grade-fail':rounded<=60?'grade-maqbool':rounded<=80?'grade-jayyid':rounded<=90?'grade-jayyid-jiddan':'grade-mumtaz';
-  return `<td class="download-report-percent"><div class="download-report-bar"><div class="download-report-bar-fill ${grade}" style="width:${percent}%"></div><span class="download-report-percent-value">${label}</span></div></td>`;
-                                                                                                                                }
+  const valid=value!==null&&value!==undefined&&Number.isFinite(Number(value)),percent=valid?Math.max(0,Math.min(100,Number(value))):0,label=valid?percent.toLocaleString('en-US',{maximumFractionDigits:2})+'%':'—';
+  const grade=!valid?'grade-empty':percent<40?'grade-fail':percent<=60?'grade-maqbool':percent<=80?'grade-jayyid':percent<=90?'grade-jayyid-jiddan':'grade-mumtaz';
+  return `<td class="download-report-percent"><div class="download-report-bar"><div class="download-report-bar-fill ${grade}" style="width:${percent}%"></div><span class="download-report-percent-value">${label}</span></div></td>`;}
+  
 /* THREE DEPARTMENT HEADING CONTENT */
 function downloadReportHeading(type,title){
   const headings={
